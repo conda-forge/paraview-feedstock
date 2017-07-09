@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# do not build plugins
 rm -r ./Plugins/*
 
 mkdir build && cd build
