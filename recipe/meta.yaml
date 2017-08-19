@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   # only enough time on circleci
-  skip: true  # [not linux or not py36]
+  skip: true  # [not linux]
 
 requirements:
   build:
