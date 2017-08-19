@@ -1,4 +1,4 @@
-{% set version = "5.4.0" %}
+{% set version = "5.4.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -8,12 +8,12 @@ package:
 source:
   fn: ParaView-v{{ version }}.tar.gz
   url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
-  sha256: f488d84a53b1286d2ee1967e386626c8ad05a6fe4e6cbdaa8d5e042f519f94a9
+  sha256: 390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4
 
 build:
   number: 0
   # only enough time on circleci
-  skip: true  # [not linux or not py36]
+  skip: true  # [not linux]
 
 requirements:
   build:
