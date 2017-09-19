@@ -39,6 +39,7 @@ requirements:
     - libnetcdf 4.4.*
     - pugixml
     - mesalib
+    - gcc  # [linux]
   run:
     - python
     - libglu
@@ -62,6 +63,7 @@ requirements:
     - pugixml
     - mesalib
     - numpy
+    - libgcc  # [linux]
 
 test:
   imports:
