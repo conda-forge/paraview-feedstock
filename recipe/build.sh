@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
+
 # do not build plugins
 rm -r ./Plugins/*
 
@@ -38,6 +40,7 @@ cmake \
   -DVTK_USE_SYSTEM_CONSTANTLY=ON \
   -DVTK_USE_SYSTEM_AUTOBAHN=ON \
   -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
+  -DOSMESA_LIBRARY=${PREFIX}/lib/libOSMesa32.so \
   ..
 make -j${CPU_COUNT}
 
