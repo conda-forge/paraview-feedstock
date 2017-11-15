@@ -53,7 +53,7 @@ requirements:
     - twisted
     - autobahn
     - six
-    - protobuf
+    - protobuf 3.0.*
     - lz4-c
     - zope.interface
     - expat
