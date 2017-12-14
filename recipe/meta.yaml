@@ -11,7 +11,7 @@ source:
   sha256: 390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4
 
 build:
-  number: 3
+  number: 4
   # only enough time on circleci
   skip: true  # [not linux]
 
@@ -20,13 +20,13 @@ requirements:
     - cmake
     - python
     - libglu
-    - hdf5 1.8.18|1.8.18.*
-    - libpng >=1.6.28,<1.7
+    - hdf5 1.10.1
+    - libpng >=1.6.32,<1.6.35
     - jpeg 9*
-    - libtiff >=4.0.3,<4.0.8
+    - libtiff >=4.0.8,<4.0.10
     - libxml2 2.9.*
-    - zlib 1.2.*
-    - freetype 2.7.*
+    - zlib 1.2.11
+    - freetype 2.8.1
     - twisted
     - autobahn
     - six
@@ -43,13 +43,13 @@ requirements:
   run:
     - python
     - libglu
-    - hdf5 1.8.18|1.8.18.*
-    - libpng >=1.6.28,<1.7
+    - hdf5 1.10.1
+    - libpng >=1.6.32,<1.6.35
     - jpeg 9*
-    - libtiff >=4.0.3,<4.0.8
+    - libtiff >=4.0.8,<4.0.10
     - libxml2 2.9.*
-    - zlib 1.2.*
-    - freetype 2.7.*
+    - zlib 1.2.11
+    - freetype 2.8.1
     - twisted
     - autobahn
     - six
