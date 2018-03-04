@@ -11,7 +11,7 @@ source:
   sha256: 390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4
 
 build:
-  number: 4
+  number: 5
   # only enough time on circleci
   skip: true  # [not linux]
 
@@ -30,10 +30,10 @@ requirements:
     - twisted
     - autobahn
     - six
-    - protobuf 3.4.*
+    - protobuf 3.5.*
     - lz4-c
     - zope.interface
-    - expat
+    - expat 2.2.*
     - libogg
     - libtheora
     - libnetcdf 4.4.*
@@ -53,10 +53,10 @@ requirements:
     - twisted
     - autobahn
     - six
-    - protobuf 3.4.*
+    - protobuf 3.5.*
     - lz4-c
     - zope.interface
-    - expat
+    - expat 2.2.*
     - libogg
     - libtheora
     - libnetcdf 4.4.*
