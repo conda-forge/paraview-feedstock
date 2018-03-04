@@ -30,10 +30,10 @@ requirements:
     - twisted
     - autobahn
     - six
-    - protobuf 3.4.*
+    - protobuf 3.5.*
     - lz4-c
     - zope.interface
-    - expat
+    - expat 2.2.*
     - libogg
     - libtheora
     - libnetcdf 4.4.*
@@ -53,10 +53,10 @@ requirements:
     - twisted
     - autobahn
     - six
-    - protobuf 3.4.*
+    - protobuf 3.5.*
     - lz4-c
     - zope.interface
-    - expat
+    - expat 2.2.*
     - libogg
     - libtheora
     - libnetcdf 4.4.*
