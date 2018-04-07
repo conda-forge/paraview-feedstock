@@ -37,6 +37,7 @@ requirements:
     - libogg
     - libtheora
     - libnetcdf 4.4.*
+    - eigen
     - pugixml
     - mesalib
     - gcc  # [linux]
