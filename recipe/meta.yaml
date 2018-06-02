@@ -18,6 +18,7 @@ build:
 requirements:
   build:
     - cmake
+    - eigen
     - python
     - libglu
     - hdf5 1.10.1
