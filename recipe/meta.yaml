@@ -40,6 +40,7 @@ requirements:
     - libnetcdf 4.4.*
     - pugixml
     - mesalib
+    - glew
     - gcc  # [linux]
   run:
     - python
@@ -63,6 +64,7 @@ requirements:
     - libnetcdf 4.4.*
     - pugixml
     - mesalib
+    - glew
     - numpy
     - libgcc  # [linux]
 
