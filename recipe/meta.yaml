@@ -1,4 +1,4 @@
-{% set version = "5.4.1" %}
+{% set version = "5.5.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -8,16 +8,17 @@ package:
 source:
   fn: ParaView-v{{ version }}.tar.gz
   url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
-  sha256: 390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4
+  sha256: a6e67a95a7a5711a2b5f95f38ccbff4912262b3e1b1af7d6b9afe8185aa85c0d
 
 build:
-  number: 5
+  number: 0
   # only enough time on circleci
   skip: true  # [not linux]
 
 requirements:
   build:
     - cmake
+    - eigen
     - python
     - libglu
     - hdf5 1.10.1
@@ -39,6 +40,7 @@ requirements:
     - libnetcdf 4.4.*
     - pugixml
     - mesalib
+    - glew
     - gcc  # [linux]
   run:
     - python
@@ -62,6 +64,7 @@ requirements:
     - libnetcdf 4.4.*
     - pugixml
     - mesalib
+    - glew
     - numpy
     - libgcc  # [linux]
 
