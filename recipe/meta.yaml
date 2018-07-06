@@ -11,59 +11,61 @@ source:
   sha256: 390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4
 
 build:
-  number: 5
+  number: 6
   # only enough time on circleci
   skip: true  # [not linux]
 
 requirements:
   build:
     - cmake
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
     - libglu
-    - hdf5 1.10.1
-    - libpng >=1.6.32,<1.6.35
-    - jpeg 9*
-    - libtiff >=4.0.8,<4.0.10
-    - libxml2 2.9.*
-    - zlib 1.2.11
-    - freetype 2.8.1
+    - hdf5
+    - libpng
+    - jpeg
+    - libtiff
+    - libxml2
+    - zlib
+    - freetype
     - twisted
     - autobahn
     - six
     - protobuf 3.5.*
     - lz4-c
     - zope.interface
-    - expat 2.2.*
+    - expat
     - libogg
     - libtheora
-    - libnetcdf 4.4.*
+    - libnetcdf
     - pugixml
     - mesalib
-    - gcc  # [linux]
   run:
     - python
     - libglu
-    - hdf5 1.10.1
-    - libpng >=1.6.32,<1.6.35
-    - jpeg 9*
-    - libtiff >=4.0.8,<4.0.10
-    - libxml2 2.9.*
-    - zlib 1.2.11
-    - freetype 2.8.1
+    - hdf5
+    - libpng
+    - jpeg
+    - libtiff
+    - libxml2
+    - zlib
+    - freetype
     - twisted
     - autobahn
     - six
     - protobuf 3.5.*
     - lz4-c
     - zope.interface
-    - expat 2.2.*
+    - expat
     - libogg
     - libtheora
-    - libnetcdf 4.4.*
+    - libnetcdf
     - pugixml
     - mesalib
     - numpy
-    - libgcc  # [linux]
 
 test:
   imports:
