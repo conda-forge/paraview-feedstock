@@ -23,8 +23,8 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-  host:
     - eigen
+  host:
     - python
     - libglu
     - hdf5
@@ -46,6 +46,7 @@ requirements:
     - libnetcdf
     - pugixml
     - mesalib
+    - glew
   run:
     - python
     - libglu
@@ -68,6 +69,7 @@ requirements:
     - libnetcdf
     - pugixml
     - mesalib
+    - glew
     - numpy
 
 test:
