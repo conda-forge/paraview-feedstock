@@ -84,7 +84,6 @@ test:
     - paraview.lookuptable
     - paraview.numeric
     - paraview.numpy_support
-    - paraview.pvvtkextensions
     - paraview.python_view
     - paraview.cpstate
     - paraview.servermanager

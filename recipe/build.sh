@@ -43,10 +43,3 @@ make -j${CPU_COUNT}
 # log hits limit
 make install > /dev/null
 
-# move paraview from lib/site-packages/ to SP_DIR
-#rm -r ${SP_DIR}/paraview
-#mv ${PREFIX}/lib/site-packages/paraview ${SP_DIR}
-
-# use vtk from SP_DIR as vtk submodule
-#rm -rf ${SP_DIR}/paraview/vtk
-#cp -r ${SP_DIR}/vtk ${SP_DIR}/paraview
