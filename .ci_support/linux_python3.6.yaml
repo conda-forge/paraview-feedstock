@@ -8,6 +8,8 @@ fortran_compiler:
 - toolchain_fort
 freetype:
 - 2.8.1
+glew:
+- 2.0.0
 hdf5:
 - 1.10.2
 jpeg:
@@ -16,6 +18,8 @@ libnetcdf:
 - '4.6'
 libpng:
 - 1.6.34
+libprotobuf:
+- '3.5'
 libtiff:
 - 4.0.9
 libxml2:
@@ -27,6 +31,8 @@ pin_run_as_build:
     max_pin: x.x
   freetype:
     max_pin: x.x
+  glew:
+    max_pin: x.x
   hdf5:
     max_pin: x.x.x
   jpeg:
@@ -35,6 +41,8 @@ pin_run_as_build:
     max_pin: x.x
   libpng:
     max_pin: x.x
+  libprotobuf:
+    max_pin: x.x
   libtiff:
     max_pin: x
   libxml2:
@@ -42,8 +50,8 @@ pin_run_as_build:
   lz4-c:
     max_pin: x.x.x
   python:
-    min_pin: x.x
     max_pin: x.x
+    min_pin: x.x
   zlib:
     max_pin: x.x
 python:
