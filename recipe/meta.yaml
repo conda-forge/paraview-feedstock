@@ -13,7 +13,7 @@ source:
   git_rev: v{{ version }}
 
 build:
-  number: 0
+  number: 1
   # only enough time on circleci
   skip: true  # [not linux]
 
@@ -37,7 +37,7 @@ requirements:
     - twisted
     - autobahn
     - six
-    - protobuf 3.5.*
+    - libprotobuf
     - lz4-c
     - zope.interface
     - expat
@@ -60,7 +60,7 @@ requirements:
     - twisted
     - autobahn
     - six
-    - protobuf 3.5.*
+    - libprotobuf
     - lz4-c
     - zope.interface
     - expat
