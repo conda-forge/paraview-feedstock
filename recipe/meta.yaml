@@ -13,7 +13,7 @@ source:
   git_rev: v{{ version }}
 
 build:
-  number: 1
+  number: 2
   # only enough time on circleci
   skip: true  # [not linux]
 
@@ -35,7 +35,6 @@ requirements:
     - zlib
     - freetype
     - twisted
-    - autobahn
     - six
     - libprotobuf
     - lz4-c
@@ -58,7 +57,6 @@ requirements:
     - zlib
     - freetype
     - twisted
-    - autobahn
     - six
     - libprotobuf
     - lz4-c
