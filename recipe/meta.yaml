@@ -1,4 +1,4 @@
-{% set version = "5.5.2" %}
+{% set version = "5.6.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -13,7 +13,7 @@ source:
   git_rev: v{{ version }}
 
 build:
-  number: 2
+  number: 0
   # only enough time on circleci
   skip: true  # [not linux]
 
@@ -46,6 +46,7 @@ requirements:
     - pugixml
     - mesalib
     - glew
+    - double-conversion
   run:
     - python
     - libglu
@@ -68,6 +69,7 @@ requirements:
     - pugixml
     - mesalib
     - glew
+    - double-conversion
     - numpy
 
 test:
