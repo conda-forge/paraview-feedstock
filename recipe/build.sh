@@ -34,11 +34,9 @@ cmake \
   -DVTK_USE_SYSTEM_XDMF2=OFF \
   -DVTK_USE_SYSTEM_CGNS=OFF \
   -DVTK_USE_SYSTEM_JSONCPP=OFF \
+  -DVTK_USE_SYSTEM_PEGTL=OFF \
   -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
   -DOSMESA_LIBRARY=${PREFIX}/lib/libOSMesa32.so \
+  -DCMAKE_RULE_MESSAGES=OFF \
   ..
-make -j${CPU_COUNT}
-
-# log hits limit
-make install > /dev/null
-
+make install -j${CPU_COUNT}
