@@ -6,11 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  #fn: ParaView-v{{ version }}.tar.gz
-  #url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
-  #sha256: 64561f34c4402b88f3cb20a956842394dde5838efd7ebb301157a837114a0e2d
-  git_url: https://gitlab.kitware.com/paraview/paraview.git
-  git_rev: v{{ version }}
+  fn: ParaView-v{{ version }}.tar.gz
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
+  sha256: cb8c4d752ad9805c74b4a08f8ae6e83402c3f11e38b274dba171b99bb6ac2460
 
 build:
   number: 0
