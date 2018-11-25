@@ -17,7 +17,7 @@ freetype:
 glew:
 - 2.0.0
 hdf5:
-- 1.10.3
+- 1.10.4
 jpeg:
 - '9'
 libnetcdf:
@@ -39,8 +39,6 @@ pin_run_as_build:
     max_pin: x
   glew:
     max_pin: x.x
-  hdf5:
-    max_pin: x.x.x
   jpeg:
     max_pin: x
   libnetcdf:
