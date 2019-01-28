@@ -1,17 +1,17 @@
 c_compiler:
-- toolchain_c
+- gcc
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- toolchain_cxx
+- gxx
 docker_image:
-- condaforge/linux-anvil
+- condaforge/linux-anvil-comp7
 expat:
 - '2.2'
 fortran_compiler:
-- toolchain_fort
+- gfortran
 freetype:
 - 2.9.1
 glew:
@@ -25,7 +25,7 @@ libnetcdf:
 libpng:
 - 1.6.35
 libprotobuf:
-- '3.5'
+- '3.6'
 libtiff:
 - 4.0.9
 libxml2:
