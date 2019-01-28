@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
 
 # do not build plugins

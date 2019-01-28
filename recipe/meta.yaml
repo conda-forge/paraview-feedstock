@@ -11,6 +11,7 @@ source:
   sha256: cb8c4d752ad9805c74b4a08f8ae6e83402c3f11e38b274dba171b99bb6ac2460
   patches:
     - target.patch
+    - vtkProbeOpenGLVersion.patch
 
 build:
   number: 3

@@ -1,0 +1,17 @@
+--- a/VTK/Rendering/OpenGL2/CMakeLists.txt	2019-01-28 15:37:04.092989217 +0100
++++ b/VTK/Rendering/OpenGL2/CMakeLists.txt	2019-01-29 09:08:59.466070632 +0100
+@@ -327,10 +327,10 @@
+   vtk_module_link_libraries(${vtk-module} LINK_PUBLIC "-framework UIKit")
+ endif()
+ 
+-if (NOT ANDROID AND NOT APPLE_IOS AND NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+-  VTK_ADD_EXECUTABLE(vtkProbeOpenGLVersion vtkProbeOpenGLVersion.cxx)
+-  target_link_libraries(vtkProbeOpenGLVersion ${vtk-module})
+-endif()
++#if (NOT ANDROID AND NOT APPLE_IOS AND NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
++#  VTK_ADD_EXECUTABLE(vtkProbeOpenGLVersion vtkProbeOpenGLVersion.cxx)
++#  target_link_libraries(vtkProbeOpenGLVersion ${vtk-module})
++#endif()
+ 
+ if (WIN32 AND ( NOT CMAKE_CROSSCOMPILING OR DEFINED CMAKE_CROSSCOMPILING_EMULATOR) )
+   VTK_ADD_EXECUTABLE(vtkTestOpenGLVersion vtkTestOpenGLVersion.cxx)
