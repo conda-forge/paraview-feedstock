@@ -5,6 +5,9 @@ export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
 # do not build plugins
 rm -r ./Plugins/*
 
+PY_LIB=`find ${PREFIX}/lib -name libpython${PY_VER}*${SHLIB_EXT}`
+PY_INC=`find $PREFIX/include -name python${PY_VER}*`
+
 mkdir build && cd build
 
 cmake \
@@ -20,7 +23,9 @@ cmake \
   -DPARAVIEW_BUILD_QT_GUI:BOOL=OFF \
   -DPARAVIEW_INSTALL_DEVELOPMENT_FILES:BOOL=ON \
   -DPARAVIEW_ENABLE_PYTHON=ON \
-  -DPARAVIEW_ENABLE_WEB:BOOL=ON \
+  -DPYTHON_EXECUTABLE=${PYTHON} \
+  -DPYTHON_LIBRARY=${PY_LIB} \
+  -DPYTHON_INCLUDE_DIR=${PY_INC} \
   -DVTK_USE_X:BOOL=OFF \
   -DVTK_DEFAULT_RENDER_WINDOW_OFFSCREEN=ON \
   -DVTK_USE_SYSTEM_LIBRARIES:BOOL=ON \
@@ -31,7 +36,7 @@ cmake \
   -DVTK_USE_SYSTEM_JSONCPP=OFF \
   -DVTK_USE_SYSTEM_PEGTL=OFF \
   -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
-  -DOSMESA_LIBRARY=${PREFIX}/lib/libOSMesa32.so \
+  -DOSMESA_LIBRARY=${PREFIX}/lib/libOSMesa32${SHLIB_EXT} \
   -DCMAKE_RULE_MESSAGES=OFF \
   ..
 make install -j${CPU_COUNT}
