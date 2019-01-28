@@ -1,0 +1,33 @@
+--- a/CommandLineExecutables/CMakeLists.txt	2019-01-28 13:45:30.365249525 +0100
++++ b/CommandLineExecutables/CMakeLists.txt	2019-01-28 13:47:12.665156416 +0100
+@@ -73,17 +73,19 @@
+       elseif (IS_ABSOLUTE "${vtk_module_library}")
+         set(vtk_module_library_name "${vtk_module_library}")
+       elseif (vtk_module_library)
+-        set(type)
+-        get_property(type TARGET "${vtk_module_library}" PROPERTY TYPE)
+-        if (type STREQUAL "INTERFACE_LIBRARY")
+-          # note, this may set vtk_module_library to empty for interface
+-          # libraries that have no INTERFACE_LINK_LIBRARIES.
+-          get_property(vtk_module_library TARGET "${vtk_module_library}" PROPERTY INTERFACE_LINK_LIBRARIES)
+-        endif ()
+-        set(vtk_module_library_name)
+-        if (vtk_module_library)
+-          get_property(vtk_module_library_name TARGET "${vtk_module_library}" PROPERTY OUTPUT_NAME)
+-        endif ()
++	set(vtk_module_library_name)
++        if (TARGET ${vtk_module_library})
++	  set(type)
++	  get_property(type TARGET "${vtk_module_library}" PROPERTY TYPE)
++          if (type STREQUAL "INTERFACE_LIBRARY")
++            # note, this may set vtk_module_library to empty for interface
++            # libraries that have no INTERFACE_LINK_LIBRARIES.
++            get_property(vtk_module_library TARGET "${vtk_module_library}" PROPERTY INTERFACE_LINK_LIBRARIES)
++          endif ()
++          if (vtk_module_library)
++            get_property(vtk_module_library_name TARGET "${vtk_module_library}" PROPERTY OUTPUT_NAME)
++          endif ()
++	endif ()
+         if (NOT vtk_module_library_name)
+           set(vtk_module_library_name "${vtk_module_library}")
+         endif ()
