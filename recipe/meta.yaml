@@ -25,9 +25,17 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - eigen
-  host:
+    - {{ cdt('libselinux') }}        # [linux]
+    - {{ cdt('libxcb') }}            # [linux]
+    - {{ cdt('libxdamage') }}        # [linux]
+    - {{ cdt('libxfixes') }}         # [linux]
+    - {{ cdt('libxxf86vm') }}        # [linux]
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
+  host:
+    - libglu                         # [linux]
+    - xorg-libx11                    # [linux]
+    - xorg-libxext                   # [linux]
     - python
     - libglu
     - hdf5
