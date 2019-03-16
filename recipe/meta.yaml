@@ -12,7 +12,7 @@ source:
 
 build:
   number: 3
-  skip: true  # [windows]
+  skip: true  # [win]
 
 requirements:
   build:
