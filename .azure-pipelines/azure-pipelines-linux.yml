@@ -12,13 +12,13 @@ jobs:
     matrix:
       linux_python2.7:
         CONFIG: linux_python2.7
-        UPLOAD_PACKAGES: False
+        UPLOAD_PACKAGES: True
       linux_python3.6:
         CONFIG: linux_python3.6
-        UPLOAD_PACKAGES: False
+        UPLOAD_PACKAGES: True
       linux_python3.7:
         CONFIG: linux_python3.7
-        UPLOAD_PACKAGES: False
+        UPLOAD_PACKAGES: True
   steps:
   - script: |
       sudo pip install --upgrade pip

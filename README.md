@@ -18,9 +18,7 @@ Summary: ParaView is an open-source, multi-platform data analysis and visualizat
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/paraview-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/paraview-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/paraview-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/paraview-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/paraview-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/paraview-feedstock/branch/master)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
