@@ -34,6 +34,6 @@ cmake \
   -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
   -DOSMESA_LIBRARY=${PREFIX}/lib/libOSMesa32.so \
   -DCMAKE_RULE_MESSAGES=OFF \
-  -DPYTHON_EXECUTABLE=python \
+  -DPYTHON_EXECUTABLE=${PREFIX}/bin/python \
   ..
 make install -j${CPU_COUNT}
