@@ -18,6 +18,7 @@ Summary: ParaView is an open-source, multi-platform data analysis and visualizat
 Current build status
 ====================
 
+![OSX disabled](https://img.shields.io/badge/OSX-disabled-lightgrey.svg)
 ![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
