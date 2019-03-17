@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
+export PATH="${PATH}:${BUILD_PREFIX}/${HOST}/sysroot/usr/lib"
 
 # do not build plugins
 rm -r ./Plugins/*
