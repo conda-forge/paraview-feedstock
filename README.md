@@ -1,8 +1,6 @@
 About paraview
 ==============
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
-
 Home: http://www.paraview.org
 
 Package license: BSD 3-Clause
@@ -16,9 +14,61 @@ Summary: ParaView is an open-source, multi-platform data analysis and visualizat
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/paraview-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/paraview-feedstock)
-![OSX disabled](https://img.shields.io/badge/OSX-disabled-lightgrey.svg)
-![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
+
+<table>
+    
+  <tr>
+    <td>Azure</td>
+    <td>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>linux_python2.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_python2.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_python3.6</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_python3.6" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_python3.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_python3.7" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+    </td>
+  </tr>
+  <tr>
+    <td>OSX</td>
+    <td>
+      <img src="https://img.shields.io/badge/OSX-disabled-lightgrey.svg" alt="OSX disabled">
+    </td>
+  </tr>
+  <tr>
+    <td>Windows</td>
+    <td>
+      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
+    </td>
+  </tr>
+![ppc64le disabled](https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg)
+</table>
 
 Current release info
 ====================
@@ -51,6 +101,8 @@ conda search paraview --channel conda-forge
 
 About conda-forge
 =================
+
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
