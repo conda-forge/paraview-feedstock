@@ -1,0 +1,12 @@
+diff --git a/Wrapping/Python/CMakeLists.txt b/Wrapping/Python/CMakeLists.txt
+index a42ea75c88..0cba85d566 100644
+--- a/VTK/Wrapping/Python/CMakeLists.txt
++++ b/VTK/Wrapping/Python/CMakeLists.txt
+@@ -237,6 +237,7 @@ endif()
+ 
+ # Add the libPython.dylib file and link explicitly against it.
+ # This is needed because this is a new python executable, which needs it's libraries.
++find_package(PythonInterp)
+ find_package(PythonLibs REQUIRED)
+ list(APPEND VTKPYTHON_LINK_LIBS ${vtkPython_LIBRARIES})
+ 
