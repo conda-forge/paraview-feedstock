@@ -2,6 +2,8 @@
 
 export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
 
+sed -i "/vtkProbeOpenGLVersion/d" VTK/Rendering/OpenGL2/CMakeLists.txt
+
 # do not build plugins
 rm -r ./Plugins/*
 
