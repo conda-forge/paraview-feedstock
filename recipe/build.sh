@@ -3,6 +3,7 @@
 export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
 
 sed -i "/vtkProbeOpenGLVersion/d" VTK/Rendering/OpenGL2/CMakeLists.txt
+echo "target_link_libraries(vtkpython vtkCommonCore vtkPythonInterpreter)" >> VTK/Wrapping/Python/CMakeLists.txt
 
 # do not build plugins
 rm -r ./Plugins/*
