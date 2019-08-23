@@ -10,7 +10,7 @@ source:
   url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
   sha256: 1f3710b77c58a46891808dbe23dc59a1259d9c6b7bb123aaaeaa6ddf2be882ea
   patches:
-    - vth_header_clamp.patch
+    - vtk_header_clamp.patch
 
 build:
   number: 3
