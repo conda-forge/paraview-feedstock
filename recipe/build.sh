@@ -36,4 +36,4 @@ cmake \
   -DPYTHON_INCLUDE_DIR=$(${PYTHON} -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")  \
   -DPYTHON_LIBRARY=$(${PYTHON} -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
   ..
-make install -j1 VERBOSE=1 #${CPU_COUNT}
+make install -j${CPU_COUNT} VERBOSE=1
