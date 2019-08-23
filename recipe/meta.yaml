@@ -1,4 +1,4 @@
-{% set version = "5.6.2" %}
+{% set version = "5.6.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -7,8 +7,8 @@ package:
 
 source:
   fn: ParaView-v{{ version }}.tar.gz
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  sha256: 1f3710b77c58a46891808dbe23dc59a1259d9c6b7bb123aaaeaa6ddf2be882ea
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
+  sha256: cb8c4d752ad9805c74b4a08f8ae6e83402c3f11e38b274dba171b99bb6ac2460
   patches:
     - vtk_header_clamp.patch
 
