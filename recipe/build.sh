@@ -33,5 +33,7 @@ cmake \
   -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
   -DOSMESA_LIBRARY=${PREFIX}/lib/libOSMesa32.so \
   -DCMAKE_RULE_MESSAGES=OFF \
+  -DPYTHON_INCLUDE_DIR=$(${PYTHON} -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")  \
+  -DPYTHON_LIBRARY=$(${PYTHON} -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
   ..
 make install -j${CPU_COUNT}
