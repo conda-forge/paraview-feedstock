@@ -1,4 +1,4 @@
-{% set version = "5.6.0" %}
+{% set version = "5.7.0rc2" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -7,13 +7,12 @@ package:
 
 source:
   fn: ParaView-v{{ version }}.tar.gz
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
-  sha256: cb8c4d752ad9805c74b4a08f8ae6e83402c3f11e38b274dba171b99bb6ac2460
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.7.0-RC2.tar.gz
+  md5: dd6f3c0b1b94640104e0f30251fe2aa9
 
 build:
-  number: 2
-  # only enough time on circleci
-  skip: true  # [not linux]
+  number: 0
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -22,9 +21,37 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - eigen
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    - {{ cdt('libx11-devel') }}          # [linux]
+    - {{ cdt('libxext-devel') }}         # [linux]
+    - {{ cdt('libxrender-devel') }}      # [linux]
+    - {{ cdt('mesa-libgl-devel') }}      # [linux]
+    - {{ cdt('mesa-libegl-devel') }}     # [linux]
+    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ cdt('libxau-devel') }}          # [linux]
+    - {{ cdt('alsa-lib-devel') }}        # [linux]
+    - {{ cdt('gtk2-devel') }}            # [linux]
+    - {{ cdt('gtkmm24-devel') }}         # [linux]
+    - {{ cdt('libdrm-devel') }}          # [linux]
+    - {{ cdt('libxcomposite-devel') }}   # [linux]
+    - {{ cdt('libxcursor-devel') }}      # [linux]
+    - {{ cdt('libxi-devel') }}           # [linux]
+    - {{ cdt('libxrandr-devel') }}       # [linux]
+    - {{ cdt('pciutils-devel') }}        # [linux]
+    - {{ cdt('libxscrnsaver-devel') }}   # [linux]
+    - {{ cdt('libxtst-devel') }}         # [linux]
+    - {{ cdt('libselinux-devel') }}      # [linux]
+    - {{ cdt('libxdamage') }}            # [linux]
+    - {{ cdt('libxdamage-devel') }}      # [linux]
+    - {{ cdt('libxfixes') }}             # [linux]
+    - {{ cdt('libxfixes-devel') }}       # [linux]
+    - {{ cdt('libxxf86vm') }}            # [linux]
+    - {{ cdt('libxrandr') }}             # [linux]
+    - {{ cdt('alsa-lib') }}              # [linux]
+    - {{ cdt('xorg-x11-server-xvfb') }}  # [linux]
+    - {{ cdt('pciutils-devel') }}        # [linux]
   host:
     - python
-    - libglu
     - hdf5
     - libpng
     - jpeg
@@ -32,22 +59,18 @@ requirements:
     - libxml2
     - zlib
     - freetype
-    - twisted
-    - six
     - libprotobuf
     - lz4-c
-    - zope.interface
     - expat
-    - libogg
-    - libtheora
     - libnetcdf
-    - pugixml
-    - mesalib
+    - mesalib  # [unix]
     - glew
     - double-conversion
+    - jsoncpp
+    - xz
+    - cgns
   run:
     - python
-    - libglu
     - hdf5
     - libpng
     - jpeg
@@ -55,26 +78,23 @@ requirements:
     - libxml2
     - zlib
     - freetype
-    - twisted
-    - six
     - libprotobuf
     - lz4-c
-    - zope.interface
     - expat
-    - libogg
-    - libtheora
     - libnetcdf
-    - pugixml
-    - mesalib
+    - mesalib  # [unix]
     - glew
     - double-conversion
+    - jsoncpp
+    - xz
+    - cgns
     - numpy
+    - matplotlib
+    - twisted
 
 test:
   imports:
     - paraview
-    - paraview.annotation
-    - paraview.calculator
     - paraview.collaboration
     - paraview.coprocessing
     - paraview.cpexport
