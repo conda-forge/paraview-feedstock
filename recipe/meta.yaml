@@ -9,6 +9,9 @@ source:
   fn: ParaView-v{{ version }}.tar.gz
   url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.7.0-RC2.tar.gz
   md5: dd6f3c0b1b94640104e0f30251fe2aa9
+  patches:
+    # allow overriding the Python destination
+    - PR3544.patch
 
 build:
   number: 0
