@@ -4,7 +4,6 @@ OSMESA=OFF
 if test `uname` = "Linux"
 then
   OSMESA=ON
-  export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
 fi
 
 mkdir build && cd build
