@@ -6,7 +6,11 @@ mkdir build && cd build
 cmake -LAH -G"NMake Makefiles" ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
-    -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+    -DCMAKE_INSTALL_LIBDIR="Library/lib" ^
+    -DCMAKE_INSTALL_BINDIR="Library/bin" ^
+    -DCMAKE_INSTALL_INCLUDEDIR="Library/include" ^
+    -DCMAKE_INSTALL_DATAROOTDIR="Library/share" ^
+    -DCMAKE_INSTALL_PREFIX="%PREFIX%" ^
     -DPARAVIEW_BUILD_QT_GUI=OFF ^
     -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON ^
     -DPARAVIEW_ENABLE_PYTHON=ON ^
@@ -14,6 +18,7 @@ cmake -LAH -G"NMake Makefiles" ^
     -DPython3_FIND_STRATEGY=LOCATION ^
     -DPython3_ROOT_DIR="%LIBRARY_PREFIX%" ^
     -DPython3_EXECUTABLE="%PYTHON%" ^
+    -DPARAVIEW_PYTHON_SITE_PACKAGES_SUFFIX="Lib/site-packages" ^
     -DPARAVIEW_USE_EXTERNAL=ON ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_gl2ps=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_libharu=OFF ^
@@ -30,7 +35,3 @@ if errorlevel 1 exit 1
 
 cmake --build . --target install --config Release
 if errorlevel 1 exit 1
-
-move %LIBRARY_PREFIX%\bin\Lib\site-packages\paraview %SP_DIR%
-move %LIBRARY_PREFIX%\bin\Lib\site-packages\vtkmodules %SP_DIR%
-move %LIBRARY_PREFIX%\bin\Lib\site-packages\vtk.py %SP_DIR%
