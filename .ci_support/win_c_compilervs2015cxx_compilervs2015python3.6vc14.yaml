@@ -8,10 +8,6 @@ cxx_compiler:
 - vs2015
 expat:
 - '2.2'
-fortran_compiler:
-- flang
-fortran_compiler_version:
-- '5'
 freetype:
 - 2.9.1
 glew:

@@ -11,13 +11,12 @@ source:
   md5: dd6f3c0b1b94640104e0f30251fe2aa9
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
 
 requirements:
   build:
     - cmake
-    - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - eigen
