@@ -1,11 +1,5 @@
 #!/bin/sh
 
-OSMESA=OFF
-if test `uname` = "Linux"
-then
-  OSMESA=ON
-fi
-
 mkdir build && cd build
 cmake -LAH \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
@@ -28,9 +22,6 @@ cmake -LAH \
   -DVTK_MODULE_USE_EXTERNAL_VTK_utf8=OFF \
   -DPARAVIEW_ENABLE_WEB=ON \
   -DVTK_USE_X=OFF \
-  -DVTK_DEFAULT_RENDER_WINDOW_OFFSCREEN=ON \
-  -DVTK_OPENGL_HAS_OSMESA=${OSMESA} \
-  -DOSMESA_LIBRARY=${PREFIX}/lib/libOSMesa32${SHLIB_EXT} \
   -DCMAKE_RULE_MESSAGES=OFF \
   ..
 make install -j${CPU_COUNT}
