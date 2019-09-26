@@ -14,7 +14,7 @@ source:
     - PR3544.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win and vc<14]
 
 requirements:
@@ -51,6 +51,10 @@ requirements:
     - {{ cdt('libxrandr') }}             # [linux]
     - {{ cdt('alsa-lib') }}              # [linux]
     - {{ cdt('xorg-x11-server-xvfb') }}  # [linux]
+    - {{ cdt('libxt-devel') }}           # [linux]
+    - {{ cdt('libsm-devel') }}           # [linux]
+    - {{ cdt('libice-devel') }}          # [linux]
+    - {{ cdt('libuuid-devel') }}         # [linux]
   host:
     - python
     - hdf5
