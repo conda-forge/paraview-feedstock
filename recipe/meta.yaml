@@ -1,4 +1,4 @@
-{% set version = "5.7.0rc2" %}
+{% set version = "5.7.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -7,14 +7,11 @@ package:
 
 source:
   fn: ParaView-v{{ version }}.tar.gz
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.7.0-RC2.tar.gz
-  md5: dd6f3c0b1b94640104e0f30251fe2aa9
-  patches:
-    # allow overriding the Python destination
-    - PR3544.patch
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.7.0.tar.gz
+  md5: ab58b1adf137f72d642a9effc4855292
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win and vc<14]
 
 requirements:
