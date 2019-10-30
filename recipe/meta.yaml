@@ -11,8 +11,10 @@ source:
   md5: ab58b1adf137f72d642a9effc4855292
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
+  run_exports:
+    - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
 requirements:
   build:
@@ -72,21 +74,9 @@ requirements:
     - cgns
   run:
     - python
-    - hdf5
-    - libpng
-    - jpeg
-    - libtiff
-    - libxml2
-    - zlib
-    - freetype
-    - libprotobuf
-    - lz4-c
-    - expat
-    - libnetcdf
     - glew
     - double-conversion
     - jsoncpp
-    - xz
     - cgns
     - numpy
     - matplotlib
