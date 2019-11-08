@@ -1,4 +1,4 @@
-{% set version = "5.7.0" %}
+{% set version = "5.7.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -14,7 +14,7 @@ source:
     - MR5883.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
