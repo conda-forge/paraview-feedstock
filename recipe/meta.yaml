@@ -12,10 +12,13 @@ source:
   patches:
     # py38 support: https://gitlab.kitware.com/vtk/vtk/merge_requests/5883
     - MR5883.patch
+    # missing opengl link: https://gitlab.kitware.com/vtk/vtk/merge_requests/5734
+    - MR5734.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
+  skip: true  # [py2k]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
@@ -75,12 +78,9 @@ requirements:
     - jsoncpp
     - xz
     - cgns
+    - qt
   run:
     - python
-    - glew
-    - double-conversion
-    - jsoncpp
-    - cgns
     - numpy
     - matplotlib
     - twisted
