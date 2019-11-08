@@ -1,0 +1,24 @@
+From 9355cb3ea799518c0708c90fcb8ac4008c203cf6 Mon Sep 17 00:00:00 2001
+From: Julien Schueller <schueller@phimeca.com>
+Date: Thu, 11 Jul 2019 10:32:34 +0200
+Subject: [PATCH] Fix missing GUISupportQt OpenGL link
+
+---
+ GUISupport/Qt/vtk.module | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/GUISupport/Qt/vtk.module b/GUISupport/Qt/vtk.module
+index 186e74307d..a686934e60 100644
+--- a/VTK/GUISupport/Qt/vtk.module
++++ b/VTK/GUISupport/Qt/vtk.module
+@@ -13,6 +13,7 @@ PRIVATE_DEPENDS
+   VTK::CommonDataModel
+   VTK::FiltersExtraction
+   VTK::InteractionStyle
++  VTK::opengl
+ TEST_DEPENDS
+   VTK::FiltersSources
+   VTK::TestingCore
+-- 
+2.22.0
+
