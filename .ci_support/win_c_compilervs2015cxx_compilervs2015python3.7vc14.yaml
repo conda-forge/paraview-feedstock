@@ -56,6 +56,8 @@ pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
+  qt:
+    max_pin: x.x
   vc:
     max_pin: x
   xz:
@@ -64,6 +66,8 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - '3.7'
+qt:
+- '5.12'
 vc:
 - '14'
 xz:
