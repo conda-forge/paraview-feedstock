@@ -103,7 +103,6 @@ test:
 
   commands:
     - pvpython --version
-    - paraview --version
 
 about:
    home: http://www.paraview.org
