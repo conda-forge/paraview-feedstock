@@ -15,9 +15,8 @@ source:
     - MR5734.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win and vc<14]
-  skip: true  # [py2k]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
