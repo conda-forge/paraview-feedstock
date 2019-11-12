@@ -6,9 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  fn: ParaView-v{{ version }}.tar.gz
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.7.0.tar.gz
-  md5: ab58b1adf137f72d642a9effc4855292
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
+  md5: 8b9758f0966fff48e1d5cae9306a78e9
   patches:
     # py38 support: https://gitlab.kitware.com/vtk/vtk/merge_requests/5883
     - MR5883.patch
@@ -16,7 +15,7 @@ source:
     - MR5734.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
@@ -102,7 +101,7 @@ test:
     - paraview.util
 
   commands:
-    - pvpython --version
+    - pvpython --version 2>&1 | grep paraview
 
 about:
    home: http://www.paraview.org
