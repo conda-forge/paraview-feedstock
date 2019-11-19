@@ -31,7 +31,7 @@ libpng:
 libprotobuf:
 - '3.10'
 libtiff:
-- 4.0.10
+- 4.1.0
 libxml2:
 - '2.9'
 lz4_c:
@@ -54,8 +54,6 @@ pin_run_as_build:
   libnetcdf:
     max_pin: x.x.x
   libpng:
-    max_pin: x.x
-  libprotobuf:
     max_pin: x.x
   libtiff:
     max_pin: x
