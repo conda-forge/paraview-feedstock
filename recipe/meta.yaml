@@ -15,7 +15,7 @@ source:
     - MR5734.patch
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
