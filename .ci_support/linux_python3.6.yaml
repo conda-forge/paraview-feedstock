@@ -29,7 +29,7 @@ libnetcdf:
 libpng:
 - '1.6'
 libprotobuf:
-- '3.10'
+- '3.11'
 libtiff:
 - 4.1.0
 libxml2:
