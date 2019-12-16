@@ -25,7 +25,7 @@ jpeg:
 jsoncpp:
 - 1.8.4
 libnetcdf:
-- 4.7.1
+- 4.7.3
 libpng:
 - '1.6'
 libprotobuf:
