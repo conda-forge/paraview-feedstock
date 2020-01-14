@@ -19,7 +19,7 @@ jpeg:
 jsoncpp:
 - 1.8.4
 libnetcdf:
-- 4.7.1
+- 4.7.3
 libpng:
 - '1.6'
 libprotobuf:
@@ -40,8 +40,6 @@ pin_run_as_build:
   jpeg:
     max_pin: x
   jsoncpp:
-    max_pin: x.x.x
-  libnetcdf:
     max_pin: x.x.x
   libpng:
     max_pin: x.x
