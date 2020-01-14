@@ -78,6 +78,7 @@ requirements:
     - xz
     - cgns
     - qt
+    - boost-cpp
   run:
     - python
     - numpy
@@ -102,6 +103,7 @@ test:
 
   commands:
     - pvpython --version 2>&1 | grep paraview
+    - python -c "from paraview.simple import VisItNek5000Reader"
 
 about:
    home: http://www.paraview.org
