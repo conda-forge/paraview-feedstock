@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
+  url: http://paraview.org/files/v{{ maj_min }}/{{ version }}/ParaView-v{{ version }}.tar.gz
   md5: 8b9758f0966fff48e1d5cae9306a78e9
   patches:
     # py38 support: https://gitlab.kitware.com/vtk/vtk/merge_requests/5883
