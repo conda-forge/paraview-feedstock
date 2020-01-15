@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.gz
+  url: http://paraview.org/files/v{{ maj_min }}/{{ version }}/ParaView-v{{ version }}.tar.gz
   md5: 8b9758f0966fff48e1d5cae9306a78e9
   patches:
     # py38 support: https://gitlab.kitware.com/vtk/vtk/merge_requests/5883
@@ -15,7 +15,7 @@ source:
     - MR5734.patch
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
@@ -78,6 +78,7 @@ requirements:
     - xz
     - cgns
     - qt
+    - boost-cpp
   run:
     - python
     - numpy
@@ -102,6 +103,7 @@ test:
 
   commands:
     - pvpython --version 2>&1 | grep paraview
+    - python -c "from paraview.simple import VisItNek5000Reader"
 
 about:
    home: http://www.paraview.org
