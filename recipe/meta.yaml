@@ -1,4 +1,4 @@
-{% set version = "5.7.1" %}
+{% set version = "5.8.0rc1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -6,16 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: http://paraview.org/files/v{{ maj_min }}/{{ version }}/ParaView-v{{ version }}.tar.gz
-  md5: 8b9758f0966fff48e1d5cae9306a78e9
-  patches:
-    # py38 support: https://gitlab.kitware.com/vtk/vtk/merge_requests/5883
-    - MR5883.patch
-    # missing opengl link: https://gitlab.kitware.com/vtk/vtk/merge_requests/5734
-    - MR5734.patch
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.8.0-RC1.tar.gz
+  md5: 2c8b1d00810dd3272c0ddafaf45a9eab
 
 build:
-  number: 7
+  number: 0
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
@@ -79,6 +74,8 @@ requirements:
     - cgns
     - qt
     - boost-cpp
+    - pugixml
+    - libtheora
   run:
     - python
     - numpy
