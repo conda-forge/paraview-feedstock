@@ -2,6 +2,9 @@
 :: remove -GL from CXXFLAGS
 set "CXXFLAGS=-MD"
 
+:: from Azure
+set "Boost_ROOT="
+
 mkdir build && cd build
 cmake -LAH -G"NMake Makefiles" ^
     -DCMAKE_BUILD_TYPE=Release ^
