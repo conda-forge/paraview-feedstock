@@ -8,6 +8,8 @@ package:
 source:
   url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.8.0-RC1.tar.gz
   md5: 2c8b1d00810dd3272c0ddafaf45a9eab
+  patches:
+    - MR3862.patch
 
 build:
   number: 1
@@ -99,7 +101,7 @@ test:
     - paraview.util
 
   commands:
-    - pvpython --version 2>&1 | grep paraview
+    - pvpython --version
     - python -c "from paraview.simple import VisItNek5000Reader"
 
 about:

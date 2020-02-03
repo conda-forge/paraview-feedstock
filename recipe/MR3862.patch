@@ -1,0 +1,40 @@
+From 0bea5ed78bb7e12daf8d5105d094576310af0cd4 Mon Sep 17 00:00:00 2001
+From: Julien Schueller <schueller@phimeca.com>
+Date: Fri, 24 Jan 2020 13:41:32 +0100
+Subject: [PATCH] PVPython: --version|--help|--print-mon to return 0
+
+Usually CLI return 0 for these, see gcc, cmake...
+---
+ Clients/CommandLineExecutables/pvpython.h        | 2 +-
+ Clients/CommandLineExecutables/pvserver_common.h | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Clients/CommandLineExecutables/pvpython.h b/Clients/CommandLineExecutables/pvpython.h
+index c2297edbf6..974f27986f 100644
+--- a/Clients/CommandLineExecutables/pvpython.h
++++ b/Clients/CommandLineExecutables/pvpython.h
+@@ -69,7 +69,7 @@ int Run(int processType, int argc, char* argv[])
+   if (options->GetTellVersion() || options->GetHelpSelected() || options->GetPrintMonitors())
+   {
+     vtkInitializationHelper::Finalize();
+-    return 1;
++    return 0;
+   }
+ 
+   if (processType == vtkProcessModule::PROCESS_BATCH && options->GetPythonScriptName() == 0)
+diff --git a/Clients/CommandLineExecutables/pvserver_common.h b/Clients/CommandLineExecutables/pvserver_common.h
+index 43ca3a91f1..c62a50a34f 100644
+--- a/Clients/CommandLineExecutables/pvserver_common.h
++++ b/Clients/CommandLineExecutables/pvserver_common.h
+@@ -44,7 +44,7 @@ static bool RealMain(int argc, char* argv[], vtkProcessModule::ProcessTypes type
+   if (options->GetTellVersion() || options->GetHelpSelected() || options->GetPrintMonitors())
+   {
+     vtkInitializationHelper::Finalize();
+-    return 1;
++    return 0;
+   }
+ 
+ #ifdef PARAVIEW_USE_PYTHON
+-- 
+2.24.1
+

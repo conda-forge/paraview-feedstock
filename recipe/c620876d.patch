@@ -1,0 +1,51 @@
+From c620876d9144c35ef52f8bedbfa574db58631737 Mon Sep 17 00:00:00 2001
+From: Utkarsh Ayachit <utkarsh.ayachit@kitware.com>
+Date: Tue, 28 Jan 2020 18:01:41 -0500
+Subject: [PATCH] fix return codes
+
+0bea5ed78 incorrect changed return code for `pvserver_common`. Also
+fixed `pvpython.h` to use `EXIT_SUCCESS`, `EXIT_FAILURE` for better
+readability.
+---
+ Clients/CommandLineExecutables/pvpython.h        | 4 ++--
+ Clients/CommandLineExecutables/pvserver_common.h | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Clients/CommandLineExecutables/pvpython.h b/Clients/CommandLineExecutables/pvpython.h
+index 974f27986f..8ce1ef5ed1 100644
+--- a/Clients/CommandLineExecutables/pvpython.h
++++ b/Clients/CommandLineExecutables/pvpython.h
+@@ -69,7 +69,7 @@ int Run(int processType, int argc, char* argv[])
+   if (options->GetTellVersion() || options->GetHelpSelected() || options->GetPrintMonitors())
+   {
+     vtkInitializationHelper::Finalize();
+-    return 0;
++    return EXIT_SUCCESS;
+   }
+ 
+   if (processType == vtkProcessModule::PROCESS_BATCH && options->GetPythonScriptName() == 0)
+@@ -77,7 +77,7 @@ int Run(int processType, int argc, char* argv[])
+     vtkGenericWarningMacro("No script specified. "
+                            "Please specify a batch script or use 'pvpython'.");
+     vtkInitializationHelper::Finalize();
+-    return 1;
++    return EXIT_FAILURE;
+   }
+ 
+   vtkProcessModule* pm = vtkProcessModule::GetProcessModule();
+diff --git a/Clients/CommandLineExecutables/pvserver_common.h b/Clients/CommandLineExecutables/pvserver_common.h
+index c62a50a34f..d367970571 100644
+--- a/Clients/CommandLineExecutables/pvserver_common.h
++++ b/Clients/CommandLineExecutables/pvserver_common.h
+@@ -44,7 +44,7 @@ static bool RealMain(int argc, char* argv[], vtkProcessModule::ProcessTypes type
+   if (options->GetTellVersion() || options->GetHelpSelected() || options->GetPrintMonitors())
+   {
+     vtkInitializationHelper::Finalize();
+-    return 0;
++    return true;
+   }
+ 
+ #ifdef PARAVIEW_USE_PYTHON
+-- 
+2.24.1
+
