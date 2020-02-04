@@ -1,5 +1,19 @@
 #!/bin/sh
 
+
+if test `uname` = "Darwin"
+then
+  ls -l ${PREFIX}/lib/libpython*.a
+  if test -f ${PREFIX}/lib/libpython${PY_VER}.a
+  then
+    echo "target_link_libraries (pvpython PRIVATE ${PREFIX}/lib/libpython${PY_VER}.a)" >> Clients/CommandLineExecutables/CMakeLists.txt
+  elif test -f ${PREFIX}/lib/libpython${PY_VER}m.a
+  then
+    echo "target_link_libraries (pvpython PRIVATE ${PREFIX}/lib/libpython${PY_VER}m.a)" >> Clients/CommandLineExecutables/CMakeLists.txt
+  fi
+  tail Clients/CommandLineExecutables/CMakeLists.txt
+fi
+
 mkdir build && cd build
 cmake -LAH \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
@@ -26,5 +40,4 @@ cmake -LAH \
   ..
 make install -j${CPU_COUNT}
 
-
-
+pvpython --version || echo "nope"
