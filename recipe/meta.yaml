@@ -100,7 +100,8 @@ test:
 
   commands:
     - python -c "from paraview.simple import VisItNek5000Reader"
-    #- pvpython --version
+    # https://gitlab.kitware.com/paraview/paraview/issues/19645
+    - pvpython --version  # [not osx]
 
 about:
    home: http://www.paraview.org
