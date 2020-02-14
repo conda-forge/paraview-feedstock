@@ -10,7 +10,7 @@ source:
   md5: 057fbf31cc904fb7c24a666f832f44b0
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
@@ -79,7 +79,7 @@ requirements:
   run:
     - python
     - numpy
-    - matplotlib
+    - matplotlib-base
     - twisted
 
 test:
