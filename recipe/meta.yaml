@@ -10,7 +10,7 @@ source:
   md5: 35f2979bef7efbd90b495648625c9c87
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
