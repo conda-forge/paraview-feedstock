@@ -1,4 +1,4 @@
-{% set version = "5.8.0rc3" %}
+{% set version = "5.8.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.8.0-RC3.tar.gz
-  md5: 35f2979bef7efbd90b495648625c9c87
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.8.0.tar.gz
+  md5: 8151ed24eeeae5bc8ba038bb544eb409
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
