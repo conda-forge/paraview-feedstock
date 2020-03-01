@@ -1,13 +1,19 @@
 boost_cpp:
 - '1.72'
 c_compiler:
-- vs2015
+- gcc
+c_compiler_version:
+- '7'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2015
+- gxx
+cxx_compiler_version:
+- '7'
+docker_image:
+- condaforge/linux-anvil-comp7
 expat:
 - '2.2'
 freetype:
@@ -33,7 +39,7 @@ libxml2:
 lz4_c:
 - 1.8.3
 mpi:
-- nompi
+- mpich
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -60,8 +66,6 @@ pin_run_as_build:
     max_pin: x.x
   qt:
     max_pin: x.x
-  vc:
-    max_pin: x
   xz:
     max_pin: x.x
   zlib:
@@ -70,14 +74,7 @@ python:
 - '3.6'
 qt:
 - '5.12'
-vc:
-- '14'
 xz:
 - '5.2'
-zip_keys:
-- - python
-  - vc
-  - c_compiler
-  - cxx_compiler
 zlib:
 - '1.2'

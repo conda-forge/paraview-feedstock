@@ -10,16 +10,40 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      linux_python3.6:
-        CONFIG: linux_python3.6
+      linux_mpimpichpython3.6:
+        CONFIG: linux_mpimpichpython3.6
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_python3.7:
-        CONFIG: linux_python3.7
+      linux_mpimpichpython3.7:
+        CONFIG: linux_mpimpichpython3.7
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_python3.8:
-        CONFIG: linux_python3.8
+      linux_mpimpichpython3.8:
+        CONFIG: linux_mpimpichpython3.8
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_mpinompipython3.6:
+        CONFIG: linux_mpinompipython3.6
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_mpinompipython3.7:
+        CONFIG: linux_mpinompipython3.7
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_mpinompipython3.8:
+        CONFIG: linux_mpinompipython3.8
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_mpiopenmpipython3.6:
+        CONFIG: linux_mpiopenmpipython3.6
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_mpiopenmpipython3.7:
+        CONFIG: linux_mpiopenmpipython3.7
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_mpiopenmpipython3.8:
+        CONFIG: linux_mpiopenmpipython3.8
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
   steps:

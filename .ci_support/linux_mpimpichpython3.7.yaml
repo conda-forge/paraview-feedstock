@@ -38,6 +38,8 @@ libxml2:
 - '2.9'
 lz4_c:
 - 1.8.3
+mpi:
+- mpich
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -69,7 +71,7 @@ pin_run_as_build:
   zlib:
     max_pin: x.x
 python:
-- '3.8'
+- '3.7'
 qt:
 - '5.12'
 xz:
