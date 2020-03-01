@@ -1,5 +1,10 @@
 #!/bin/sh
 
+mpi_arg=OFF
+if [[ "$mpi" != "nompi" ]]; then
+  mpi_arg=ON
+fi
+
 mkdir build && cd build
 cmake -LAH \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
@@ -22,6 +27,7 @@ cmake -LAH \
   -DPARAVIEW_ENABLE_VISITBRIDGE=ON \
   -DVTK_MODULE_ENABLE_ParaView_VTKExtensionsCGNSWriter=NO \
   -DCMAKE_RULE_MESSAGES=OFF \
+  -DPARAVIEW_USE_MPI=$mpi_arg \
   ..
 make install -j${CPU_COUNT}
 

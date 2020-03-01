@@ -1,5 +1,6 @@
 {% set version = "5.8.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
+{% set build = 3 %}
 
 package:
   name: paraview
@@ -10,11 +11,17 @@ source:
   md5: 8151ed24eeeae5bc8ba038bb544eb409
 
 build:
-  number: 3
+  number: {{ build }}
+  {% if mpi != 'nompi' %}
+  {% set mpi_prefix = "mpi_" + mpi %}
+  {% else %}
+  {% set mpi_prefix = "nompi" %}
+  {% endif %}
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
+  string: "{{ mpi_prefix }}_py{{ py }}h{{ PKG_HASH }}_{{ build }}"
 
 requirements:
   build:
@@ -54,9 +61,15 @@ requirements:
     - {{ cdt('libsm-devel') }}           # [linux]
     - {{ cdt('libice-devel') }}          # [linux]
     - {{ cdt('libuuid-devel') }}         # [linux]
+    - make                               # [linux]
   host:
     - python
+    # need to list hdf5 twice to get version pinning from conda_build_config
+    # and build pinning from {{ mpi_prefix }}
     - hdf5
+    - hdf5 * {{ mpi_prefix }}_*  # [mpi != 'nompi']
+    - {{ mpi }}  # [mpi != 'nompi']
+    - mpi4py  # [mpi != 'nompi']
     - libpng
     - jpeg
     - libtiff
@@ -81,6 +94,10 @@ requirements:
     - numpy
     - matplotlib-base
     - twisted
+    # hdf5 >=1.10.4 has run_exports
+    - hdf5
+    - {{ mpi }}  # [mpi != 'nompi']
+    - mpi4py  # [mpi != 'nompi']
 
 test:
   imports:
