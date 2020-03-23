@@ -105,7 +105,8 @@ test:
 
 about:
    home: http://www.paraview.org
-   license: BSD 3-Clause
+   license: BSD-3-Clause
+   license_family: BSD
    license_file: Copyright.txt
    summary: ParaView is an open-source, multi-platform data analysis and visualization application based on Visualization Toolkit (VTK).
 
