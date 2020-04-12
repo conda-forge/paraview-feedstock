@@ -8,9 +8,11 @@ package:
 source:
   url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.8.0.tar.gz
   md5: 8151ed24eeeae5bc8ba038bb544eb409
+  patches:
+    - cgns41.patch
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
