@@ -19,7 +19,7 @@ expat:
 freetype:
 - 2.9.1
 glew:
-- 2.1.0
+- '2.1'
 hdf5:
 - 1.10.5
 jpeg:

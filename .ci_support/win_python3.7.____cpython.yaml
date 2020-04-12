@@ -1,19 +1,19 @@
 boost_cpp:
 - '1.72'
 c_compiler:
-- vs2015
+- vs2017
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2015
+- vs2017
 expat:
 - '2.2'
 freetype:
 - 2.9.1
 glew:
-- 2.1.0
+- '2.1'
 hdf5:
 - 1.10.5
 jpeg:
@@ -58,8 +58,6 @@ pin_run_as_build:
     max_pin: x.x
   qt:
     max_pin: x.x
-  vc:
-    max_pin: x
   xz:
     max_pin: x.x
   zlib:
