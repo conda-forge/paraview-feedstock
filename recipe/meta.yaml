@@ -12,7 +12,7 @@ source:
     - cgns41.patch
 
 build:
-  number: 6
+  number: 7
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
