@@ -31,7 +31,6 @@ cmake -LAH -G"NMake Makefiles" ^
     -DPARAVIEW_ENABLE_VISITBRIDGE=ON ^
     -DPARAVIEW_USE_VTKM=OFF ^
     -DPARAVIEW_ENABLE_XDMF2=OFF ^
-    -DVTK_MODULE_ENABLE_ParaView_VTKExtensionsCGNSWriter=NO ^
     -DCMAKE_RULE_MESSAGES=OFF ^
     ..
 if errorlevel 1 exit 1
