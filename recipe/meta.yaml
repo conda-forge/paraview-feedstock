@@ -12,7 +12,7 @@ source:
     - cgns41.patch
 
 build:
-  number: 7
+  number: 8
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
@@ -102,6 +102,7 @@ test:
 
   commands:
     - python -c "from paraview.simple import VisItNek5000Reader"
+    - python -c "from paraview.simple import Xdmf3ReaderS"
     # https://gitlab.kitware.com/paraview/paraview/issues/19645
     - pvpython --version  # [not osx]
 
