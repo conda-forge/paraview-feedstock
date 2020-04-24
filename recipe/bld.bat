@@ -21,7 +21,6 @@ cmake -LAH -G"NMake Makefiles" ^
     -DPython3_ROOT_DIR="%PREFIX%" ^
     -DPARAVIEW_PYTHON_SITE_PACKAGES_SUFFIX="Lib/site-packages" ^
     -DPARAVIEW_BUILD_WITH_EXTERNAL=ON ^
-    -DVTK_MODULE_USE_EXTERNAL_VTK_gl2ps=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_libharu=OFF ^
     -DLZMA_LIBRARY="%LIBRARY_PREFIX%/lib/liblzma.lib" ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_netcdf=OFF ^
@@ -29,7 +28,6 @@ cmake -LAH -G"NMake Makefiles" ^
     -DPARAVIEW_ENABLE_WEB=ON ^
     -DPARAVIEW_ENABLE_VISITBRIDGE=ON ^
     -DPARAVIEW_ENABLE_XDMF3=ON ^
-    -DPARAVIEW_USE_VTKM=OFF ^
     ..
 if errorlevel 1 exit 1
 
