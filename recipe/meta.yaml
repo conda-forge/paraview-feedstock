@@ -12,7 +12,7 @@ source:
     - cgns41.patch
 
 build:
-  number: 8
+  number: 9
   skip: true  # [win and vc<14]
   skip: true  # [py2k]
   run_exports:
@@ -78,6 +78,7 @@ requirements:
     - boost-cpp
     - pugixml
     - libtheora
+    - gl2ps
   run:
     - python
     - numpy
