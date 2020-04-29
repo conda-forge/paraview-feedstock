@@ -104,6 +104,7 @@ test:
   commands:
     - python -c "from paraview.simple import VisItNek5000Reader"
     - python -c "from paraview.simple import Xdmf3ReaderS"
+
     # https://gitlab.kitware.com/paraview/paraview/issues/19645
     - pvpython --version  # [not osx]
 
