@@ -66,8 +66,6 @@ python:
 - 3.8.* *_cpython
 qt:
 - '5.12'
-vc:
-- '14'
 xz:
 - '5.2'
 zlib:
