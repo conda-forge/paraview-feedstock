@@ -12,9 +12,7 @@ source:
     - cgns41.patch
 
 build:
-  number: 9
-  skip: true  # [win and vc<14]
-  skip: true  # [py2k]
+  number: 10
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
