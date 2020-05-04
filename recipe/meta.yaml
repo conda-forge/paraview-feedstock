@@ -12,13 +12,14 @@ source:
     - cgns41.patch
 
 build:
-  number: 10
+  number: 11
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
 requirements:
   build:
     - cmake
+    - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - eigen
