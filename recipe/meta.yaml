@@ -72,7 +72,7 @@ requirements:
     - double-conversion
     - jsoncpp
     - xz
-    - cgns
+    - cgns ==4.0.0
     - qt
     - boost-cpp
     - pugixml
