@@ -1,5 +1,14 @@
 #!/bin/sh
 
+if test `uname` = "Linux"
+then
+  # No rule to make target `.../_build_env/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/librt.so'
+  mkdir -p $BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/
+  for sn in rt pthread dl m; do
+    cp -v $BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot/usr/lib/lib${sn}.so $BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/
+  done
+fi
+
 mkdir build && cd build
 cmake -LAH \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
