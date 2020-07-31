@@ -1,4 +1,4 @@
-{% set version = "5.8.0" %}
+{% set version = "5.8.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v5.8.0.tar.gz
-  md5: 8151ed24eeeae5bc8ba038bb544eb409
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}-RC2.tar.gz
+  md5: 013597419873a74de753289dc17a9aab
   patches:
     - cgns41.patch
 
 build:
-  number: 12
+  number: 0
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
