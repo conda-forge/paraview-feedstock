@@ -72,6 +72,8 @@ python:
 - 3.6.* *_cpython
 qt:
 - '5.12'
+target_platform:
+- linux-64
 xz:
 - '5.2'
 zlib:
