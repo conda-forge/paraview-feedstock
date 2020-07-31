@@ -22,5 +22,3 @@ cmake -LAH \
   ..
 make install -j${CPU_COUNT}
 
-
-
