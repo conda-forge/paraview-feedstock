@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}-RC2.tar.gz
-  md5: 013597419873a74de753289dc17a9aab
+  url: http://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
+  md5: 2fbd955809559127f66a197960403ea7
   patches:
     - cgns41.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
