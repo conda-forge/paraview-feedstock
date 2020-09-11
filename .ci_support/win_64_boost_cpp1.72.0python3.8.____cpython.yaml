@@ -1,19 +1,13 @@
 boost_cpp:
-- '1.72'
+- 1.72.0
 c_compiler:
-- gcc
-c_compiler_version:
-- '7'
+- vs2017
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
-cxx_compiler_version:
-- '7'
-docker_image:
-- condaforge/linux-anvil-comp7
+- vs2017
 expat:
 - '2.2'
 freetype:
@@ -73,7 +67,7 @@ python:
 qt:
 - '5.12'
 target_platform:
-- linux-64
+- win-64
 xz:
 - '5.2'
 zlib:
