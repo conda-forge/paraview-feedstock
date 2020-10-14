@@ -10,6 +10,7 @@ source:
   md5: 2fbd955809559127f66a197960403ea7
   patches:
     - cgns41.patch
+    - py39.patch
 
 build:
   number: 2
