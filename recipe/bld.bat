@@ -8,6 +8,7 @@ set "Boost_ROOT="
 mkdir build && cd build
 cmake -LAH -G"NMake Makefiles" ^
     -DCMAKE_BUILD_TYPE=Release ^
+    -DCMAKE_SHARED_LINKER_FLAGS_RELEASE="/OPT:NOREF /INCREMENTAL:NO" ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_LIBDIR="Library/lib" ^
     -DCMAKE_INSTALL_BINDIR="Library/bin" ^
