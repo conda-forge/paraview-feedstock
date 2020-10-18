@@ -30,5 +30,5 @@ cmake -LAH -G"NMake Makefiles" ^
     ..
 if errorlevel 1 exit 1
 
-cmake --build . --target install --config Release
+jom -j4
 if errorlevel 1 exit 1
