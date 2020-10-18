@@ -5,11 +5,9 @@ Home: http://www.paraview.org
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/paraview-feedstock/blob/master/LICENSE.txt)
 
 Summary: ParaView is an open-source, multi-platform data analysis and visualization application based on Visualization Toolkit (VTK).
-
-
 
 Current build status
 ====================
