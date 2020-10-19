@@ -14,6 +14,7 @@ source:
 
 build:
   number: 2
+  skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
