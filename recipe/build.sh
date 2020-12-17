@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# https://gitlab.kitware.com/paraview/paraview/issues/19645
+export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
+
 mkdir build && cd build
 cmake -LAH \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
