@@ -99,6 +99,7 @@ test:
   commands:
     - python -c "from paraview.simple import VisItNek5000Reader"
     - python -c "from paraview.simple import Xdmf3ReaderS"
+    - paraview --version
     - pvpython --version
 
 about:
