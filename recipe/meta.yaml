@@ -10,7 +10,7 @@ source:
   md5: 905708e6ef5e8669397c5eba08e49589
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
