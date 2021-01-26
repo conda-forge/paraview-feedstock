@@ -3,14 +3,14 @@
 
 package:
   name: paraview
-  version: {{ version }}rc2
+  version: {{ version }}
 
 source:
-  url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}-RC2.tar.xz
-  md5: 905708e6ef5e8669397c5eba08e49589
+  url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
+  md5: a77e2c72d8a61f824a095c60a1183d16
 
 build:
-  number: 5
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
