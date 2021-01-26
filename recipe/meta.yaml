@@ -10,7 +10,7 @@ source:
   md5: a77e2c72d8a61f824a095c60a1183d16
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
@@ -100,6 +100,7 @@ test:
     - python -c "from paraview.simple import VisItNek5000Reader"
     - python -c "from paraview.simple import Xdmf3ReaderS"
     - pvpython --version
+    - paraview --version  # [not linux]
 
 about:
    home: http://www.paraview.org
