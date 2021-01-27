@@ -25,3 +25,6 @@ cmake -LAH \
   ..
 make install -j${CPU_COUNT}
 
+if test `uname` = "Darwin"; then
+  ln -s $PREFIX/Applications/paraview.app/Contents/MacOS/paraview ${PREFIX}/bin/paraview
+fi
