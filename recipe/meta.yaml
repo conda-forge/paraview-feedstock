@@ -10,8 +10,7 @@ source:
   md5: a77e2c72d8a61f824a095c60a1183d16
 
 build:
-  number: 2
-  skip: true  # [win]
+  number: 3
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
@@ -22,6 +21,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - eigen
+    - jom  # [win]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}          # [linux]
     - {{ cdt('libxext-devel') }}         # [linux]
