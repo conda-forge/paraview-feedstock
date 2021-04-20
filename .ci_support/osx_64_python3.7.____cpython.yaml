@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '11'
 expat:
-- '2.2'
+- '2'
 freetype:
 - '2'
 glew:
@@ -27,7 +27,7 @@ jpeg:
 jsoncpp:
 - 1.9.4
 libnetcdf:
-- 4.7.4
+- 4.8.0
 libpng:
 - '1.6'
 libprotobuf:
@@ -43,8 +43,6 @@ macos_machine:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  expat:
-    max_pin: x.x
   freetype:
     max_pin: x
   glew:
