@@ -1,4 +1,4 @@
-{% set version = "5.9.0" %}
+{% set version = "5.9.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  md5: a77e2c72d8a61f824a095c60a1183d16
+  md5: 8bb6e0eca272b570ea28e3f7db8574a4
 
 build:
-  number: 4
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
@@ -103,11 +103,11 @@ test:
     - paraview --version  # [not linux]
 
 about:
-   home: http://www.paraview.org
-   license: BSD-3-Clause
-   license_family: BSD
-   license_file: Copyright.txt
-   summary: ParaView is an open-source, multi-platform data analysis and visualization application based on Visualization Toolkit (VTK).
+  home: http://www.paraview.org
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: Copyright.txt
+  summary: ParaView is an open-source, multi-platform data analysis and visualization application based on Visualization Toolkit (VTK).
 
 extra:
   recipe-maintainers:
