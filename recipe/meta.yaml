@@ -2,7 +2,7 @@
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
-  name: {{ build_variant }}
+  name: paraview{{ build_variant }}
   version: {{ version }}
 
 source:
