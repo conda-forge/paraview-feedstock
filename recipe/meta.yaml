@@ -13,7 +13,7 @@ build:
   number: 0
   skip: true  # [win]
   run_exports:
-    - {{ pin_subpackage('paraview'+build_variant, max_pin='x.x') }}
+    - {{ pin_subpackage(name, max_pin='x.x') }}
 
 requirements:
   build:
