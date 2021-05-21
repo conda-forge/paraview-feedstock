@@ -1,6 +1,5 @@
 {% set version = "5.9.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set name = "paraview" + build_variant %}
 
 package:
   name: paraview{{ build_variant }}
@@ -14,7 +13,11 @@ build:
   number: 0
   skip: true  # [win]
   run_exports:
-    - {{ pin_subpackage(name, max_pin='x.x') }}
+    {% if build_variant == "" %}
+    - {{ pin_subpackage('paraview', max_pin='x.x') }}
+    {% else %}
+    - {{ pin_subpackage('paraview-egl', max_pin='x.x') }}
+    {% endif %}
 
 requirements:
   build:
