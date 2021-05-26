@@ -6,7 +6,7 @@ export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 mkdir build && cd build
 
 if [[ "$build_variant" == "-egl" ]]; then
-  EXTRA="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_PLUGIN_ENABLE_pvNVIDIAIndeX=ON -DVTK_ENABLE_VISRTX=ON -DVTK_ENABLE_OSPRAY=ON"
+  EXTRA="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON"
 elif [[ "$build_variant" == "" ]]; then
   EXTRA=""
 fi
