@@ -78,3 +78,4 @@ jobs:
 
   - publish: build_artifacts/
     artifact: $(ARTIFACT_NAME)
+    condition: eq(variables.CONDA_BLD_DIR_EXISTS, 'true')
