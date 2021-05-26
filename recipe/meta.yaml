@@ -12,6 +12,9 @@ source:
 build:
   number: 0
   skip: true  # [win]
+  {% if build_variant == "-egl" %}
+  skip: true  # [osx]
+  {% endif %}
   run_exports:
     {% if build_variant == "" %}
     - {{ pin_subpackage('paraview', max_pin='x.x') }}

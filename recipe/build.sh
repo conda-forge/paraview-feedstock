@@ -7,12 +7,10 @@ mkdir build && cd build
 
 if [[ "$build_variant" == "-egl" ]]; then
   CMAKE_ARGS="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF"
-  if [[ `uname` == "Linux" ]]; then
-    CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${PREFIX}/include"
-    CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
-    CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
-    CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
-  fi
+  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${PREFIX}/include"
+  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
+  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
+  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
 elif [[ "$build_variant" == "" ]]; then
   CMAKE_ARGS=""
 fi
