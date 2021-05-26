@@ -6,9 +6,15 @@ export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 mkdir build && cd build
 
 if [[ "$build_variant" == "-egl" ]]; then
-  EXTRA="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF -DEGL_INCLUDE_DIR=${PREFIX}/include -DEGL_LIBRARY=${PREFIX}/lib -DEGL_opengl_LIBRARY=${PREFIX}/lib -DOPENGL_opengl_LIBRARY=${PREFIX}/lib"
+  CMAKE_ARGS="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF"
+  if [[ `uname` == "Linux" ]]; then
+    CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${PREFIX}/include"
+    CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
+    CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
+    CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=${PREFIX}/lib"  # needs to link to the .so file?
+  fi
 elif [[ "$build_variant" == "" ]]; then
-  EXTRA=""
+  CMAKE_ARGS=""
 fi
 
 cmake -LAH \
@@ -29,7 +35,7 @@ cmake -LAH \
   -DPARAVIEW_ENABLE_WEB=ON \
   -DPARAVIEW_ENABLE_VISITBRIDGE=ON \
   -DPARAVIEW_ENABLE_XDMF3=ON \
-  ${EXTRA} \
+  ${CMAKE_ARGS} \
   ..
 make install -j${CPU_COUNT}
 
