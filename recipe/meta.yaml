@@ -76,11 +76,13 @@ requirements:
     - jsoncpp
     - xz
     - cgns
-    - qt
     - boost-cpp
     - pugixml
     - libtheora
     - gl2ps
+    {% if build_variant == "" %}
+    - qt
+    {% endif %}
   run:
     - python
     - numpy
