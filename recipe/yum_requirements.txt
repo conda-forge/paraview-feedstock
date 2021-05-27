@@ -2,10 +2,6 @@ mesa-libGL-devel
 mesa-libGLU-devel
 mesa-libEGL-devel
 mesa-libgbm
-mesa-dri-drivers
-libselinux
-libXdamage
-libXxf86vm
 libX11-devel
 libXt-devel
 libXtst-devel
