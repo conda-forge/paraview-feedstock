@@ -83,6 +83,7 @@ requirements:
     - pugixml
     - libtheora
     - gl2ps
+    - xorg-libxfixes                     # [linux]
     {% if build_variant == "" %}
     - qt
     {% endif %}
