@@ -8,9 +8,12 @@ package:
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
   md5: 8bb6e0eca272b570ea28e3f7db8574a4
+  patches:
+    # https://gitlab.freedesktop.org/mesa/mesa/-/issues/4729
+    - shader_init.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
