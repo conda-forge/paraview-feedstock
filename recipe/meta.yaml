@@ -61,9 +61,10 @@ requirements:
     - {{ cdt('libsm-devel') }}           # [linux]
     - {{ cdt('libice-devel') }}          # [linux]
     - {{ cdt('libuuid-devel') }}         # [linux]
-    - {{ cdt('libglvnd-devel') }}        # [linux]
     {% if build_variant == "" %}
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    {% else %}
+    - {{ cdt('libglvnd-devel') }}        # [linux]
     {% endif %}
   host:
     - python
@@ -97,8 +98,10 @@ requirements:
     - twisted
 
 test:
+    {% if build_variant == "-egl" %}
   requires:
     - {{ cdt('libglvnd-devel') }}        # [linux]
+    {% endif %}
   imports:
     - paraview
     - paraview.collaboration
