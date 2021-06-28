@@ -24,6 +24,7 @@ build:
 
 requirements:
   build:
+    - sysroot_linux-64 2.17  # [linux64]
     - cmake
     - pkg-config
     - {{ compiler('c') }}
@@ -58,6 +59,7 @@ requirements:
     - {{ cdt('libsm-devel') }}           # [linux]
     - {{ cdt('libice-devel') }}          # [linux]
     - {{ cdt('libuuid-devel') }}         # [linux]
+    - {{ cdt('libglvnd-devel') }}         # [linux]
   host:
     - python
     - hdf5

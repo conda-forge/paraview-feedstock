@@ -7,12 +7,10 @@ mkdir build && cd build
 
 if [[ "$build_variant" == "-egl" ]]; then
   CMAKE_ARGS="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF"
-  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=/usr/include"
-  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=/usr/lib64/libEGL.so"
-  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY=/usr/lib64/libGL.so"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=/usr/lib64/libGL.so"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_egl_LIBRARY=/usr/lib64/libEGL.so"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_INCLUDE_DIR=/usr/include"
+  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so"
+  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_egl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libEGL.so"
+  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
+  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_EGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
 elif [[ "$build_variant" == "" ]]; then
   CMAKE_ARGS=""
 fi
