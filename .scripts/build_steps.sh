@@ -39,7 +39,7 @@ source run_conda_forge_build_setup
 # "recipe/yum_requirements.txt" file. After updating that file,
 # run "conda smithy rerender" and this line will be updated
 # automatically.
-/usr/bin/sudo -n yum install -y libglvnd-devel libselinux-devel libXdamage libXxf86vm libX11-devel libXt-devel libXtst-devel libXrender-devel libXext-devel libXdmcp-devel libXcomposite-devel libXcursor-devel libxcb-devel libXau-devel libXi-devel libXScrnSaver-devel libXrandr-devel alsa-lib-devel xcb-util-devel xorg-x11-server-Xvfb pciutils-devel libuuid-devel xorg-x11-server-Xorg
+/usr/bin/sudo -n yum install -y libselinux-devel libXdamage libXxf86vm libX11-devel libXt-devel libXtst-devel libXrender-devel libXext-devel libXdmcp-devel libXcomposite-devel libXcursor-devel libxcb-devel libXau-devel libXi-devel libXScrnSaver-devel libXrandr-devel alsa-lib-devel xcb-util-devel xorg-x11-server-Xvfb pciutils-devel libuuid-devel xorg-x11-server-Xorg
 
 
 # make the build number clobber
