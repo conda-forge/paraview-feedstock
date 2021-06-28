@@ -1,4 +1,3 @@
-libglvnd-devel
 libselinux-devel
 libXdamage
 libXxf86vm
