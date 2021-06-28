@@ -3,3 +3,5 @@ provider:
 conda_forge_output_validation: true
 azure:
   store_build_artifacts: true
+os_version:
+  linux_64: cos7
