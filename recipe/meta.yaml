@@ -98,6 +98,8 @@ requirements:
     - twisted
 
 test:
+  requires:
+    - {{ cdt('libglvnd-devel') }}        # [linux]
   imports:
     - paraview
     - paraview.collaboration
