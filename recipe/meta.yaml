@@ -36,7 +36,6 @@ requirements:
     - {{ cdt('libxrender-devel') }}      # [linux]
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('mesa-libegl-devel') }}     # [linux]
-    # - {{ cdt('mesa-dri-drivers') }}      # [linux]
     - {{ cdt('libxau-devel') }}          # [linux]
     - {{ cdt('alsa-lib-devel') }}        # [linux]
     - {{ cdt('gtk2-devel') }}            # [linux]
@@ -62,7 +61,10 @@ requirements:
     - {{ cdt('libsm-devel') }}           # [linux]
     - {{ cdt('libice-devel') }}          # [linux]
     - {{ cdt('libuuid-devel') }}         # [linux]
-    - {{ cdt('libglvnd-devel') }}         # [linux]
+    - {{ cdt('libglvnd-devel') }}        # [linux]
+    {% if build_variant == "" %}
+    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    {% endif %}
   host:
     - python
     - hdf5
