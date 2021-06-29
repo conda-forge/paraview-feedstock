@@ -5,7 +5,7 @@ export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
 mkdir build && cd build
 
-if [[ "$build_variant" == "-egl" ]]; then
+if [[ "$build_variant" == "egl" ]]; then
   CMAKE_ARGS="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libEGL.so"
@@ -14,7 +14,7 @@ if [[ "$build_variant" == "-egl" ]]; then
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_egl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libEGL.so"
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_EGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
-elif [[ "$build_variant" == "" ]]; then
+elif [[ "$build_variant" == "qt" ]]; then
   CMAKE_ARGS=""
 fi
 

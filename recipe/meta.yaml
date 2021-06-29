@@ -2,7 +2,7 @@
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 
 package:
-  name: paraview{{ build_variant }}
+  name: paraview
   version: {{ version }}
 
 source:
@@ -12,15 +12,13 @@ source:
 build:
   number: 0
   skip: true  # [win]
-  {% if build_variant == "-egl" %}
+  {% if build_variant == "egl" %}
   skip: true  # [osx]
   {% endif %}
+  string: h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
+  track_features: paraview=*=*egl
   run_exports:
-    {% if build_variant == "" %}
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
-    {% else %}
-    - {{ pin_subpackage('paraview-egl', max_pin='x.x') }}
-    {% endif %}
 
 requirements:
   build:
@@ -61,7 +59,7 @@ requirements:
     - {{ cdt('libsm-devel') }}           # [linux]
     - {{ cdt('libice-devel') }}          # [linux]
     - {{ cdt('libuuid-devel') }}         # [linux]
-    {% if build_variant == "" %}
+    {% if build_variant == "qt" %}
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
     {% else %}
     - {{ cdt('libglvnd-devel') }}        # [linux]
@@ -88,7 +86,7 @@ requirements:
     - pugixml
     - libtheora
     - gl2ps
-    {% if build_variant == "" %}
+    {% if build_variant == "qt" %}
     - qt
     {% endif %}
   run:
@@ -98,7 +96,7 @@ requirements:
     - twisted
 
 test:
-    {% if build_variant == "-egl" %}
+    {% if build_variant == "egl" %}
   requires:
     - {{ cdt('libglvnd-devel') }}        # [linux]
     {% endif %}
