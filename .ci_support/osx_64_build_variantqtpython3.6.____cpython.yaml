@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 boost_cpp:
 - 1.74.0
 build_variant:
-- ''
+- qt
 c_compiler:
 - clang
 c_compiler_version:

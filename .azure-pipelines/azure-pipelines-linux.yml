@@ -8,46 +8,46 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_build_variant-eglpython3.6.____cpython:
-        CONFIG: linux_64_build_variant-eglpython3.6.____cpython
+      linux_64_build_varianteglpython3.6.____cpython:
+        CONFIG: linux_64_build_varianteglpython3.6.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
-        SHORT_CONFIG_NAME: linux_64_build_variant-eglpython3.6.____cpython
-      linux_64_build_variant-eglpython3.7.____cpython:
-        CONFIG: linux_64_build_variant-eglpython3.7.____cpython
+        SHORT_CONFIG_NAME: linux_64_build_varianteglpython3.6.____cpython
+      linux_64_build_varianteglpython3.7.____cpython:
+        CONFIG: linux_64_build_varianteglpython3.7.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
-        SHORT_CONFIG_NAME: linux_64_build_variant-eglpython3.7.____cpython
-      linux_64_build_variant-eglpython3.8.____cpython:
-        CONFIG: linux_64_build_variant-eglpython3.8.____cpython
+        SHORT_CONFIG_NAME: linux_64_build_varianteglpython3.7.____cpython
+      linux_64_build_varianteglpython3.8.____cpython:
+        CONFIG: linux_64_build_varianteglpython3.8.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
-        SHORT_CONFIG_NAME: linux_64_build_variant-eglpython3.8.____cpython
-      linux_64_build_variant-eglpython3.9.____cpython:
-        CONFIG: linux_64_build_variant-eglpython3.9.____cpython
+        SHORT_CONFIG_NAME: linux_64_build_varianteglpython3.8.____cpython
+      linux_64_build_varianteglpython3.9.____cpython:
+        CONFIG: linux_64_build_varianteglpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
-        SHORT_CONFIG_NAME: linux_64_build_variant-eglpython3.9.____cpython
-      linux_64_build_variantpython3.6.____cpython:
-        CONFIG: linux_64_build_variantpython3.6.____cpython
+        SHORT_CONFIG_NAME: linux_64_build_varianteglpython3.9.____cpython
+      linux_64_build_variantqtpython3.6.____cpython:
+        CONFIG: linux_64_build_variantqtpython3.6.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
-        SHORT_CONFIG_NAME: linux_64_build_variantpython3.6.____cpython
-      linux_64_build_variantpython3.7.____cpython:
-        CONFIG: linux_64_build_variantpython3.7.____cpython
+        SHORT_CONFIG_NAME: linux_64_build_variantqtpython3.6.____cpython
+      linux_64_build_variantqtpython3.7.____cpython:
+        CONFIG: linux_64_build_variantqtpython3.7.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
-        SHORT_CONFIG_NAME: linux_64_build_variantpython3.7.____cpython
-      linux_64_build_variantpython3.8.____cpython:
-        CONFIG: linux_64_build_variantpython3.8.____cpython
+        SHORT_CONFIG_NAME: linux_64_build_variantqtpython3.7.____cpython
+      linux_64_build_variantqtpython3.8.____cpython:
+        CONFIG: linux_64_build_variantqtpython3.8.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
-        SHORT_CONFIG_NAME: linux_64_build_variantpython3.8.____cpython
-      linux_64_build_variantpython3.9.____cpython:
-        CONFIG: linux_64_build_variantpython3.9.____cpython
+        SHORT_CONFIG_NAME: linux_64_build_variantqtpython3.8.____cpython
+      linux_64_build_variantqtpython3.9.____cpython:
+        CONFIG: linux_64_build_variantqtpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
-        SHORT_CONFIG_NAME: linux_64_build_variantpython3.9.____cpython
+        SHORT_CONFIG_NAME: linux_64_build_variantqtpython3.9.____cpython
   timeoutInMinutes: 360
 
   steps:
