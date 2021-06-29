@@ -1,5 +1,6 @@
 {% set version = "5.9.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
+{% set build_num = 0 %}
 
 package:
   name: paraview
@@ -9,8 +10,12 @@ source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
   md5: 8bb6e0eca272b570ea28e3f7db8574a4
 
+{% if build_variant == "qt" %}
+{% set build_num = build_num + 100 %}
+{% endif %}
+
 build:
-  number: 0
+  number: {{ build_num }}
   skip: true  # [win]
   {% if build_variant == "egl" %}
   skip: true  # [osx]
