@@ -20,9 +20,6 @@ source:
 build:
   number: {{ build_num }}
   skip: true  # [win]
-  {% if build_variant == "egl" %}
-  skip: true  # [osx]
-  {% endif %}
   string: h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
   track_features:
     - paraview-egl   # [build_variant == "egl"]
