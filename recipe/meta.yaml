@@ -1,8 +1,9 @@
 {% set version = "5.9.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
+{% set build_num = 2 %}
 
 package:
-  name: paraview
+  name: paraview{{ build_variant }}
   version: {{ version }}
 
 source:
@@ -12,9 +13,19 @@ source:
     # https://gitlab.freedesktop.org/mesa/mesa/-/issues/4729
     - shader_init.patch
 
+{% if build_variant == "qt" %}
+{% set build_num = build_num + 100 %}
+{% endif %}
+
 build:
-  number: 1
+  number: {{ build_num }}
   skip: true  # [win]
+  {% if build_variant == "egl" %}
+  skip: true  # [osx]
+  {% endif %}
+  string: h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
+  track_features:
+    - paraview-egl   # [build_variant == "egl"]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
@@ -32,6 +43,7 @@ requirements:
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('mesa-libegl-devel') }}     # [linux]
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ cdt('mesa-libgbm') }}           # [linux]
     - {{ cdt('libxau-devel') }}          # [linux]
     - {{ cdt('alsa-lib-devel') }}        # [linux]
     - {{ cdt('gtk2-devel') }}            # [linux]
@@ -75,11 +87,13 @@ requirements:
     - jsoncpp
     - xz
     - cgns
-    - qt
     - boost-cpp
     - pugixml
     - libtheora
     - gl2ps
+    {% if build_variant == "qt" %}
+    - qt
+    {% endif %}
   run:
     - python
     - numpy
