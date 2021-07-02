@@ -27,7 +27,7 @@ build:
   track_features:
     - paraview-egl   # [build_variant == "egl"]
   run_exports:
-    - {{ pin_compatible('paraview', max_pin='x.x') }}
+    - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
 requirements:
   build:
