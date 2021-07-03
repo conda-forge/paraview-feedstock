@@ -88,9 +88,7 @@ requirements:
     - pugixml
     - libtheora
     - gl2ps
-    {% if build_variant == "qt" %}
-    - qt
-    {% endif %}
+    - qt   # [build_variant == "qt"]
   run:
     - python
     - numpy
