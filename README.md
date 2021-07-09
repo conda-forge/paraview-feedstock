@@ -1,5 +1,5 @@
-About paraview
-==============
+About paraviewqt
+================
 
 Home: http://www.paraview.org
 
@@ -27,59 +27,87 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_python3.6.____cpython</td>
+              <td>linux_64_build_varianteglpython3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_build_varianteglpython3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_python3.7.____cpython</td>
+              <td>linux_64_build_varianteglpython3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_build_varianteglpython3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_python3.8.____cpython</td>
+              <td>linux_64_build_varianteglpython3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_build_varianteglpython3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_python3.9.____cpython</td>
+              <td>linux_64_build_varianteglpython3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_build_varianteglpython3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.6.____cpython</td>
+              <td>linux_64_build_variantqtpython3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_build_variantqtpython3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.7.____cpython</td>
+              <td>linux_64_build_variantqtpython3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_build_variantqtpython3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.8.____cpython</td>
+              <td>linux_64_build_variantqtpython3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_build_variantqtpython3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.9.____cpython</td>
+              <td>linux_64_build_variantqtpython3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=linux&configuration=linux_64_build_variantqtpython3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_build_variantqtpython3.6.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=osx&configuration=osx_64_build_variantqtpython3.6.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_build_variantqtpython3.7.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=osx&configuration=osx_64_build_variantqtpython3.7.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_build_variantqtpython3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=osx&configuration=osx_64_build_variantqtpython3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_build_variantqtpython3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5343&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/paraview-feedstock?branchName=master&jobName=osx&configuration=osx_64_build_variantqtpython3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr>
@@ -95,28 +123,29 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-paraview-green.svg)](https://anaconda.org/conda-forge/paraview) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/paraview.svg)](https://anaconda.org/conda-forge/paraview) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/paraview.svg)](https://anaconda.org/conda-forge/paraview) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/paraview.svg)](https://anaconda.org/conda-forge/paraview) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-paraviewegl-green.svg)](https://anaconda.org/conda-forge/paraviewegl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/paraviewegl.svg)](https://anaconda.org/conda-forge/paraviewegl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/paraviewegl.svg)](https://anaconda.org/conda-forge/paraviewegl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/paraviewegl.svg)](https://anaconda.org/conda-forge/paraviewegl) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-paraviewqt-green.svg)](https://anaconda.org/conda-forge/paraviewqt) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/paraviewqt.svg)](https://anaconda.org/conda-forge/paraviewqt) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/paraviewqt.svg)](https://anaconda.org/conda-forge/paraviewqt) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/paraviewqt.svg)](https://anaconda.org/conda-forge/paraviewqt) |
 
-Installing paraview
-===================
+Installing paraviewqt
+=====================
 
-Installing `paraview` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `paraviewqt` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `paraview` can be installed with:
+Once the `conda-forge` channel has been enabled, `paraviewegl, paraviewqt` can be installed with:
 
 ```
-conda install paraview
+conda install paraviewegl paraviewqt
 ```
 
-It is possible to list all of the versions of `paraview` available on your platform with:
+It is possible to list all of the versions of `paraviewegl` available on your platform with:
 
 ```
-conda search paraview --channel conda-forge
+conda search paraviewegl --channel conda-forge
 ```
 
 
@@ -158,17 +187,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating paraview-feedstock
-===========================
+Updating paraviewqt-feedstock
+=============================
 
-If you would like to improve the paraview recipe or build a new
+If you would like to improve the paraviewqt recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/paraview-feedstock are
+Note that all branches in the conda-forge/paraviewqt-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.

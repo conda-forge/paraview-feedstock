@@ -4,6 +4,17 @@
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
 mkdir build && cd build
+
+if [[ "$build_variant" == "egl" ]]; then
+  CMAKE_ARGS="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF"
+  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
+  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib/libEGL.so.1"
+  CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so"
+  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so"
+elif [[ "$build_variant" == "qt" ]]; then
+  CMAKE_ARGS=""
+fi
+
 cmake -LAH \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
@@ -22,6 +33,7 @@ cmake -LAH \
   -DPARAVIEW_ENABLE_WEB=ON \
   -DPARAVIEW_ENABLE_VISITBRIDGE=ON \
   -DPARAVIEW_ENABLE_XDMF3=ON \
+  ${CMAKE_ARGS} \
   ..
 make install -j${CPU_COUNT}
 
