@@ -42,6 +42,7 @@ requirements:
     - {{ cdt('mesa-libegl-devel') }}     # [linux]
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
     - {{ cdt('mesa-libgbm') }}           # [linux]
+    - {{ cdt('libxcb') }}                # [linux]
     - {{ cdt('libxau-devel') }}          # [linux]
     - {{ cdt('alsa-lib-devel') }}        # [linux]
     - {{ cdt('gtk2-devel') }}            # [linux]
