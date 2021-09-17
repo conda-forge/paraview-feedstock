@@ -18,6 +18,10 @@ cxx_compiler_version:
 - '11'
 expat:
 - '2'
+fortran_compiler:
+- gfortran
+fortran_compiler_version:
+- '9'
 freetype:
 - '2'
 glew:
@@ -81,5 +85,6 @@ xz:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+  - fortran_compiler_version
 zlib:
 - '1.2'
