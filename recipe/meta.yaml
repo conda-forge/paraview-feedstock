@@ -22,7 +22,7 @@ build:
   skip: true  # [win]
   string: h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
   track_features:
-    - paraview-egl   # [build_variant == "egl"]
+    - paraview-egl  # [build_variant == "egl"]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
@@ -32,7 +32,7 @@ requirements:
     - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}  # [build_variant == "egl"]
     - eigen
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}          # [linux]
@@ -42,7 +42,7 @@ requirements:
     - {{ cdt('mesa-libegl-devel') }}     # [linux]
     - {{ cdt('mesa-dri-drivers') }}      # [linux]
     - {{ cdt('mesa-libgbm') }}           # [linux]
-    - {{ cdt('libxcb') }}                # [linux]
+    - {{ cdt('libxcb') }}                # [linux and build_variant == "egl"]
     - {{ cdt('libxau-devel') }}          # [linux]
     - {{ cdt('alsa-lib-devel') }}        # [linux]
     - {{ cdt('gtk2-devel') }}            # [linux]
