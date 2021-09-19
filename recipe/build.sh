@@ -11,12 +11,6 @@ if [[ "$build_variant" == "egl" ]]; then
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib/libEGL.so.1"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so"
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_egl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libEGL.so"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_EGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_glx_LIBRARY:FILEPATH=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGLX.so"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_glu_LIBRARY:FILEPATH=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib/libGLU.so"
-  CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_GLX_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
 elif [[ "$build_variant" == "qt" ]]; then
   CMAKE_ARGS=""
 fi
