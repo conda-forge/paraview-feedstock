@@ -20,6 +20,10 @@ docker_image:
 - quay.io/condaforge/linux-anvil-comp7
 expat:
 - '2'
+fortran_compiler:
+- gfortran
+fortran_compiler_version:
+- '9'
 freetype:
 - '2'
 glew:
@@ -81,6 +85,7 @@ xz:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+  - fortran_compiler_version
 - - cdt_name
   - docker_image
 zlib:
