@@ -11,42 +11,42 @@ jobs:
       linux_64_build_varianteglpython3.10.____cpython:
         CONFIG: linux_64_build_varianteglpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_build_varianteglpython3.10.____cpython
       linux_64_build_varianteglpython3.7.____cpython:
         CONFIG: linux_64_build_varianteglpython3.7.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_build_varianteglpython3.7.____cpython
       linux_64_build_varianteglpython3.8.____cpython:
         CONFIG: linux_64_build_varianteglpython3.8.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_build_varianteglpython3.8.____cpython
       linux_64_build_varianteglpython3.9.____cpython:
         CONFIG: linux_64_build_varianteglpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_build_varianteglpython3.9.____cpython
       linux_64_build_variantqtpython3.10.____cpython:
         CONFIG: linux_64_build_variantqtpython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_build_variantqtpython3.10.____cpython
       linux_64_build_variantqtpython3.7.____cpython:
         CONFIG: linux_64_build_variantqtpython3.7.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_build_variantqtpython3.7.____cpython
       linux_64_build_variantqtpython3.8.____cpython:
         CONFIG: linux_64_build_variantqtpython3.8.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_build_variantqtpython3.8.____cpython
       linux_64_build_variantqtpython3.9.____cpython:
         CONFIG: linux_64_build_variantqtpython3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
         SHORT_CONFIG: linux_64_build_variantqtpython3.9.____cpython
   timeoutInMinutes: 360
 
