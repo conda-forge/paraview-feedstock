@@ -1,4 +1,4 @@
-{% set version = "5.9.1" %}
+{% set version = "5.10.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 {% set build_num = 3 %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  md5: 8bb6e0eca272b570ea28e3f7db8574a4
+  md5: 0ae49d614dd5993b98a73a50c2089113
   patches:
     # https://gitlab.freedesktop.org/mesa/mesa/-/issues/4729
     - shader_init.patch
