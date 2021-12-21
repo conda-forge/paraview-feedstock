@@ -27,6 +27,7 @@ requirements:
   build:
     - cmake
     - pkg-config
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [build_variant == "egl"]
