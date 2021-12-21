@@ -9,9 +9,6 @@ package:
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
   md5: 0ae49d614dd5993b98a73a50c2089113
-  patches:
-    # https://gitlab.freedesktop.org/mesa/mesa/-/issues/4729
-    - shader_init.patch
 
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
