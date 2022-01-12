@@ -6,7 +6,7 @@ set "CXXFLAGS=-MD"
 set "Boost_ROOT="
 
 mkdir build && cd build
-cmake -LAH -G"NMake Makefiles" ^
+cmake -LAH -G"Ninja" ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_LIBDIR="Library/lib" ^
@@ -35,5 +35,5 @@ cmake -LAH -G"NMake Makefiles" ^
     ..
 if errorlevel 1 exit 1
 
-cmake --build . --target install --config Release
+cmake --build . --target install --config Release --parallel %CPU_COUNT%
 if errorlevel 1 exit 1

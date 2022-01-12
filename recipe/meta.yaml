@@ -16,7 +16,6 @@ source:
 
 build:
   number: {{ build_num }}
-  skip: true  # [win]
   string: h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
   track_features:
     - paraview-egl  # [build_variant == "egl"]
@@ -28,6 +27,7 @@ requirements:
     - cmake
     - pkg-config
     - make  # [unix]
+    - ninja  # [win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [build_variant == "egl"]
