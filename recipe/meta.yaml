@@ -83,7 +83,7 @@ requirements:
     - double-conversion
     - jsoncpp
     - xz
-    - cgns
+    - cgns  # [not win]
     - boost-cpp
     - pugixml
     - libtheora
