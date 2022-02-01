@@ -1,6 +1,6 @@
 {% set version = "5.10.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 4 %}
+{% set build_num = 5 %}
 
 package:
   name: paraview
@@ -9,6 +9,8 @@ package:
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
   md5: 7a0a1cf6217b34d1790949347e7bfeea
+  patches:
+    - hdf5usedll.patch
 
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
@@ -83,7 +85,7 @@ requirements:
     - double-conversion
     - jsoncpp
     - xz
-    - cgns  # [not win]
+    - cgns
     - boost-cpp
     - pugixml
     - libtheora

@@ -1,0 +1,10 @@
+diff --git a/ThirdParty/ioss/vtkioss/CMakeLists.txt b/ThirdParty/ioss/vtkioss/CMakeLists.txt
+index ffe3c6a465..34bd498823 100644
+--- a/ThirdParty/ioss/vtkioss/CMakeLists.txt
++++ b/ThirdParty/ioss/vtkioss/CMakeLists.txt
+@@ -370,3 +370,5 @@ vtk_module_include(VTK::ioss
+ if (MINGW)
+   vtk_module_link(VTK::ioss PRIVATE psapi)
+ endif ()
++
++add_definitions(-DH5_BUILT_AS_DYNAMIC_LIB -D_HDF5USEDLL_)
