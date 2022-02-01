@@ -1,6 +1,6 @@
 {% set version = "5.10.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 3 %}
+{% set build_num = 4 %}
 
 package:
   name: paraview
@@ -16,7 +16,6 @@ source:
 
 build:
   number: {{ build_num }}
-  skip: true  # [win]
   string: h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
   track_features:
     - paraview-egl  # [build_variant == "egl"]
@@ -28,6 +27,7 @@ requirements:
     - cmake
     - pkg-config
     - make  # [unix]
+    - ninja  # [win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [build_variant == "egl"]
@@ -83,7 +83,7 @@ requirements:
     - double-conversion
     - jsoncpp
     - xz
-    - cgns
+    - cgns  # [not win]
     - boost-cpp
     - pugixml
     - libtheora

@@ -6,7 +6,7 @@ set "CXXFLAGS=-MD"
 set "Boost_ROOT="
 
 mkdir build && cd build
-cmake -LAH -G"NMake Makefiles" ^
+cmake -LAH -G"Ninja" ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_LIBDIR="Library/lib" ^
@@ -28,6 +28,7 @@ cmake -LAH -G"NMake Makefiles" ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_utf8=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_cli11=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_ioss=OFF ^
+    -DVTK_MODULE_USE_EXTERNAL_VTK_cgns=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_ParaView_vtkcatalyst=OFF ^
     -DPARAVIEW_ENABLE_WEB=ON ^
     -DPARAVIEW_ENABLE_VISITBRIDGE=ON ^
@@ -35,5 +36,5 @@ cmake -LAH -G"NMake Makefiles" ^
     ..
 if errorlevel 1 exit 1
 
-cmake --build . --target install --config Release
+cmake --build . --target install --config Release --parallel %CPU_COUNT%
 if errorlevel 1 exit 1
