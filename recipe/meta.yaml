@@ -1,6 +1,6 @@
 {% set version = "5.10.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 4 %}
+{% set build_num = 5 %}
 
 package:
   name: paraview
@@ -16,7 +16,7 @@ source:
 
 build:
   number: {{ build_num }}
-  string: h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
+  string: py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
   track_features:
     - paraview-egl  # [build_variant == "egl"]
   run_exports:
