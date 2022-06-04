@@ -92,7 +92,7 @@ requirements:
   run:
     - python
     - numpy
-    - matplotlib-base
+    - matplotlib-base  # [unix]
     - twisted
 
 test:
