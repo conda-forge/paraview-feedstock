@@ -23,6 +23,7 @@ then
   unset CXXFLAGS
   unset CPPFLAGS
   export LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX}
+  unset LD
   cmake -DCMAKE_INSTALL_PREFIX=$SRC_DIR/vtk-compile-tools \
      -DCMAKE_PREFIX_PATH=$BUILD_PREFIX \
      -DCMAKE_INSTALL_LIBDIR=lib \
