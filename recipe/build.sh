@@ -15,6 +15,9 @@ fi
 
 if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"
 then
+  # ld: malformed 64-bit a.b.c.d.e version number: 9.0.20210922
+  echo "set(VTK_BUILD_VERSION 0)" >> VTK/CMake/vtkVersion.cmake
+
   mkdir build-native
   cd build-native
   export CC=$CC_FOR_BUILD
