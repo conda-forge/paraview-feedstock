@@ -3,8 +3,6 @@
 # https://gitlab.kitware.com/paraview/paraview/issues/19645
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
-mkdir build && cd build
-
 if [[ "$build_variant" == "egl" ]]; then
   CMAKE_ARGS="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF -DVTK_MODULE_USE_EXTERNAL_VTK_glew=OFF"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
@@ -15,9 +13,25 @@ elif [[ "$build_variant" == "qt" ]]; then
   CMAKE_ARGS=""
 fi
 
-if [[ "${CONDA_BUILD_CROSS_COMPILATION}" == "1" ]]; then
+if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"
+then
+  mkdir build-native
+  cd build-native
+  CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS="" CXXFLAGS="" CPPFLAGS="" LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} cmake -G Ninja -DCMAKE_INSTALL_PREFIX=$SRC_DIR/vtk-compile-tools \
+     -DCMAKE_PREFIX_PATH=$BUILD_PREFIX \
+     -DCMAKE_INSTALL_LIBDIR=lib \
+     -DVTK_BUILD_COMPILE_TOOLS_ONLY=ON ../VTK
+  make install -j${CPU_COUNT}
+  cd ..
+  MAJ_MIN=$(echo $PKG_VERSION | rev | cut -d"." -f2- | rev)
   CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
+  CMAKE_ARGS="${CMAKE_ARGS} -DVTKCompileTools_DIR=$SRC_DIR/vtk-compile-tools/lib/cmake/vtkcompiletools-${MAJ_MIN}/"
+  CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT=1 -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT__TRYRUN_OUTPUT="
+  CMAKE_ARGS="${CMAKE_ARGS} -DVTK_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DVTK_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
+  CMAKE_ARGS="${CMAKE_ARGS} -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
 fi
+
+mkdir build && cd build
 
 cmake -LAH \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
