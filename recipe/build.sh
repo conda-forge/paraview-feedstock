@@ -15,6 +15,10 @@ elif [[ "$build_variant" == "qt" ]]; then
   CMAKE_ARGS=""
 fi
 
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" == "1" ]]; then
+  CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
+fi
+
 cmake -LAH \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
