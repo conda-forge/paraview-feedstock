@@ -28,7 +28,7 @@ then
      -DCMAKE_INSTALL_LIBDIR=lib \
      -DCMAKE_BUILD_TYPE=Release \
      -DVTK_BUILD_COMPILE_TOOLS_ONLY=ON ../VTK
-  make install -j${CPU_COUNT}
+  make install -j${CPU_COUNT} VERBOSE=1
   cd ..
   MAJ_MIN=$(echo $PKG_VERSION | rev | cut -d"." -f2- | rev)
   CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
