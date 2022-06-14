@@ -20,14 +20,7 @@ then
 
   mkdir build-native
   cd build-native
-  export CC=$CC_FOR_BUILD
-  export CXX=$CXX_FOR_BUILD
-  unset CFLAGS
-  unset CXXFLAGS
-  unset CPPFLAGS
-  export LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX}
-  unset LD
-  cmake -LAH -DCMAKE_INSTALL_PREFIX=$SRC_DIR/vtk-compile-tools \
+  CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} cmake -LAH -DCMAKE_INSTALL_PREFIX=$SRC_DIR/vtk-compile-tools \
      -DCMAKE_PREFIX_PATH=$BUILD_PREFIX \
      -DCMAKE_INSTALL_LIBDIR=lib \
      -DCMAKE_BUILD_TYPE=Release \
