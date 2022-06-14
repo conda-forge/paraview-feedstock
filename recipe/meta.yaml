@@ -1,6 +1,6 @@
 {% set version = "5.10.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 6 %}
+{% set build_num = 7 %}
 
 package:
   name: paraview
@@ -68,6 +68,7 @@ requirements:
     - {{ cdt('libuuid-devel') }}         # [linux]
   host:
     - python
+    - hdf4
     - hdf5
     - libpng
     - jpeg
@@ -89,6 +90,9 @@ requirements:
     - libtheora
     - gl2ps
     - qt-main  # [build_variant == "qt"]
+    - libzip
+    - libcurl
+    - icu
   run:
     - python
     - numpy
