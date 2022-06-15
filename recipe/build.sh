@@ -39,16 +39,21 @@ then
   cd build-native
   CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
      cmake -LAH -DCMAKE_BUILD_TYPE=Release ..
-  make ProcessXML -j${CPU_COUNT}
+  make ProcessXML WrapClientServer -j${CPU_COUNT}
   cd ..
   echo "add_executable(ParaView::ProcessXML IMPORTED GLOBAL)" > Utilities/ProcessXML/CMakeLists.txt
   echo "set_property(TARGET ParaView::ProcessXML PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkProcessXML-pv${MAJ_MIN})" >> Utilities/ProcessXML/CMakeLists.txt
   echo "add_custom_target(ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
   echo "add_dependencies(ProcessXML ParaView::ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
 
+  echo "add_executable(ParaView::WrapClientServer IMPORTED GLOBAL)" > Utilities/WrapClientServer/CMakeLists.txt
+  echo "set_property(TARGET ParaView::WrapClientServer PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkWrapClientServer-pv${MAJ_MIN})" >> Utilities/WrapClientServer/CMakeLists.txt
+  echo "add_custom_target(WrapClientServer)" >> Utilities/WrapClientServer/CMakeLists.txt
+  echo "add_dependencies(WrapClientServer ParaView::WrapClientServer)" >> Utilities/WrapClientServer/CMakeLists.txt
+
   # disable plugins doc
-  #curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
-  #CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON"
+  curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
+  CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON -DPARAVIEW_ENABLE_EMBEDDED_DOCUMENTATION=OFF"
   CMAKE_ARGS="${CMAKE_ARGS} -Dqt_xmlpatterns_executable=$BUILD_PREFIX/bin/xmlpatterns"
 fi
 
