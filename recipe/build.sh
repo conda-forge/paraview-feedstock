@@ -47,6 +47,9 @@ then
   echo "add_dependencies(ProcessXML ParaView::ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
 fi
 
+# disable plugins doc
+curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
+
 mkdir build && cd build
 
 cmake -LAH \
@@ -56,7 +59,7 @@ cmake -LAH \
   -DCMAKE_INSTALL_RPATH:STRING=${PREFIX}/lib \
   -DCMAKE_INSTALL_LIBDIR=lib \
   -DCMAKE_BUILD_TYPE=Release \
-  -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON \
+  -PARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON \
   -DPARAVIEW_USE_VTKM=OFF \
   -DPARAVIEW_USE_PYTHON=ON \
   -DPython3_FIND_STRATEGY=LOCATION \
