@@ -2,7 +2,7 @@ provider:
   win: azure
 conda_forge_output_validation: true
 azure:
-  store_build_artifacts: true
+  store_build_artifacts: false
 github:
   branch_name: main
   tooling_branch_name: main
