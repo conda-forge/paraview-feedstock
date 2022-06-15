@@ -45,10 +45,11 @@ then
   echo "set_property(TARGET ParaView::ProcessXML PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkProcessXML-pv${MAJ_MIN})" >> Utilities/ProcessXML/CMakeLists.txt
   echo "add_custom_target(ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
   echo "add_dependencies(ProcessXML ParaView::ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
-fi
 
-# disable plugins doc
-curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
+  # disable plugins doc
+  curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
+  CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON"
+fi
 
 mkdir build && cd build
 
@@ -59,7 +60,6 @@ cmake -LAH \
   -DCMAKE_INSTALL_RPATH:STRING=${PREFIX}/lib \
   -DCMAKE_INSTALL_LIBDIR=lib \
   -DCMAKE_BUILD_TYPE=Release \
-  -PARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON \
   -DPARAVIEW_USE_VTKM=OFF \
   -DPARAVIEW_USE_PYTHON=ON \
   -DPython3_FIND_STRATEGY=LOCATION \
