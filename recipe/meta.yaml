@@ -35,6 +35,7 @@ requirements:
     - {{ compiler('fortran') }}  # [build_variant == "egl"]
     - eigen
     - libprotobuf  # [build_platform != target_platform]
+    - qt-main  # [build_variant == "qt" and build_platform != target_platform]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}          # [linux]
     - {{ cdt('libxext-devel') }}         # [linux]
