@@ -18,22 +18,8 @@ then
   # ld: malformed 64-bit a.b.c.d.e version number: 9.0.20210922
   echo "set(VTK_BUILD_VERSION 0)" >> VTK/CMake/vtkVersion.cmake
 
-#   mkdir build-native-vtk
-#   cd build-native-vtk
-#   CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
-#      cmake -DCMAKE_INSTALL_PREFIX=$SRC_DIR/vtk-compile-tools \
-#      -DCMAKE_PREFIX_PATH=$BUILD_PREFIX \
-#      -DCMAKE_INSTALL_LIBDIR=lib \
-#      -DCMAKE_BUILD_TYPE=Release \
-#      -DVTK_BUILD_COMPILE_TOOLS_ONLY=ON ../VTK
-#   make install -j${CPU_COUNT}
-#   cd ..
   MAJ_MIN=$(echo $PKG_VERSION | rev | cut -d"." -f2- | rev)
   CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
-#   CMAKE_ARGS="${CMAKE_ARGS} -DVTKCompileTools_DIR=$SRC_DIR/vtk-compile-tools/lib/cmake/vtkcompiletools-${MAJ_MIN}/"
-#   CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT=1 -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT__TRYRUN_OUTPUT="
-#   CMAKE_ARGS="${CMAKE_ARGS} -DVTK_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DVTK_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
-#   CMAKE_ARGS="${CMAKE_ARGS} -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
 
   mkdir build-native
   cd build-native
@@ -41,6 +27,7 @@ then
      cmake -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release ..
   make ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit -j${CPU_COUNT}
   cd ..
+
   echo "add_executable(ParaView::ProcessXML IMPORTED GLOBAL)" > Utilities/ProcessXML/CMakeLists.txt
   echo "set_property(TARGET ParaView::ProcessXML PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkProcessXML-pv${MAJ_MIN})" >> Utilities/ProcessXML/CMakeLists.txt
   echo "add_custom_target(ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
