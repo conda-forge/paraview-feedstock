@@ -18,9 +18,10 @@ then
   # ld: malformed 64-bit a.b.c.d.e version number: 9.0.20210922
   echo "set(VTK_BUILD_VERSION 0)" >> VTK/CMake/vtkVersion.cmake
 
-  mkdir build-native
-  cd build-native
-  CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} cmake -LAH -DCMAKE_INSTALL_PREFIX=$SRC_DIR/vtk-compile-tools \
+  mkdir build-native-vtk
+  cd build-native-vtk
+  CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
+     cmake -LAH -DCMAKE_INSTALL_PREFIX=$SRC_DIR/vtk-compile-tools \
      -DCMAKE_PREFIX_PATH=$BUILD_PREFIX \
      -DCMAKE_INSTALL_LIBDIR=lib \
      -DCMAKE_BUILD_TYPE=Release \
@@ -33,6 +34,17 @@ then
   CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT=1 -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT__TRYRUN_OUTPUT="
   CMAKE_ARGS="${CMAKE_ARGS} -DVTK_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DVTK_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
   CMAKE_ARGS="${CMAKE_ARGS} -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
+  
+  mkdir build-native
+  cd build-native
+  CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
+     cmake -LAH -DCMAKE_BUILD_TYPE=Release ..
+  make ProcessXML -j${CPU_COUNT}
+  cd ..
+  echo "add_executable(ParaView::ProcessXML IMPORTED GLOBAL)" > Utilities/ProcessXML/CMakeLists.txt
+  echo "set_property(TARGET ParaView::ProcessXML PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkProcessXML-pv${MAJ_MIN})" >> Utilities/ProcessXML/CMakeLists.txt
+  echo "add_custom_target(ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
+  echo "add_dependencies(ProcessXML ParaView::ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
 fi
 
 mkdir build && cd build
