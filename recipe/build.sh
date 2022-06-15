@@ -47,8 +47,9 @@ then
   echo "add_dependencies(ProcessXML ParaView::ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
 
   # disable plugins doc
-  curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
-  CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON"
+  #curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
+  #CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON"
+  CMAKE_ARGS="${CMAKE_ARGS} -Dqt_xmlpatterns_executable=$BUILD_PREFIX/bin/xmlpatterns"
 fi
 
 mkdir build && cd build
