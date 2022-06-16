@@ -35,7 +35,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [build_variant == "egl"]
-    - eigen
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}          # [linux]
     - {{ cdt('libxext-devel') }}         # [linux]
@@ -97,6 +96,7 @@ requirements:
     - libzip
     - libcurl
     - icu
+    - eigen
   run:
     - python
     - numpy
