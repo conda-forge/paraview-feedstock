@@ -4,20 +4,15 @@
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
 if [[ "$build_variant" == "egl" ]]; then
-  CMAKE_ARGS="-DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF -DVTK_MODULE_USE_EXTERNAL_VTK_glew=OFF"
+  CMAKE_ARGS="${CMAKE_ARGS} -DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF -DVTK_MODULE_USE_EXTERNAL_VTK_glew=OFF"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib/libEGL.so.1"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so"
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so"
-elif [[ "$build_variant" == "qt" ]]; then
-  CMAKE_ARGS=""
 fi
 
 if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"
 then
-
-  CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
-
   # use native build tools
   mkdir build-native
   cd build-native
@@ -26,6 +21,7 @@ then
   make ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit -j${CPU_COUNT}
   cd ..
   cat ${RECIPE_DIR}/LocalUserOptions.cmake.in | sed "s|@PARAVIEW_NATIVE_BUILD_DIR@|$PWD/build-native|g" > VTK/Wrapping/Tools/LocalUserOptions.cmake
+  CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
 
   # disable plugins doc
   $BUILD_PREFIX/bin/curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
@@ -34,7 +30,7 @@ fi
 
 mkdir build && cd build
 
-cmake -LAH \
+cmake -LAH ${CMAKE_ARGS} \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
   -DCMAKE_FIND_FRAMEWORK=LAST \
@@ -57,7 +53,6 @@ cmake -LAH \
   -DPARAVIEW_ENABLE_WEB=ON \
   -DPARAVIEW_ENABLE_VISITBRIDGE=ON \
   -DPARAVIEW_ENABLE_XDMF3=ON \
-  ${CMAKE_ARGS} \
   ..
 make install -j${CPU_COUNT}
 
