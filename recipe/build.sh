@@ -15,8 +15,6 @@ fi
 
 if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"
 then
-  # ld: malformed 64-bit a.b.c.d.e version number: 9.0.20210922
-  echo "set(VTK_BUILD_VERSION 0)" >> VTK/CMake/vtkVersion.cmake
 
   MAJ_MIN=$(echo $PKG_VERSION | rev | cut -d"." -f2- | rev)
   CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
