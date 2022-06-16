@@ -16,40 +16,16 @@ fi
 if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"
 then
 
-  MAJ_MIN=$(echo $PKG_VERSION | rev | cut -d"." -f2- | rev)
   CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
 
+  # use native build tools
   mkdir build-native
   cd build-native
   CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
      cmake -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release ..
   make ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit -j${CPU_COUNT}
   cd ..
-
-  echo "add_executable(ParaView::ProcessXML IMPORTED GLOBAL)" > Utilities/ProcessXML/CMakeLists.txt
-  echo "set_property(TARGET ParaView::ProcessXML PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkProcessXML-pv${MAJ_MIN})" >> Utilities/ProcessXML/CMakeLists.txt
-  echo "add_custom_target(ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
-  echo "add_dependencies(ProcessXML ParaView::ProcessXML)" >> Utilities/ProcessXML/CMakeLists.txt
-
-  echo "add_executable(ParaView::WrapClientServer IMPORTED GLOBAL)" > Utilities/WrapClientServer/CMakeLists.txt
-  echo "set_property(TARGET ParaView::WrapClientServer PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkWrapClientServer-pv${MAJ_MIN})" >> Utilities/WrapClientServer/CMakeLists.txt
-  echo "add_custom_target(WrapClientServer)" >> Utilities/WrapClientServer/CMakeLists.txt
-  echo "add_dependencies(WrapClientServer ParaView::WrapClientServer)" >> Utilities/WrapClientServer/CMakeLists.txt
-
-  echo "add_executable(VTK::WrapHierarchy IMPORTED GLOBAL)" > VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "set_property(TARGET VTK::WrapHierarchy PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkWrapHierarchy-pv${MAJ_MIN})" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "add_custom_target(WrapHierarchy)" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "add_dependencies(WrapHierarchy VTK::WrapHierarchy)" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-
-  echo "add_executable(VTK::WrapPython IMPORTED GLOBAL)" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "set_property(TARGET VTK::WrapPython PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkWrapPython-pv${MAJ_MIN})" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "add_custom_target(WrapPython)" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "add_dependencies(WrapPython VTK::WrapPython)" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-
-  echo "add_executable(VTK::WrapPythonInit IMPORTED GLOBAL)" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "set_property(TARGET VTK::WrapPythonInit PROPERTY IMPORTED_LOCATION $PWD/build-native/bin/vtkWrapPythonInit-pv${MAJ_MIN})" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "add_custom_target(WrapPythonInit)" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
-  echo "add_dependencies(WrapPythonInit VTK::WrapPythonInit)" >> VTK/Wrapping/Tools/LocalUserOptions.cmake
+  cat ${RECIPE_DIR}/LocalUserOptions.cmake.in | sed "s|@PARAVIEW_NATIVE_BUILD_DIR@|$PWD/build-native|g" > VTK/Wrapping/Tools/LocalUserOptions.cmake
 
   # disable plugins doc
   $BUILD_PREFIX/bin/curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1

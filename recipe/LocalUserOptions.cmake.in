@@ -1,0 +1,26 @@
+set(MAJ_MIN ${PARAVIEW_VERSION_MAJOR}.${PARAVIEW_VERSION_MINOR})
+
+add_executable(ParaView::ProcessXML IMPORTED GLOBAL)
+set_property(TARGET ParaView::ProcessXML PROPERTY IMPORTED_LOCATION @PARAVIEW_NATIVE_BUILD_DIR@/bin/vtkProcessXML-pv${MAJ_MIN})
+add_custom_target(ProcessXML)
+add_dependencies(ProcessXML ParaView::ProcessXML)
+
+add_executable(ParaView::WrapClientServer IMPORTED GLOBAL)
+set_property(TARGET ParaView::WrapClientServer PROPERTY IMPORTED_LOCATION @PARAVIEW_NATIVE_BUILD_DIR@/bin/vtkWrapClientServer-pv${MAJ_MIN})
+add_custom_target(WrapClientServer)
+add_dependencies(WrapClientServer ParaView::WrapClientServer)
+
+add_executable(VTK::WrapHierarchy IMPORTED GLOBAL)
+set_property(TARGET VTK::WrapHierarchy PROPERTY IMPORTED_LOCATION @PARAVIEW_NATIVE_BUILD_DIR@/bin/vtkWrapHierarchy-pv${MAJ_MIN})
+add_custom_target(WrapHierarchy)
+add_dependencies(WrapHierarchy VTK::WrapHierarchy)
+
+add_executable(VTK::WrapPython IMPORTED GLOBAL)
+set_property(TARGET VTK::WrapPython PROPERTY IMPORTED_LOCATION @PARAVIEW_NATIVE_BUILD_DIR@/bin/vtkWrapPython-pv${MAJ_MIN})
+add_custom_target(WrapPython)
+add_dependencies(WrapPython VTK::WrapPython)
+
+add_executable(VTK::WrapPythonInit IMPORTED GLOBAL)
+set_property(TARGET VTK::WrapPythonInit PROPERTY IMPORTED_LOCATION @PARAVIEW_NATIVE_BUILD_DIR@/bin/vtkWrapPythonInit-pv${MAJ_MIN})
+add_custom_target(WrapPythonInit)
+add_dependencies(WrapPythonInit VTK::WrapPythonInit)
