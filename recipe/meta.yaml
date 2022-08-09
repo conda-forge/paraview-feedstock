@@ -30,6 +30,7 @@ requirements:
     - curl                                   # [build_platform != target_platform]
     - cmake
     - pkg-config
+    - doxygen
     - make  # [unix]
     - ninja  # [win]
     - {{ compiler('c') }}
