@@ -1,6 +1,6 @@
 {% set version = "5.10.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 7 %}
+{% set build_num = 8 %}
 
 package:
   name: paraview

@@ -62,3 +62,5 @@ make install -j${CPU_COUNT}
 if test `uname` = "Darwin"; then
   ln -s $PREFIX/Applications/paraview.app/Contents/MacOS/paraview ${PREFIX}/bin/paraview
 fi
+
+curl https://www.paraview.org/files/v${PKG_VERSION:0:4}/ParaViewGettingStarted-${PKG_VERSION}.pdf --create-dirs -o ${PREFIX}/share/paraview-${PKG_VERSION:0:4}/doc/GettingStarted.pdf
