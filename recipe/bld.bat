@@ -38,3 +38,6 @@ if errorlevel 1 exit 1
 
 cmake --build . --target install --config Release --parallel %CPU_COUNT%
 if errorlevel 1 exit 1
+
+curl https://www.paraview.org/files/%PKG_VERSION:~0,4%/ParaViewGettingStarted-%PKG_VERSION%.pdf --create-dirs -o %LIBRARY_PREFIX%\doc\GettingStarted.pdf
+if errorlevel 1 exit 1
