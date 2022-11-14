@@ -103,7 +103,6 @@ requirements:
     - python
     - numpy
     - matplotlib-base  # [unix]
-    - twisted
 
 test:
   imports:
