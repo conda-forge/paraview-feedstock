@@ -3,7 +3,7 @@
 # https://gitlab.kitware.com/paraview/paraview/issues/19645
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
-if [[ "$build_variant" == "egl" ]]; then
+if test "${build_variant}" == "egl"; then
   CMAKE_ARGS="${CMAKE_ARGS} -DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF -DVTK_MODULE_USE_EXTERNAL_VTK_glew=OFF"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib/libEGL.so.1"
@@ -11,8 +11,7 @@ if [[ "$build_variant" == "egl" ]]; then
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64/libGL.so"
 fi
 
-if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"
-then
+if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
   # use native build tools
   mkdir build-native
   cd build-native
@@ -27,7 +26,6 @@ then
   CMAKE_ARGS="${CMAKE_ARGS} -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
 
   # disable plugins doc
-  $BUILD_PREFIX/bin/curl -L https://gitlab.kitware.com/paraview/paraview/-/merge_requests/5613.patch | patch -p1
   CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON"
 fi
 
