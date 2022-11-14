@@ -98,6 +98,7 @@ requirements:
     - icu
     - eigen
     - nlohmann_json
+    - proj
   run:
     - python
     - numpy
