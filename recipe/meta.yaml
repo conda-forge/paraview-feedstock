@@ -97,6 +97,7 @@ requirements:
     - libcurl
     - icu
     - eigen
+    - nlohmann_json
   run:
     - python
     - numpy
