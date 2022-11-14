@@ -31,7 +31,7 @@ fi
 
 mkdir build && cd build
 
-cmake -LAH ${CMAKE_ARGS} \
+cmake -LAH -G "Ninja" ${CMAKE_ARGS} \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
   -DCMAKE_FIND_FRAMEWORK=LAST \
@@ -54,7 +54,7 @@ cmake -LAH ${CMAKE_ARGS} \
   -DPARAVIEW_ENABLE_VISITBRIDGE=ON \
   -DPARAVIEW_ENABLE_XDMF3=ON \
   ..
-make install -j${CPU_COUNT}
+cmake --build . --target install
 
 if test `uname` = "Darwin"; then
   ln -s $PREFIX/Applications/paraview.app/Contents/MacOS/paraview ${PREFIX}/bin/paraview
