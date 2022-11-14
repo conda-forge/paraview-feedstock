@@ -29,8 +29,7 @@ requirements:
     - libprotobuf                            # [build_platform != target_platform]
     - cmake
     - pkg-config
-    - make  # [unix]
-    - ninja  # [win]
+    - ninja
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [build_variant == "egl"]
