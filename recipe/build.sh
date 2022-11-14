@@ -16,8 +16,8 @@ if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
   mkdir build-native
   cd build-native
   CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
-     cmake -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release ..
-  make ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit -j${CPU_COUNT}
+     cmake -G "Ninja" -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release ..
+  cmake --build . --target ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit
   cd ..
   cat ${RECIPE_DIR}/LocalUserOptions.cmake.in | sed "s|@PARAVIEW_NATIVE_BUILD_DIR@|$PWD/build-native|g" > VTK/Wrapping/Tools/LocalUserOptions.cmake
   CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
