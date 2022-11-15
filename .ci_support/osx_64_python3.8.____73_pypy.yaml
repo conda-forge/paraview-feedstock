@@ -1,15 +1,21 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 boost_cpp:
 - 1.78.0
 build_variant:
 - qt
 c_compiler:
-- vs2019
+- clang
+c_compiler_version:
+- '14'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2019
+- clangxx
+cxx_compiler_version:
+- '14'
 expat:
 - '2'
 freetype:
@@ -42,6 +48,8 @@ libzip:
 - '1'
 lz4_c:
 - 1.9.3
+macos_machine:
+- x86_64-apple-darwin13.4.0
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -51,14 +59,17 @@ pin_run_as_build:
 proj:
 - 9.1.0
 python:
-- 3.11.* *_cpython
+- 3.8.* *_73_pypy
 qt:
 - '5.15'
 qt_main:
 - '5.15'
 target_platform:
-- win-64
+- osx-64
 xz:
 - '5'
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
 zlib:
 - '1.2'
