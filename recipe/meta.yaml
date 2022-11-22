@@ -1,6 +1,6 @@
 {% set version = "5.11.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 0 %}
+{% set build_num = 1 %}
 
 package:
   name: paraview
@@ -98,6 +98,10 @@ requirements:
     - eigen
     - nlohmann_json
     - proj
+    - libharu
+    - cli11
+    - fmt
+    - exprtk
   run:
     - python
     - numpy
