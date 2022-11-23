@@ -12,6 +12,8 @@ cxx_compiler:
 - vs2019
 expat:
 - '2'
+fmt:
+- '9'
 freetype:
 - '2'
 glew:
@@ -48,6 +50,8 @@ pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
+proj:
+- 9.1.0
 python:
 - 3.8.* *_cpython
 qt:
