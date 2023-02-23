@@ -2,12 +2,14 @@ diff --git a/CMake/FindExprTk.cmake b/CMake/FindExprTk.cmake
 index 2886e7ed71..6e297fe4da 100644
 --- a/VTK/CMake/FindExprTk.cmake
 +++ b/VTK/CMake/FindExprTk.cmake
-@@ -24,7 +24,7 @@ if (ExprTk_INCLUDE_DIR)
-   set(ExprTk_VERSION)
-   foreach (_exprtk_version_line IN LISTS _exprtk_version_header)
-     if ("${ExprTk_VERSION}" STREQUAL "")
--      string(REGEX MATCH "version = \"(2\.7[0-9.]+)\".*$" _exprtk_version_match "${_exprtk_version_line}")
-+      string(REGEX MATCH "version = \"(2\\.7[0-9.]+)\".*$" _exprtk_version_match "${_exprtk_version_line}")
-       set(ExprTk_VERSION "${CMAKE_MATCH_1}")
-     else ()
-       string(REGEX MATCH "\"([0-9.]+)\".*$" _exprtk_version_match "${_exprtk_version_line}")
+@@ -21,8 +21,8 @@
+ 
+ if (ExprTk_INCLUDE_DIR)
+   file(STRINGS "${ExprTk_INCLUDE_DIR}/exprtk.hpp" _exprtk_version_header
+-    REGEX "static const char\\* version")
+-  string(REGEX MATCH "static const char\\* version = \"([0-9.]+)\"" _exprtk_version_match "${_exprtk_version_header}")
++    REGEX "static char_cptr version")
++  string(REGEX MATCH "static char_cptr version = \"([0-9.]+)\"" _exprtk_version_match "${_exprtk_version_header}")
+   set(ExprTk_VERSION "${CMAKE_MATCH_1}")
+   unset(_exprtk_version_header)
+   unset(_exprtk_version_match)
