@@ -9,6 +9,9 @@ package:
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
   md5: fb0c3d046f512b9810677af16073bb33
+  patches:
+    # Could NOT find ExprTk: (Required is at least version "2.7") (found $PREFIX/include)
+    - exprtk.patch
 
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
