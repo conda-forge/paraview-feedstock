@@ -36,12 +36,12 @@ hdf5:
 - 1.12.2
 icu:
 - '70'
-jpeg:
-- '9'
 jsoncpp:
 - 1.9.5
 libcurl:
 - '7'
+libjpeg_turbo:
+- 2.1.5
 libnetcdf:
 - 4.9.1
 libpng:
