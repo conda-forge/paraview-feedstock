@@ -73,7 +73,7 @@ requirements:
     - hdf4
     - hdf5
     - libpng
-    - jpeg
+    - libjpeg-turbo
     - libtiff
     - libxml2
     - zlib
