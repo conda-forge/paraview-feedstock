@@ -1,4 +1,4 @@
-{% set version = "5.11.0" %}
+{% set version = "5.11.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 {% set build_num = 1 %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  md5: fb0c3d046f512b9810677af16073bb33
+  md5: 14ac4d4a39c5523529cb7523fd4a96a0
 
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
@@ -28,7 +28,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - libprotobuf                            # [build_platform != target_platform]
     - curl                                   # [build_platform != target_platform]
-    - cmake
+    - cmake >=3.16
     - pkg-config
     - ninja
     - {{ compiler('c') }}
