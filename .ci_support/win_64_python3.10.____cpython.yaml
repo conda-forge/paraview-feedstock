@@ -39,7 +39,7 @@ libprotobuf:
 libtiff:
 - '4.5'
 libxml2:
-- '2.10'
+- '2.11'
 libzip:
 - '1'
 lz4_c:
