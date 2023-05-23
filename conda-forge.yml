@@ -1,5 +1,7 @@
 azure:
   store_build_artifacts: false
+bot:
+  automerge: true
 build_platform:
   osx_arm64: osx_64
 conda_build:
@@ -11,5 +13,3 @@ github:
 provider:
   win: azure
 test: native_and_emulated
-bot:
-  automerge: true
