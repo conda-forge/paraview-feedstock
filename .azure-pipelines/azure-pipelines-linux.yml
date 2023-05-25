@@ -8,36 +8,68 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_build_varianteglpython3.10.____cpython:
-        CONFIG: linux_64_build_varianteglpython3.10.____cpython
+      linux_64_build_variantegllibprotobuf3.21python3.10.____cpython:
+        CONFIG: linux_64_build_variantegllibprotobuf3.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_build_varianteglpython3.11.____cpython:
-        CONFIG: linux_64_build_varianteglpython3.11.____cpython
+      linux_64_build_variantegllibprotobuf3.21python3.11.____cpython:
+        CONFIG: linux_64_build_variantegllibprotobuf3.21python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_build_varianteglpython3.8.____cpython:
-        CONFIG: linux_64_build_varianteglpython3.8.____cpython
+      linux_64_build_variantegllibprotobuf3.21python3.8.____cpython:
+        CONFIG: linux_64_build_variantegllibprotobuf3.21python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_build_varianteglpython3.9.____cpython:
-        CONFIG: linux_64_build_varianteglpython3.9.____cpython
+      linux_64_build_variantegllibprotobuf3.21python3.9.____cpython:
+        CONFIG: linux_64_build_variantegllibprotobuf3.21python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_build_variantqtpython3.10.____cpython:
-        CONFIG: linux_64_build_variantqtpython3.10.____cpython
+      linux_64_build_variantegllibprotobuf4.23python3.10.____cpython:
+        CONFIG: linux_64_build_variantegllibprotobuf4.23python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_build_variantqtpython3.11.____cpython:
-        CONFIG: linux_64_build_variantqtpython3.11.____cpython
+      linux_64_build_variantegllibprotobuf4.23python3.11.____cpython:
+        CONFIG: linux_64_build_variantegllibprotobuf4.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_build_variantqtpython3.8.____cpython:
-        CONFIG: linux_64_build_variantqtpython3.8.____cpython
+      linux_64_build_variantegllibprotobuf4.23python3.8.____cpython:
+        CONFIG: linux_64_build_variantegllibprotobuf4.23python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_build_variantqtpython3.9.____cpython:
-        CONFIG: linux_64_build_variantqtpython3.9.____cpython
+      linux_64_build_variantegllibprotobuf4.23python3.9.____cpython:
+        CONFIG: linux_64_build_variantegllibprotobuf4.23python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtlibprotobuf3.21python3.10.____cpython:
+        CONFIG: linux_64_build_variantqtlibprotobuf3.21python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtlibprotobuf3.21python3.11.____cpython:
+        CONFIG: linux_64_build_variantqtlibprotobuf3.21python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtlibprotobuf3.21python3.8.____cpython:
+        CONFIG: linux_64_build_variantqtlibprotobuf3.21python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtlibprotobuf3.21python3.9.____cpython:
+        CONFIG: linux_64_build_variantqtlibprotobuf3.21python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtlibprotobuf4.23python3.10.____cpython:
+        CONFIG: linux_64_build_variantqtlibprotobuf4.23python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtlibprotobuf4.23python3.11.____cpython:
+        CONFIG: linux_64_build_variantqtlibprotobuf4.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtlibprotobuf4.23python3.8.____cpython:
+        CONFIG: linux_64_build_variantqtlibprotobuf4.23python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtlibprotobuf4.23python3.9.____cpython:
+        CONFIG: linux_64_build_variantqtlibprotobuf4.23python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
