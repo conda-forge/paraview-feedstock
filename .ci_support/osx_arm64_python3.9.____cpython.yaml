@@ -19,7 +19,7 @@ cxx_compiler_version:
 expat:
 - '2'
 fmt:
-- '9'
+- '10'
 freetype:
 - '2'
 glew:
