@@ -1,6 +1,6 @@
 {% set version = "5.11.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 1 %}
+{% set build_num = 2 %}
 
 package:
   name: paraview
@@ -106,6 +106,10 @@ requirements:
     - python
     - numpy
     - matplotlib-base  # [unix]
+    # header-only dependencies are needed for use with cmake
+    - cli11
+    - nlohmann_json
+    - eigen
 
 test:
   imports:
