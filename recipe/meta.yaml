@@ -11,11 +11,11 @@ source:
   md5: 57d87137fd02e3491ea4167c72cf7794
 
   patches:
+    # https://gitlab.kitware.com/paraview/paraview/-/issues/21137
+    - parflow_nlohmann.patch
     # Utilities\VisItBridge\databases\readers\MFIXCDF\avtMFIXCDFFileFormat.C(54): error C2039: 'auto_ptr': is not a member of 'std'
     # https://github.com/visit-dav/visit/commit/7be20320604790389d48429fb485d8c1d0c37860
     - visitbridge_cxx17.patch
-    # https://gitlab.kitware.com/paraview/paraview/-/issues/21137
-    - parflow_nlohmann.patch
 
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
@@ -126,7 +126,7 @@ test:
     - paraview.util
 
   commands:
-    - python -c "from paraview.simple import VisItNek5000Reader"
+    - python -c "from paraview.simple import VisItNek5000Reader"  # [not win]
     - python -c "from paraview.simple import Xdmf3ReaderS"
     - pvpython --version
     - paraview --version  # [not linux]
