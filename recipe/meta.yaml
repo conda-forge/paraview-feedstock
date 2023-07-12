@@ -10,6 +10,11 @@ source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
   md5: 57d87137fd02e3491ea4167c72cf7794
 
+  patches:
+    # Utilities\VisItBridge\databases\readers\MFIXCDF\avtMFIXCDFFileFormat.C(54): error C2039: 'auto_ptr': is not a member of 'std'
+    # https://github.com/visit-dav/visit/commit/7be20320604790389d48429fb485d8c1d0c37860
+    - visitbridge_cxx17.patch
+
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
 {% endif %}
@@ -96,12 +101,10 @@ requirements:
     - libcurl
     - icu
     - eigen
-    - nlohmann_json
     - proj
     - libharu
     - cli11
     - fmt
-    - exprtk
   run:
     - python
     - numpy

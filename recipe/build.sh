@@ -3,6 +3,9 @@
 # https://gitlab.kitware.com/paraview/paraview/issues/19645
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
+# VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfExprLex.cxx:709:3: error: ISO C++17 does not allow 'register' storage class specifier [-Wregister]
+export CXXFLAGS="${CXXFLAGS} -Wno-register"
+
 if test "${build_variant}" == "egl"; then
   CMAKE_ARGS="${CMAKE_ARGS} -DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF -DVTK_MODULE_USE_EXTERNAL_VTK_glew=OFF"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
@@ -49,6 +52,7 @@ cmake -LAH -G "Ninja" ${CMAKE_ARGS} \
   -DVTK_MODULE_USE_EXTERNAL_VTK_utf8=OFF \
   -DVTK_MODULE_USE_EXTERNAL_VTK_ioss=OFF \
   -DVTK_MODULE_USE_EXTERNAL_VTK_verdict=OFF \
+  -DVTK_MODULE_USE_EXTERNAL_VTK_nlohmannjson=OFF \
   -DPARAVIEW_ENABLE_WEB=ON \
   -DPARAVIEW_ENABLE_VISITBRIDGE=ON \
   -DPARAVIEW_ENABLE_XDMF3=ON \

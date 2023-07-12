@@ -1,0 +1,49 @@
+From 7be20320604790389d48429fb485d8c1d0c37860 Mon Sep 17 00:00:00 2001
+From: "Mark C. Miller" <miller86@llnl.gov>
+Date: Fri, 18 Dec 2020 17:59:31 -0800
+Subject: [PATCH] Fix various compiler warnings on macOS (#5313) (#5323)
+
+I had problems with the OpenMPD files because those had apparently been changed on `develop` to fix all the missing `[]` in the delete calls plus some other changes. So, I too `--ours` in the merge of those and then hit yet another conflict in one of those files that I then fixed by hand directly on GitHub.
+---
+ .../Expressions/Abstract/avtExpressionFilter.C   |  2 +-
+ src/common/expr/ExprNode.C                       |  4 ++--
+ src/common/misc/DebugStream.h                    | 10 +++++-----
+ src/databases/IDX/pidx_idx_io.C                  |  1 +
+ src/databases/IDX/visit_idx_utils.h              | 16 ++++++++++------
+ src/databases/MFIXCDF/avtMFIXCDFFileFormat.C     | 15 ++++++---------
+ src/databases/OpenPMD/OpenPMDClasses/PMDFile.C   |  7 ++-----
+ 7 files changed, 27 insertions(+), 28 deletions(-)
+
+diff --git a/src/databases/MFIXCDF/avtMFIXCDFFileFormat.C b/src/databases/MFIXCDF/avtMFIXCDFFileFormat.C
+index b3dae6a8f8f..4358f81dbbf 100644
+--- a/Utilities/VisItBridge/databases/readers/MFIXCDF/avtMFIXCDFFileFormat.C
++++ b/Utilities/VisItBridge/databases/readers/MFIXCDF/avtMFIXCDFFileFormat.C
+@@ -51,7 +51,6 @@
+ #define cbrt(x) (pow(x, 1.0/3.0))
+ #endif
+ 
+-using std::auto_ptr;
+ using std::vector;
+ using std::ostringstream;
+ 
+@@ -1584,14 +1583,12 @@ avtMFIXCDFFileFormat::GetVectorVar(int domain, const char *varname)
+         nzvals= (widths[2]+3);
+     }
+ 
+-    // This trick with auto_ptr makes xvec, yvec and zvec get deleted
+-    // when they go out of scope.
+-    auto_ptr< vector<float> > xvec(new vector<float>(totZones));
+-    float* xdata= &(*xvec)[0];
+-    auto_ptr< vector<float> > yvec(new vector<float>(totZones));
+-    float* ydata= &(*yvec)[0];
+-    auto_ptr< vector<float> > zvec(new vector<float>(totZones));
+-    float* zdata= &(*zvec)[0];
++    vector<float> xvec(totZones);
++    vector<float> yvec(totZones);
++    vector<float> zvec(totZones);
++    float *xdata = &xvec[0];
++    float *ydata = &yvec[0];
++    float *zdata = &zvec[0];
+ 
+     if (!strncmp(varname,"Vel_",4))
+     {
