@@ -1,0 +1,18 @@
+diff --git a/ThirdParty/protobuf/CMakeLists.txt b/ThirdParty/protobuf/CMakeLists.txt
+index 811dc3721b..eb0b232b17 100644
+--- a/ThirdParty/protobuf/CMakeLists.txt
++++ b/ThirdParty/protobuf/CMakeLists.txt
+@@ -48,6 +48,13 @@ if (VTK_MODULE_USE_EXTERNAL_ParaView_protobuf)
+   # promote protobuf::protoc to GLOBAL to allow to call protobuf_generate from other directories
+   set_target_properties (protobuf::protoc PROPERTIES IMPORTED_GLOBAL TRUE)
+   set(protobuf_function_file "${CMAKE_CURRENT_SOURCE_DIR}/protobuf-function.cmake")
++
++  find_library(ABSEIL_DLL NAMES abseil_dll)
++  message(STATUS "ABSEIL_DLL=${ABSEIL_DLL}")
++  if (ABSEIL_DLL)
++    target_link_libraries (protobuf::libprotoc INTERFACE ${ABSEIL_DLL})
++    target_link_libraries (protobuf::libprotobuf INTERFACE ${ABSEIL_DLL})
++  endif ()
+ else ()
+   set(protobuf_function_file "${CMAKE_CURRENT_SOURCE_DIR}/vtkprotobuf/cmake/protobuf-function.cmake")
+ endif ()
