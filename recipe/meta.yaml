@@ -16,6 +16,8 @@ source:
     # Utilities\VisItBridge\databases\readers\MFIXCDF\avtMFIXCDFFileFormat.C(54): error C2039: 'auto_ptr': is not a member of 'std'
     # https://github.com/visit-dav/visit/commit/7be20320604790389d48429fb485d8c1d0c37860
     - visitbridge_cxx17.patch
+    # vtkSMUndoStack.cxx.obj : error LNK2001: unresolved external symbol "private: void __cdecl absl::lts_20230125::log_internal::LogMessage::CopyToEncodedBuffer
+    - absl.patch
 
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
