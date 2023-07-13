@@ -1,22 +1,18 @@
-diff --git a/Remoting/ServerManager/CMakeLists.txt b/Remoting/ServerManager/CMakeLists.txt
-index d9d4143f5a..7a348b0b53 100644
---- a/Remoting/ServerManager/CMakeLists.txt
-+++ b/Remoting/ServerManager/CMakeLists.txt
-@@ -202,6 +202,17 @@ vtk_module_add_module(ParaView::RemotingServerManager
-   PRIVATE_HEADERS ${private_headers}
-   TEMPLATE_CLASSES ${template_classes})
- 
-+if (TARGET absl::absl_log)
-+  message(STATUS "ABSEIL_DLL absl::absl_log")
-+  target_link_libraries (RemotingServerManager PRIVATE absl::absl_log absl::log_initialize absl::log_severity)
-+else ()
+diff --git a/ThirdParty/protobuf/CMakeLists.txt b/ThirdParty/protobuf/CMakeLists.txt
+index 811dc3721b..eb0b232b17 100644
+--- a/ThirdParty/protobuf/CMakeLists.txt
++++ b/ThirdParty/protobuf/CMakeLists.txt
+@@ -48,6 +48,13 @@ if (VTK_MODULE_USE_EXTERNAL_ParaView_protobuf)
+   # promote protobuf::protoc to GLOBAL to allow to call protobuf_generate from other directories
+   set_target_properties (protobuf::protoc PROPERTIES IMPORTED_GLOBAL TRUE)
+   set(protobuf_function_file "${CMAKE_CURRENT_SOURCE_DIR}/protobuf-function.cmake")
++
 +  find_library(ABSEIL_DLL NAMES abseil_dll)
 +  message(STATUS "ABSEIL_DLL=${ABSEIL_DLL}")
 +  if (ABSEIL_DLL)
-+    target_link_libraries (RemotingServerManager PRIVATE ${ABSEIL_DLL})
++    target_link_libraries (protobuf::libprotoc INTERFACE ${ABSEIL_DLL})
++    target_link_libraries (protobuf::libprotobuf INTERFACE ${ABSEIL_DLL})
 +  endif ()
-+endif ()
-+
- paraview_protobuf_generate(
-   PROTOS    vtkPVMessage.proto
-   OUT_VAR   vtkPVMessage_sources
+ else ()
+   set(protobuf_function_file "${CMAKE_CURRENT_SOURCE_DIR}/vtkprotobuf/cmake/protobuf-function.cmake")
+ endif ()
