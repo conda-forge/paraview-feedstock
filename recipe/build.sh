@@ -4,6 +4,7 @@
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
 # VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfExprLex.cxx:709:3: error: ISO C++17 does not allow 'register' storage class specifier [-Wregister]
+# https://gitlab.kitware.com/vtk/vtk/-/merge_requests/10337
 export CXXFLAGS="${CXXFLAGS} -Wno-register"
 
 if test "${build_variant}" == "egl"; then
