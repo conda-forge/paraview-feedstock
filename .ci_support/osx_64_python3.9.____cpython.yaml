@@ -39,7 +39,7 @@ libnetcdf:
 libpng:
 - '1.6'
 libprotobuf:
-- '3.21'
+- 4.23.3
 libtiff:
 - '4.5'
 libxml2:
@@ -58,8 +58,10 @@ pin_run_as_build:
     max_pin: x.x
 proj:
 - 9.2.1
+pugixml:
+- '1.13'
 python:
-- 3.8.* *_cpython
+- 3.9.* *_cpython
 qt:
 - '5.15'
 qt_main:
