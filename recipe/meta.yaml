@@ -11,8 +11,6 @@ source:
   md5: b5a13247fec282b8294a28d3101049fb
 
   patches:
-    # https://gitlab.kitware.com/paraview/paraview/-/issues/21137
-    - parflow_nlohmann.patch
     # Utilities\VisItBridge\databases\readers\MFIXCDF\avtMFIXCDFFileFormat.C(54): error C2039: 'auto_ptr': is not a member of 'std'
     # https://github.com/visit-dav/visit/commit/7be20320604790389d48429fb485d8c1d0c37860
     - visitbridge_cxx17.patch
