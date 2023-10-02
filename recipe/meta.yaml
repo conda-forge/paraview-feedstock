@@ -94,7 +94,7 @@ requirements:
     - jsoncpp
     - xz
     - cgns  # [not win]
-    - boost-cpp
+    - libboost-headers
     - pugixml
     - libtheora
     - gl2ps
