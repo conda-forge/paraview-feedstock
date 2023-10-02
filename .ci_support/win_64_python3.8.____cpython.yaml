@@ -1,5 +1,3 @@
-boost_cpp:
-- 1.78.0
 build_variant:
 - qt
 c_compiler:
@@ -43,8 +41,6 @@ libzip:
 lz4_c:
 - 1.9.3
 pin_run_as_build:
-  boost-cpp:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
