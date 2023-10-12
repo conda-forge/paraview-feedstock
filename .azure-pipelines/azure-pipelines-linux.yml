@@ -16,6 +16,10 @@ jobs:
         CONFIG: linux_64_build_varianteglpython3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_varianteglpython3.12.____cpython:
+        CONFIG: linux_64_build_varianteglpython3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
       linux_64_build_varianteglpython3.8.____cpython:
         CONFIG: linux_64_build_varianteglpython3.8.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -30,6 +34,10 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
       linux_64_build_variantqtpython3.11.____cpython:
         CONFIG: linux_64_build_variantqtpython3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_build_variantqtpython3.12.____cpython:
+        CONFIG: linux_64_build_variantqtpython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
       linux_64_build_variantqtpython3.8.____cpython:
