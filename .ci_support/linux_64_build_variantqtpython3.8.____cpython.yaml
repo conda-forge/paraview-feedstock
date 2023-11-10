@@ -59,7 +59,7 @@ pin_run_as_build:
 proj:
 - 9.3.0
 pugixml:
-- '1.13'
+- '1.14'
 python:
 - 3.8.* *_cpython
 qt:
