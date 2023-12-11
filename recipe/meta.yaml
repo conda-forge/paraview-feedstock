@@ -1,19 +1,16 @@
-{% set version = "5.11.2" %}
+{% set version = "5.12.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 2 %}
+{% set build_num = 0 %}
 
 package:
   name: paraview
   version: {{ version }}
 
 source:
-  url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  md5: b5a13247fec282b8294a28d3101049fb
+  url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}-RC1.tar.xz
+  md5: 791b5f854b90c7839a9615be4b98d861
 
   patches:
-    # Utilities\VisItBridge\databases\readers\MFIXCDF\avtMFIXCDFFileFormat.C(54): error C2039: 'auto_ptr': is not a member of 'std'
-    # https://github.com/visit-dav/visit/commit/7be20320604790389d48429fb485d8c1d0c37860
-    - visitbridge_cxx17.patch
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
     # vtkSMUndoStack.cxx.obj : error LNK2001: unresolved external symbol "private: void __cdecl absl::lts_20230125::log_internal::LogMessage::CopyToEncodedBuffer
     - absl.patch
