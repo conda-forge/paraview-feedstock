@@ -31,6 +31,7 @@ cmake -LAH -G"Ninja" ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_verdict=OFF ^
     -DPARAVIEW_ENABLE_WEB=ON ^
     -DPARAVIEW_ENABLE_XDMF3=ON ^
+    -DPARAVIEW_ENABLE_EMBEDDED_DOCUMENTATION=OFF ^
     -B build .
 if errorlevel 1 exit 1
 
