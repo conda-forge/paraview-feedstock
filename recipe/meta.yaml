@@ -1,6 +1,6 @@
 {% set version = "5.11.2" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 2 %}
+{% set build_num = 3 %}
 
 package:
   name: paraview
@@ -78,6 +78,7 @@ requirements:
     - {{ cdt('libuuid-devel') }}         # [linux]
   host:
     - python
+    - adios2
     - hdf5
     - libpng
     - libjpeg-turbo
@@ -112,6 +113,7 @@ requirements:
     - python
     - numpy
     - matplotlib-base  # [unix]
+    - openpmd-api
 
 test:
   imports:
