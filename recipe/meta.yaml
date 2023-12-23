@@ -113,7 +113,6 @@ requirements:
     - python
     - numpy
     - matplotlib-base  # [unix]
-    - openpmd-api
 
 test:
   imports:
