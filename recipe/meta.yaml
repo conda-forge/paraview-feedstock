@@ -1,4 +1,4 @@
-{% set version = "5.11.2" %}
+{% set version = "5.12.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 {% set build_num = 2 %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  md5: b5a13247fec282b8294a28d3101049fb
+  md5: bd946498e74229a65437a7952d4bcaf6
 
   patches:
     # Utilities\VisItBridge\databases\readers\MFIXCDF\avtMFIXCDFFileFormat.C(54): error C2039: 'auto_ptr': is not a member of 'std'
