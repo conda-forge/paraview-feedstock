@@ -3,10 +3,6 @@
 # https://gitlab.kitware.com/paraview/paraview/issues/19645
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
-# VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfExprLex.cxx:709:3: error: ISO C++17 does not allow 'register' storage class specifier [-Wregister]
-# https://gitlab.kitware.com/vtk/vtk/-/merge_requests/10337
-export CXXFLAGS="${CXXFLAGS} -Wno-register"
-
 if test "${build_variant}" == "egl"; then
   CMAKE_ARGS="${CMAKE_ARGS} -DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF -DVTK_MODULE_USE_EXTERNAL_VTK_glew=OFF"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_INCLUDE_DIR=${BUILD_PREFIX}/${HOST}/sysroot/usr/include"
@@ -17,12 +13,9 @@ fi
 
 if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
   # use native build tools
-  mkdir build-native
-  cd build-native
   CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
-     cmake -G "Ninja" -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release ..
-  cmake --build . --target ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit
-  cd ..
+     cmake -G "Ninja" -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release -B build-native .
+  cmake --build build-native --target ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit
   cat ${RECIPE_DIR}/LocalUserOptions.cmake.in | sed "s|@PARAVIEW_NATIVE_BUILD_DIR@|$PWD/build-native|g" > VTK/Wrapping/Tools/LocalUserOptions.cmake
   CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
   CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT=1 -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT__TRYRUN_OUTPUT="
@@ -32,8 +25,6 @@ if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
   # disable doc
   CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_ENABLE_EMBEDDED_DOCUMENTATION=OFF -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON"
 fi
-
-mkdir build && cd build
 
 cmake -LAH -G "Ninja" ${CMAKE_ARGS} \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
@@ -50,15 +41,17 @@ cmake -LAH -G "Ninja" ${CMAKE_ARGS} \
   -DPython3_ROOT_DIR=${PREFIX} \
   -DPARAVIEW_BUILD_WITH_EXTERNAL=ON \
   -DVTK_MODULE_USE_EXTERNAL_VTK_exprtk=OFF \
-  -DVTK_MODULE_USE_EXTERNAL_VTK_utf8=OFF \
+  -DVTK_MODULE_USE_EXTERNAL_VTK_fast_float=OFF \
   -DVTK_MODULE_USE_EXTERNAL_VTK_ioss=OFF \
+  -DVTK_MODULE_USE_EXTERNAL_VTK_token=OFF \
+  -DVTK_MODULE_USE_EXTERNAL_VTK_utf8=OFF \
   -DVTK_MODULE_USE_EXTERNAL_VTK_verdict=OFF \
   -DPARAVIEW_ENABLE_WEB=ON \
   -DPARAVIEW_ENABLE_VISITBRIDGE=ON \
   -DPARAVIEW_ENABLE_XDMF3=ON \
   -DPARAVIEW_PLUGIN_ENABLE_ParFlow=ON \
-  ..
-cmake --build . --target install
+  -B build .
+cmake --build build --target install
 
 if test `uname` = "Darwin"; then
   ln -s $PREFIX/Applications/paraview.app/Contents/MacOS/paraview ${PREFIX}/bin/paraview

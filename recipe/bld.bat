@@ -5,7 +5,6 @@ set "CXXFLAGS=-MD"
 :: from Azure
 set "Boost_ROOT="
 
-mkdir build && cd build
 cmake -LAH -G"Ninja" ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
@@ -24,16 +23,18 @@ cmake -LAH -G"Ninja" ^
     -DPARAVIEW_BUILD_WITH_EXTERNAL=ON ^
     -DLZMA_LIBRARY="%LIBRARY_PREFIX%/lib/liblzma.lib" ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_exprtk=OFF ^
-    -DVTK_MODULE_USE_EXTERNAL_VTK_utf8=OFF ^
+    -DVTK_MODULE_USE_EXTERNAL_VTK_fast_float=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_ioss=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_cgns=OFF ^
+    -DVTK_MODULE_USE_EXTERNAL_VTK_token=OFF ^
+    -DVTK_MODULE_USE_EXTERNAL_VTK_utf8=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_verdict=OFF ^
     -DPARAVIEW_ENABLE_WEB=ON ^
     -DPARAVIEW_ENABLE_XDMF3=ON ^
-    ..
+    -B build .
 if errorlevel 1 exit 1
 
-cmake --build . --target install --config Release --parallel %CPU_COUNT%
+cmake --build build --target install --config Release --parallel %CPU_COUNT%
 if errorlevel 1 exit 1
 
 curl https://www.paraview.org/files/%PKG_VERSION:~0,4%/ParaViewGettingStarted-%PKG_VERSION%.pdf --create-dirs -o %LIBRARY_PREFIX%\doc\GettingStarted.pdf
