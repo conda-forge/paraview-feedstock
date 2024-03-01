@@ -30,6 +30,7 @@ cmake -LAH -G"Ninja" ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_utf8=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_verdict=OFF ^
     -DPARAVIEW_ENABLE_WEB=ON ^
+    -DPARAVIEW_ENABLE_VISITBRIDGE=ON ^
     -DPARAVIEW_ENABLE_XDMF3=ON ^
     -B build .
 if errorlevel 1 exit 1

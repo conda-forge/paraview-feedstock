@@ -124,7 +124,7 @@ test:
     - paraview.util
 
   commands:
-    - python -c "from paraview.simple import VisItNek5000Reader"  # [linux]
+    - python -c "from paraview.simple import VisItNek5000Reader"  # [not osx]
     - python -c "from paraview.simple import Xdmf3ReaderS"  # [not osx]
     - pvpython --version
     - paraview --version  # [not linux]
