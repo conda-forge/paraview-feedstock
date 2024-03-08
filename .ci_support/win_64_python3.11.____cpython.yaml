@@ -52,8 +52,8 @@ python:
 - 3.11.* *_cpython
 qt:
 - '5.15'
-qt_main:
-- '5.15'
+qt6_main:
+- '6.6'
 target_platform:
 - win-64
 xz:
