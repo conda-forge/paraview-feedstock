@@ -1,6 +1,6 @@
 {% set version = "5.12.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 4 %}
+{% set build_num = 5 %}
 
 package:
   name: paraview
@@ -14,6 +14,9 @@ source:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
     # vtkSMUndoStack.cxx.obj : error LNK2001: unresolved external symbol "private: void __cdecl absl::lts_20230125::log_internal::LogMessage::CopyToEncodedBuffer
     - absl.patch
+
+    # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/6836
+    - 6836.patch
 
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
