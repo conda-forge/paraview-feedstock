@@ -1,4 +1,4 @@
-{% set version = "5.12.0" %}
+{% set version = "5.12.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 {% set build_num = 4 %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  md5: bd946498e74229a65437a7952d4bcaf6
+  md5: e1b1f7d94a04d1f5f8d616f126538d7c
 
   patches:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
@@ -38,6 +38,7 @@ requirements:
     - pkg-config
     - ninja
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [build_variant == "egl"]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
