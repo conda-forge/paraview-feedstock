@@ -61,7 +61,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 proj:
-- 9.4.0
+- '9.4'
 pugixml:
 - '1.14'
 python:
@@ -81,4 +81,4 @@ zip_keys:
 - - c_stdlib_version
   - cdt_name
 zlib:
-- '1.2'
+- '1'
