@@ -75,6 +75,9 @@ requirements:
     - {{ cdt('libsm-devel') }}           # [linux]
     - {{ cdt('libice-devel') }}          # [linux]
     - {{ cdt('libuuid-devel') }}         # [linux]
+    - {{ cdt('libglvnd-glx') }}          # [linux]
+    - {{ cdt('libglvnd-egl') }}          # [linux]
+    - {{ cdt('libglvnd-devel') }}        # [linux]
   host:
     - python
     - hdf5
@@ -105,8 +108,6 @@ requirements:
     - nlohmann_json
     - proj
     - libharu
-    - cli11
-    - fmt
   run:
     - python
     - numpy
