@@ -48,7 +48,7 @@ source run_conda_forge_build_setup
 # "recipe/yum_requirements.txt" file. After updating that file,
 # run "conda smithy rerender" and this line will be updated
 # automatically.
-/usr/bin/sudo -n yum install -y mesa-libGL-devel mesa-libGLU-devel mesa-libEGL-devel libX11-devel libXt-devel libXtst-devel libXrender-devel libXext-devel libXdmcp-devel libXcomposite-devel libXcursor-devel libxcb-devel libXau-devel libXi-devel libXScrnSaver-devel libXrandr-devel alsa-lib-devel xcb-util-devel xorg-x11-server-Xvfb pciutils-devel libuuid-devel xorg-x11-server-Xorg
+/usr/bin/sudo -n yum install -y mesa-libGL mesa-libGL-devel mesa-libGLU-devel mesa-libEGL-devel mesa-dri-drivers libglvnd-glx libX11-devel libXt-devel libXtst-devel libXrender-devel libXext-devel libXdmcp-devel libXcomposite-devel libXcursor-devel libxcb-devel libXau-devel libXi-devel libXScrnSaver-devel libXrandr-devel alsa-lib-devel xcb-util-devel xorg-x11-server-Xvfb pciutils-devel libuuid-devel xorg-x11-server-Xorg
 
 
 # make the build number clobber
@@ -80,6 +80,13 @@ else
         --suppress-variables ${EXTRA_CB_OPTIONS:-} \
         --clobber-file "${CI_SUPPORT}/clobber_${CONFIG}.yaml" \
         --extra-meta flow_run_id="${flow_run_id:-}" remote_url="${remote_url:-}" sha="${sha:-}"
+
+    ( startgroup "Inspecting artifacts" ) 2> /dev/null
+
+    # inspect_artifacts was only added in conda-forge-ci-setup 4.6.0
+    command -v inspect_artifacts >/dev/null 2>&1 && inspect_artifacts || echo "inspect_artifacts needs conda-forge-ci-setup >=4.6.0"
+
+    ( endgroup "Inspecting artifacts" ) 2> /dev/null
     ( startgroup "Validating outputs" ) 2> /dev/null
 
     validate_recipe_outputs "${FEEDSTOCK_NAME}"
