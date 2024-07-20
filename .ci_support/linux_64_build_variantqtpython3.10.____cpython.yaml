@@ -33,7 +33,7 @@ glew:
 hdf5:
 - 1.14.3
 icu:
-- '73'
+- '75'
 jsoncpp:
 - 1.9.5
 libcurl:
