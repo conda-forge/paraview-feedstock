@@ -1,6 +1,6 @@
 {% set version = "5.12.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 4 %}
+{% set build_num = 5 %}
 
 package:
   name: paraview
@@ -80,6 +80,7 @@ requirements:
     - {{ cdt('libglvnd-devel') }}        # [linux]
   host:
     - python
+    - adios2
     - hdf5
     - libpng
     - libjpeg-turbo
