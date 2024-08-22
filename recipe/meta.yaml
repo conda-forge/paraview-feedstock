@@ -118,7 +118,6 @@ test:
     - paraview
     - paraview.collaboration
     - paraview.coprocessing
-    - paraview.lookuptable
     - paraview.numeric
     - paraview.numpy_support
     - paraview.python_view
