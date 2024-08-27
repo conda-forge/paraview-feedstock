@@ -36,6 +36,8 @@ icu:
 - '75'
 jsoncpp:
 - 1.9.5
+libboost_headers:
+- '1.86'
 libcurl:
 - '8'
 libjpeg_turbo:
