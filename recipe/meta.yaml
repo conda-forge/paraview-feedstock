@@ -15,6 +15,9 @@ source:
     # vtkSMUndoStack.cxx.obj : error LNK2001: unresolved external symbol "private: void __cdecl absl::lts_20230125::log_internal::LogMessage::CopyToEncodedBuffer
     - absl.patch
 
+    # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/11486
+    - vtk_py313.patch
+
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
 {% endif %}
