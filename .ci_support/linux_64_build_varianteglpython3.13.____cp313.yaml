@@ -35,7 +35,7 @@ hdf5:
 icu:
 - '75'
 jsoncpp:
-- 1.9.5
+- 1.9.6
 libboost_headers:
 - '1.86'
 libcurl:
@@ -49,7 +49,7 @@ libpng:
 libprotobuf:
 - 4.25.3
 libtiff:
-- '4.6'
+- '4.7'
 libxml2:
 - '2'
 libzip:
