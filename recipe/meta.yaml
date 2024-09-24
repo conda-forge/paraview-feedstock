@@ -73,8 +73,6 @@ requirements:
     - libzip
     - libcurl
     - icu
-    - eigen
-    - nlohmann_json
     - proj
     - libharu
   run:
