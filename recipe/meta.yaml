@@ -64,7 +64,7 @@ requirements:
     - double-conversion
     - jsoncpp
     - xz
-    - cgns  # [not win]
+    - cgns
     - libboost-headers
     - pugixml
     - libtheora
