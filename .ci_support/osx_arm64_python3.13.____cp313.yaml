@@ -13,7 +13,7 @@ c_stdlib:
 c_stdlib_version:
 - '11.0'
 channel_sources:
-- conda-forge/label/python_rc,conda-forge
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
@@ -43,7 +43,7 @@ libnetcdf:
 libpng:
 - '1.6'
 libprotobuf:
-- 5.27.5
+- 5.28.2
 libtiff:
 - '4.7'
 libxml2:
@@ -75,7 +75,5 @@ xz:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - python
-  - channel_sources
 zlib:
 - '1'
