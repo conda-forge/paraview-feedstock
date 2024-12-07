@@ -7,7 +7,7 @@ build_variant:
 c_compiler:
 - clang
 c_compiler_version:
-- '17'
+- '18'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -19,7 +19,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '17'
+- '18'
 expat:
 - '2'
 freetype:
@@ -51,7 +51,7 @@ libxml2:
 libzip:
 - '1'
 lz4_c:
-- 1.9.3
+- '1.10'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
