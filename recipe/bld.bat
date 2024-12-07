@@ -21,7 +21,6 @@ cmake -LAH -G"Ninja" ^
     -DPython3_ROOT_DIR="%PREFIX%" ^
     -DPARAVIEW_PYTHON_SITE_PACKAGES_SUFFIX="Lib/site-packages" ^
     -DPARAVIEW_BUILD_WITH_EXTERNAL=ON ^
-    -DLZMA_LIBRARY="%LIBRARY_PREFIX%/lib/liblzma.lib" ^
     -DCGNS_LIBRARY="%LIBRARY_PREFIX%/lib/cgnsdll.lib" ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_cli11=OFF ^
     -DVTK_MODULE_USE_EXTERNAL_VTK_eigen=OFF ^
