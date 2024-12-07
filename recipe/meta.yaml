@@ -1,6 +1,6 @@
 {% set version = "5.13.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 5 %}
+{% set build_num = 6 %}
 
 package:
   name: paraview
@@ -17,6 +17,9 @@ source:
 
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/11486
     - vtk_py313.patch
+
+    # https://gitlab.kitware.com/paraview/paraview/-/issues/22806
+    - ldflags.patch
 
 {% if build_variant == "qt" %}
 {% set build_num = build_num + 100 %}
