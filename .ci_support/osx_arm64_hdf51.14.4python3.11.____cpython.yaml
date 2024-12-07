@@ -7,7 +7,7 @@ build_variant:
 c_compiler:
 - clang
 c_compiler_version:
-- '17'
+- '18'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -19,7 +19,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '17'
+- '18'
 expat:
 - '2'
 freetype:
@@ -63,7 +63,7 @@ proj:
 pugixml:
 - '1.14'
 python:
-- 3.10.* *_cpython
+- 3.11.* *_cpython
 qt:
 - '5.15'
 qt6_main:

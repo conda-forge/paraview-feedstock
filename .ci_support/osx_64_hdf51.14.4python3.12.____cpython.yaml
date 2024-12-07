@@ -1,17 +1,17 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
+- '10.13'
 MACOSX_SDK_VERSION:
-- '11.0'
+- '10.13'
 build_variant:
 - qt
 c_compiler:
 - clang
 c_compiler_version:
-- '17'
+- '18'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
-- '11.0'
+- '10.13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -19,7 +19,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '17'
+- '18'
 expat:
 - '2'
 freetype:
@@ -53,7 +53,7 @@ libzip:
 lz4_c:
 - 1.9.3
 macos_machine:
-- arm64-apple-darwin20.0.0
+- x86_64-apple-darwin13.4.0
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -63,13 +63,13 @@ proj:
 pugixml:
 - '1.14'
 python:
-- 3.11.* *_cpython
+- 3.12.* *_cpython
 qt:
 - '5.15'
 qt6_main:
 - '6.7'
 target_platform:
-- osx-arm64
+- osx-64
 xz:
 - '5'
 zip_keys:
