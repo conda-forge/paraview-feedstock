@@ -72,8 +72,6 @@ qt6_main:
 - '6.7'
 target_platform:
 - osx-64
-xz:
-- '5'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
