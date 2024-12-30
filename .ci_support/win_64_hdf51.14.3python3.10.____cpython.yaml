@@ -35,7 +35,7 @@ libnetcdf:
 libpng:
 - '1.6'
 libprotobuf:
-- 5.28.2
+- 5.28.3
 libtiff:
 - '4.7'
 libxml2:
