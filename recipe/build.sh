@@ -1,15 +1,4 @@
-#!/usr/bin/env bash
-
-set -xe
-
-if test "${target_platform}" == "aarch64"; then
-  find ${CONDA_PREFIX} -name "math.h" | xargs ls -la
-
-  cp -f $BUILD_PREFIX/lib/gcc/aarch64-conda-linux-gnu/13.3.0/include/c++/math.h $BUILD_PREFIX/aarch64-conda-linux-gnu/sysroot/usr/include/math.h
-  cp -f $BUILD_PREFIX/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/math.h $BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot/usr/include/math.h
-
-  find ${CONDA_PREFIX} -name "math.h" | xargs grep pow
-fi
+#!/bin/sh
 
 # https://gitlab.kitware.com/paraview/paraview/issues/19645
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
@@ -21,10 +10,10 @@ if test "${build_variant}" == "egl"; then
   CMAKE_ARGS="${CMAKE_ARGS} -DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF -DVTK_MODULE_USE_EXTERNAL_VTK_glew=OFF"
 fi
 
-if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
+if test "${target_platform}" == "osx-arm64"; then
   # use native build tools
-  # CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
-  cmake -G "Ninja" -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release -B build-native . 
+  CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
+     cmake -G "Ninja" -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release -B build-native .
   cmake --build build-native --target ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit
   CMAKE_ARGS="${CMAKE_ARGS} -DQT_HOST_PATH=${BUILD_PREFIX}"
   cat ${RECIPE_DIR}/LocalUserOptions.cmake.in | sed "s|@PARAVIEW_NATIVE_BUILD_DIR@|$PWD/build-native|g" > VTK/Wrapping/Tools/LocalUserOptions.cmake
