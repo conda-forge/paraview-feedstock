@@ -2,10 +2,11 @@
 
 set -xe
 
-rm -f $BUILD_PREFIX/aarch64-conda-linux-gnu/sysroot/usr/include/math.h
-rm -f $BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot/usr/include/math.h
+find ${CONDA_PREFIX} -name "math.h" | xargs ls -la
 
-find ${CONDA_PREFIX} -name "math.h"
+cp -f $BUILD_PREFIX/lib/gcc/aarch64-conda-linux-gnu/13.3.0/include/c++/math.h $BUILD_PREFIX/aarch64-conda-linux-gnu/sysroot/usr/include/math.h
+cp -f $BUILD_PREFIX/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/math.h $BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot/usr/include/math.h
+
 find ${CONDA_PREFIX} -name "math.h" | xargs grep pow
 
 # https://gitlab.kitware.com/paraview/paraview/issues/19645
