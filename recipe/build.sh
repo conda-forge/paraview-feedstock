@@ -2,6 +2,9 @@
 
 set -xe
 
+find ${CONDA_PREFIX} -name "math.h"
+find ${CONDA_PREFIX} -name "math.h" | xargs grep pow
+
 # https://gitlab.kitware.com/paraview/paraview/issues/19645
 export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 
