@@ -2,6 +2,9 @@
 
 set -xe
 
+rm -f $BUILD_PREFIX/aarch64-conda-linux-gnu/sysroot/usr/include/math.h
+rm -f $BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot/usr/include/math.h
+
 find ${CONDA_PREFIX} -name "math.h"
 find ${CONDA_PREFIX} -name "math.h" | xargs grep pow
 
