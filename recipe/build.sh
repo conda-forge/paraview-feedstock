@@ -11,24 +11,14 @@ if test "${build_variant}" == "egl"; then
 fi
 
 if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
+
   if test "${target_platform}" == "osx-arm64"; then
     # use native build tools
-    xCC=${CC_FOR_BUILD}
-    xCXX=${CXX_FOR_BUILD}
-    xCXXFLAGS= 
-    xCPPFLAGS= 
-    xLDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX}
-  else
-    xCC=${CC}
-    xCXX=${CXX}
-    xCXXFLAGS=${CXXFLAGS}
-    xCPPFLAGS=${CPPFLAGS} 
-    xLDFLAGS=${LDFLAGS}
+    CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
+      cmake -G "Ninja" -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release -B build-native .  
+    cmake --build build-native --target ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit
   fi
 
-  CC=${xCC} CXX=${xCXX} CFLAGS=${xCFLAGS} CXXFLAGS=${xCXXFLAGS} CPPFLAGS=${xCPPFLAGS} LDFLAGS=${xLDFLAGS} \
-     cmake -G "Ninja" -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release -B build-native .
-  cmake --build build-native --target ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit
   CMAKE_ARGS="${CMAKE_ARGS} -DQT_HOST_PATH=${BUILD_PREFIX}"
   cat ${RECIPE_DIR}/LocalUserOptions.cmake.in | sed "s|@PARAVIEW_NATIVE_BUILD_DIR@|$PWD/build-native|g" > VTK/Wrapping/Tools/LocalUserOptions.cmake
   CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
