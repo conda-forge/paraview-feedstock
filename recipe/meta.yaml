@@ -1,6 +1,9 @@
 {% set version = "5.13.2" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 7 %}
+{% set build_num = 8 %}
+
+# TODO: drop this line after next version bump
+{% set build_num = build_num + 100 %}  # [build_variant == "qt"]
 
 package:
   name: paraview
@@ -21,15 +24,12 @@ source:
     # https://gitlab.kitware.com/paraview/paraview/-/issues/22806
     - ldflags.patch
 
-{% if build_variant == "qt" %}
-{% set build_num = build_num + 100 %}
-{% endif %}
-
 build:
   number: {{ build_num }}
   string: py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
   track_features:
     - paraview-egl  # [build_variant == "egl"]
+    - paraview-osmesa  # [build_variant == "osmesa"]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
@@ -46,11 +46,13 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}  # [build_variant == "egl"]
   host:
-    - libgl-devel                        # [linux]
-    - libegl-devel                       # [linux]
-    - libopengl-devel                    # [linux]
+    - libgl-devel  # [linux and build_variant != "osmesa"]
+    - libegl-devel  # [build_variant == "egl"]
+    - libglvnd-devel  # [linux and build_variant != "osmesa"]
+    - mesalib  # [build_variant == "osmesa"]
+    - glew  # [build_variant == "qt"]
+    - qt6-main  # [build_variant == "qt"]
     - python
     - hdf5
     - libpng
@@ -63,7 +65,6 @@ requirements:
     - lz4-c
     - expat
     - libnetcdf
-    - glew  # [build_variant == "qt"]
     - double-conversion
     - jsoncpp
     - liblzma-devel
@@ -72,7 +73,6 @@ requirements:
     - pugixml
     - libtheora
     - gl2ps
-    - qt6-main  # [build_variant == "qt"]
     - libzip
     - libcurl
     - icu
@@ -83,6 +83,8 @@ requirements:
     - python
     - numpy
     - matplotlib-base  # [unix]
+    # because of gl2ps module
+    - libgl  # [linux and build_variant == "osmesa"]
 
 test:
   imports:
