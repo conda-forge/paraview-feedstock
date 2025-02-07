@@ -46,7 +46,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}  # [build_variant == "egl"]
   host:
     - libgl-devel                        # [linux]
     - libegl-devel                       # [linux]
