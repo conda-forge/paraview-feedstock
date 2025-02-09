@@ -54,8 +54,6 @@ pugixml:
 - '1.15'
 python:
 - 3.13.* *_cp313
-qt:
-- '5.15'
 qt6_main:
 - '6.8'
 target_platform:
