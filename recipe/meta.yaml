@@ -102,7 +102,7 @@ test:
     - python -c "from paraview.simple import VisItNek5000Reader"  # [linux]
     - python -c "from paraview.simple import Xdmf3ReaderS"
     - pvpython --version
-    - paraview --version  # [not linux]
+    - paraview --version  # [build_variant == "qt"]
 
 about:
   home: http://www.paraview.org
