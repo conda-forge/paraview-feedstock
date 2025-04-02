@@ -24,3 +24,4 @@ add_executable(VTK::WrapPythonInit IMPORTED GLOBAL)
 set_property(TARGET VTK::WrapPythonInit PROPERTY IMPORTED_LOCATION @PARAVIEW_NATIVE_BUILD_DIR@/bin/vtkWrapPythonInit-pv${MAJ_MIN})
 add_custom_target(WrapPythonInit)
 add_dependencies(WrapPythonInit VTK::WrapPythonInit)
+
