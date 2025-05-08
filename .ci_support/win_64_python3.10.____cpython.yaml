@@ -39,7 +39,7 @@ libprotobuf:
 libtiff:
 - '4.7'
 libxml2:
-- '2'
+- '2.13'
 libzip:
 - '1'
 lz4_c:
@@ -55,7 +55,7 @@ pugixml:
 python:
 - 3.10.* *_cpython
 qt6_main:
-- '6.8'
+- '6.9'
 target_platform:
 - win-64
 zlib:
