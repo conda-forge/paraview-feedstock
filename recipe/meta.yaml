@@ -1,6 +1,6 @@
 {% set version = "5.13.3" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 8 %}
+{% set build_num = 9 %}
 
 # TODO: drop this line after next version bump
 {% set build_num = build_num + 100 %}  # [build_variant == "qt"]
@@ -29,7 +29,6 @@ build:
   string: py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
   track_features:
     - paraview-egl  # [build_variant == "egl"]
-    - paraview-osmesa  # [build_variant == "osmesa"]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
@@ -47,10 +46,9 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
-    - libgl-devel  # [linux and build_variant != "osmesa"]
+    - libgl-devel  # [linux]
     - libegl-devel  # [build_variant == "egl"]
-    - libglvnd-devel  # [linux and build_variant != "osmesa"]
-    - mesalib  # [build_variant == "osmesa"]
+    - libglvnd-devel  # [linux]
     - glew  # [build_variant == "qt"]
     - qt6-main  # [build_variant == "qt"]
     - python
@@ -83,8 +81,6 @@ requirements:
     - python
     - numpy
     - matplotlib-base  # [unix]
-    # because of gl2ps module
-    - libgl  # [linux and build_variant == "osmesa"]
 
 test:
   imports:

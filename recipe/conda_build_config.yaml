@@ -1,7 +1,6 @@
 build_variant:
   - "qt"
   - "egl"     # [linux]
-  - "osmesa"  # [linux]
 
 c_stdlib_version:          # [osx]
   - 11.0                   # [osx]
