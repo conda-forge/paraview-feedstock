@@ -1,9 +1,6 @@
-{% set version = "5.13.3" %}
+{% set version = "6.0.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 10 %}
-
-# TODO: drop this line after next version bump
-{% set build_num = build_num + 100 %}  # [build_variant == "qt"]
+{% set build_num = 0 %}
 
 package:
   name: paraview
@@ -11,18 +8,12 @@ package:
 
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  md5: d6285629137d4bc21ac1f4507f90a20e
+  md5: b6659f78e4e8bd094d58a3ac45062f48
 
   patches:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
     # vtkSMUndoStack.cxx.obj : error LNK2001: unresolved external symbol "private: void __cdecl absl::lts_20230125::log_internal::LogMessage::CopyToEncodedBuffer
     - absl.patch
-
-    # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/11486
-    - vtk_py313.patch
-
-    # https://gitlab.kitware.com/paraview/paraview/-/issues/22806
-    - ldflags.patch
 
 build:
   number: {{ build_num }}
@@ -49,7 +40,6 @@ requirements:
     - libgl-devel  # [linux]
     - libegl-devel  # [build_variant == "egl"]
     - libglvnd-devel  # [linux]
-    - glew  # [build_variant == "qt"]
     - qt6-main  # [build_variant == "qt"]
     - python
     - hdf5
@@ -70,7 +60,6 @@ requirements:
     - libboost-headers
     - pugixml
     - libtheora
-    - gl2ps
     - libzip
     - libcurl
     - icu
