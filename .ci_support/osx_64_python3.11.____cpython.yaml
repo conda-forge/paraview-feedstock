@@ -7,7 +7,7 @@ build_variant:
 c_compiler:
 - clang
 c_compiler_version:
-- '18'
+- '19'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -19,13 +19,11 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '18'
+- '19'
 expat:
 - '2'
 freetype:
 - '2'
-glew:
-- '2.1'
 hdf5:
 - 1.14.6
 icu:
