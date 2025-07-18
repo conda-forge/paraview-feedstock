@@ -5,6 +5,8 @@ set "CXXFLAGS=-MD"
 :: from Azure
 set "Boost_ROOT="
 
+del /s /q "C:/Program Files/LLVM"
+
 cmake -LAH -G"Ninja" ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
