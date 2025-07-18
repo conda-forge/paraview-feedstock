@@ -1,5 +1,3 @@
-build_variant:
-- egl
 c_compiler:
 - gcc
 c_compiler_version:
@@ -61,11 +59,11 @@ proj:
 pugixml:
 - '1.15'
 python:
-- 3.9.* *_cpython
+- 3.11.* *_cpython
 qt6_main:
 - '6.9'
 target_platform:
-- linux-aarch64
+- linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

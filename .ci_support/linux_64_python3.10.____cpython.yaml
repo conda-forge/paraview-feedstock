@@ -1,5 +1,3 @@
-build_variant:
-- qt
 c_compiler:
 - gcc
 c_compiler_version:
@@ -61,7 +59,7 @@ proj:
 pugixml:
 - '1.15'
 python:
-- 3.11.* *_cpython
+- 3.10.* *_cpython
 qt6_main:
 - '6.9'
 target_platform:
