@@ -57,6 +57,7 @@ requirements:
     - libboost-headers
     - pugixml
     - libtheora
+    - gl2ps
     - libzip
     - libcurl
     - icu
