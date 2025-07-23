@@ -7,7 +7,7 @@ build_variant:
 c_compiler:
 - clang
 c_compiler_version:
-- '18'
+- '19'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -19,7 +19,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '18'
+- '19'
 expat:
 - '2'
 freetype:
@@ -33,7 +33,7 @@ icu:
 jsoncpp:
 - 1.9.6
 libboost_headers:
-- '1.86'
+- '1.88'
 libcurl:
 - '8'
 libjpeg_turbo:
