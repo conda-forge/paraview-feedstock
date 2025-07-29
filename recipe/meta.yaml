@@ -17,9 +17,6 @@ source:
 
 build:
   number: {{ build_num }}
-  string: py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ build_num }}_{{ build_variant }}
-  track_features:
-    - paraview-egl  # [build_variant == "egl"]
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
@@ -38,9 +35,9 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - libgl-devel  # [linux]
-    - libegl-devel  # [build_variant == "egl"]
+    - libegl-devel  # [linux]
     - libglvnd-devel  # [linux]
-    - qt6-main  # [build_variant == "qt"]
+    - qt6-main
     - python
     - hdf5
     - libpng
