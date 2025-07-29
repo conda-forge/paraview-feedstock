@@ -1,9 +1,7 @@
-build_variant:
-- qt
 c_compiler:
 - gcc
 c_compiler_version:
-- '13'
+- '14'
 c_stdlib:
 - sysroot
 c_stdlib_version:
@@ -17,15 +15,13 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '13'
+- '14'
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 expat:
 - '2'
 freetype:
 - '2'
-glew:
-- '2.1'
 hdf5:
 - 1.14.6
 icu:
@@ -33,7 +29,7 @@ icu:
 jsoncpp:
 - 1.9.6
 libboost_headers:
-- '1.86'
+- '1.88'
 libcurl:
 - '8'
 libjpeg_turbo:
@@ -63,7 +59,7 @@ proj:
 pugixml:
 - '1.15'
 python:
-- 3.12.* *_cpython
+- 3.11.* *_cpython
 qt6_main:
 - '6.9'
 target_platform:
