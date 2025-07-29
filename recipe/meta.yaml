@@ -1,4 +1,4 @@
-{% set version = "5.13.3" %}
+{% set version = "6.0.0" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
 {% set build_num = 10 %}
 
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://paraview.org/files/v{{ maj_min }}/ParaView-v{{ version }}.tar.xz
-  md5: d6285629137d4bc21ac1f4507f90a20e
+  md5: b6659f78e4e8bd094d58a3ac45062f48
 
   patches:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
