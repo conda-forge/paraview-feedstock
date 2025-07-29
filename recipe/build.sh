@@ -6,10 +6,6 @@ export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 # https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
 export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
-if test "${build_variant}" == "egl"; then
-  CMAKE_ARGS="${CMAKE_ARGS} -DVTK_USE_X=OFF -DVTK_OPENGL_HAS_EGL=ON -DPARAVIEW_USE_QT=OFF"
-fi
-
 if test `uname` == "Linux"; then
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_egl_LIBRARY:FILEPATH=${PREFIX}/lib/libEGL.so.1"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY:FILEPATH=${PREFIX}/lib/libGL.so.1"
@@ -29,12 +25,6 @@ if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
     CMAKE_ARGS="${CMAKE_ARGS} -DVTK_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DVTK_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
     CMAKE_ARGS="${CMAKE_ARGS} -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE=0 -DXDMF_REQUIRE_LARGE_FILE_SUPPORT_EXITCODE__TRYRUN_OUTPUT="
   fi
-fi
-
-# osx builds hit timeout
-if test `uname` == "Darwin"; then
-  CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_ENABLE_VISITBRIDGE=OFF"
-  CMAKE_ARGS="${CMAKE_ARGS} -DPARAVIEW_PLUGINS_DEFAULT=OFF -DPARAVIEW_PLUGIN_ENABLE_BagPlotViewsAndFilters=ON -DPARAVIEW_PLUGIN_ENABLE_ParFlow=OFF"
 fi
 
 cmake -LAH -G "Ninja" \
