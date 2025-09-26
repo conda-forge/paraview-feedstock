@@ -1,5 +1,13 @@
 azure:
   store_build_artifacts: false
+  settings_osx:
+    pool:
+      # build fails on macOS-15:
+      # dyld[52266]: Symbol not found: __ZTINSt3__117bad_function_callE
+      # Referenced from: <E38E0221-35C0-3B82-9237-700CFC83D7B1> /Users/runner/miniforge3/conda-bld/paraview_1756886339375/_test_env_pla.../lib/libvtkGUISupportQt-pv6.0.6.0.dylib
+      # Expected in:     <5AC542A2-7E53-3DEA-8B32-04C3BE7DDDB3> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+      # /Users/runner/miniforge3/conda-bld/paraview_1756886339375/test_tmp/run_test.sh: line 9: 52266 Abort trap: 6           paraview --version
+      vmImage: macOS-13
 bot:
   automerge: true
 build_platform:
