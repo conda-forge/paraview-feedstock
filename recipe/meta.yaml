@@ -1,6 +1,5 @@
 {% set version = "6.0.1" %}
 {% set maj_min = ".".join(version.split(".")[:2]) %}
-{% set build_num = 0 %}
 
 package:
   name: paraview
@@ -14,9 +13,11 @@ source:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
     # vtkSMUndoStack.cxx.obj : error LNK2001: unresolved external symbol "private: void __cdecl absl::lts_20230125::log_internal::LogMessage::CopyToEncodedBuffer
     - absl.patch
+    # override executable targets (VTK::WrapHierarchy, ParaView::ProcessXML, ...)
+    - localuseroptions.patch
 
 build:
-  number: {{ build_num }}
+  number: 1
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
@@ -37,32 +38,16 @@ requirements:
     - libgl-devel  # [linux]
     - libegl-devel  # [linux]
     - libglvnd-devel  # [linux]
-    - qt6-main
+    - vtk
     - python
-    - hdf5
-    - libpng
-    - libjpeg-turbo
-    - libtiff
-    - libxml2
-    - zlib
-    - freetype
     - libprotobuf
-    - lz4-c
-    - expat
-    - libnetcdf
-    - double-conversion
-    - jsoncpp
-    - liblzma-devel
     - cgns
     - libboost-headers
-    - pugixml
-    - libtheora
     - libzip
     - libcurl
     - icu
-    - proj
     - libharu
-    - liblzma-devel
+    - libxml2-devel
   run:
     - python
     - numpy
