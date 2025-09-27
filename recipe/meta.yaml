@@ -43,7 +43,7 @@ requirements:
     - libpng
     - libjpeg-turbo
     - libtiff
-    - libxml2
+    - libxml2-devel
     - zlib
     - freetype
     - libprotobuf
