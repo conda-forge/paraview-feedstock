@@ -47,7 +47,7 @@ requirements:
     - libcurl
     - icu
     - libharu
-    - libxml2-devel
+    - libxml2-devel 2.14*
   run:
     - python
     - numpy
