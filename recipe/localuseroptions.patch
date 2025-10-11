@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 71b836ffc2..dc2fbb519b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -318,6 +318,8 @@ if (NOT PARAVIEW_USE_EXTERNAL_VTK)
+   endif ()
+ endif ()
+ 
++include("${CMAKE_CURRENT_SOURCE_DIR}/LocalUserOptions.cmake" OPTIONAL)
++
+ set_property(GLOBAL
+   PROPERTY
+     "_vtk_module_autoinit_include" "\"vtkAutoInit.h\"")
