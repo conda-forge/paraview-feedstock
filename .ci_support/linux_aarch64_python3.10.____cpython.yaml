@@ -35,7 +35,7 @@ python:
 target_platform:
 - linux-aarch64
 vtk:
-- 9.5.1
+- 9.5.2
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

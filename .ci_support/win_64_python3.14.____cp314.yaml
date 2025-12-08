@@ -27,4 +27,4 @@ python:
 target_platform:
 - win-64
 vtk:
-- 9.5.1
+- 9.5.2
