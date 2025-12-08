@@ -64,12 +64,19 @@ test:
     - paraview.servermanager
     - paraview.simple
     - paraview.util
-
+  requires:
+    - cmake
+    - pkg-config
+    - ninja
+    - {{ compiler('c') }}
+    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}
   commands:
     - python -c "from paraview.simple import VisItNek5000Reader"  # [linux]
     - python -c "from paraview.simple import Xdmf3ReaderS"
     - pvpython --version
     - paraview --version  # [not linux]
+    - ${RECIPE_DIR}/smoke_test.sh  # [unix]
 
 about:
   home: http://www.paraview.org
