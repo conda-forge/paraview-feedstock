@@ -70,6 +70,7 @@ test:
     - python -c "from paraview.simple import Xdmf3ReaderS"
     - pvpython --version
     - paraview --version  # [not linux]
+    - ${RECIPE_DIR}/smoke_test.sh  # [unix]
 
 about:
   home: http://www.paraview.org
