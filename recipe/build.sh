@@ -25,13 +25,9 @@ if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
   fi
 fi
 
-cmake -LAH -G "Ninja" \
-  -DCMAKE_INSTALL_PREFIX=${PREFIX} \
-  -DCMAKE_PREFIX_PATH=${PREFIX} \
+cmake ${CMAKE_ARGS} -LAH -G "Ninja" \
   -DCMAKE_FIND_FRAMEWORK=LAST \
   -DCMAKE_INSTALL_RPATH:STRING=${PREFIX}/lib \
-  -DCMAKE_INSTALL_LIBDIR=lib \
-  -DCMAKE_BUILD_TYPE=Release \
   -DPARAVIEW_USE_VISKORES=OFF \
   -DPARAVIEW_USE_PYTHON=ON \
   -DPARAVIEW_USE_FORTRAN=OFF \
@@ -45,7 +41,7 @@ cmake -LAH -G "Ninja" \
   -DPARAVIEW_ENABLE_EMBEDDED_DOCUMENTATION=OFF \
   -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON \
   -DPARAVIEW_PLUGIN_ENABLE_ParFlow=ON \
-  -B build ${CMAKE_ARGS} .
+  -B build .
 cmake --build build --target install
 
 if test `uname` = "Darwin"; then
