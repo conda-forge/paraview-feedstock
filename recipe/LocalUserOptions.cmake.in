@@ -15,3 +15,9 @@ add_executable(ParaView::WrapClientServer IMPORTED GLOBAL)
 set_property(TARGET ParaView::WrapClientServer PROPERTY IMPORTED_LOCATION @PARAVIEW_NATIVE_BUILD_DIR@/bin/vtkWrapClientServer-pv${MAJ_MIN})
 add_custom_target(WrapClientServer)
 add_dependencies(WrapClientServer ParaView::WrapClientServer)
+
+# Export targets to cmake config
+install(TARGETS ParaView::ProcessXML ParaView::WrapClientServer
+  EXPORT ParaView
+  COMPONENT Development
+)
