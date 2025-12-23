@@ -17,7 +17,7 @@ source:
     - localuseroptions.patch
 
 build:
-  number: 3
+  number: 4
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
