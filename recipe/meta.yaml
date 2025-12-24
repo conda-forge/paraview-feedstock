@@ -15,9 +15,12 @@ source:
     - absl.patch
     # override executable targets (VTK::WrapHierarchy, ParaView::ProcessXML, ...)
     - localuseroptions.patch
+    # qt 6.10 compat
+    - cd7e633d.patch
+    - 9ba0a210.patch
 
 build:
-  number: 3
+  number: 4
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
