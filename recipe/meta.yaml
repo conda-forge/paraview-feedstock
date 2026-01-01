@@ -20,7 +20,7 @@ source:
     - 9ba0a210.patch
 
 build:
-  number: 4
+  number: 5
   run_exports:
     - {{ pin_subpackage('paraview', max_pin='x.x') }}
 
