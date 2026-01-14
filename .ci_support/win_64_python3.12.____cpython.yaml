@@ -9,7 +9,7 @@ channel_targets:
 cxx_compiler:
 - vs2022
 icu:
-- '75'
+- '78'
 libboost_headers:
 - '1.88'
 libcurl:
