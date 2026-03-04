@@ -3,7 +3,7 @@ About paraview-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/paraview-feedstock/blob/main/LICENSE.txt)
 
-Home: http://www.paraview.org
+Home: http://www.paraview.org/
 
 Package license: BSD-3-Clause
 

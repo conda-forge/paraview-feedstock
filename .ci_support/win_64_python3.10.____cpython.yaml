@@ -6,6 +6,8 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+curl:
+- '8'
 cxx_compiler:
 - vs2022
 icu:
@@ -28,3 +30,5 @@ target_platform:
 - win-64
 vtk:
 - 9.5.2
+zlib:
+- '1'

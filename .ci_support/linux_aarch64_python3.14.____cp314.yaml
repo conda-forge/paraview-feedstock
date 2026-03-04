@@ -10,6 +10,8 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+curl:
+- '8'
 cxx_compiler:
 - gxx
 cxx_compiler_version:
@@ -39,3 +41,5 @@ vtk:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zlib:
+- '1'
