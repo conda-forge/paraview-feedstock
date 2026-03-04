@@ -1,0 +1,96 @@
+context:
+  version: "6.0.1"
+  maj_min: ${{ (version | split('.'))[:2] | join('.') }}
+
+package:
+  name: paraview
+  version: ${{ version }}
+
+source:
+  url: https://paraview.org/files/v${{ maj_min }}/ParaView-v${{ version }}.tar.xz
+  md5: 595ffe2aaf48c59d58414d284725ac91
+
+  patches:
+    # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
+    # vtkSMUndoStack.cxx.obj : error LNK2001: unresolved external symbol "private: void __cdecl absl::lts_20230125::log_internal::LogMessage::CopyToEncodedBuffer
+    - absl.patch
+    # override executable targets (VTK::WrapHierarchy, ParaView::ProcessXML, ...)
+    - localuseroptions.patch
+    # qt 6.10 compat
+    - cd7e633d.patch
+    - 9ba0a210.patch
+
+build:
+  number: 6
+
+requirements:
+  build:
+    - cmake
+    - pkg-config
+    - ninja
+    - curl
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - libprotobuf
+        - qt6-main
+  host:
+    - vtk
+    - python
+    - libprotobuf
+    - cgns
+    - libboost-headers
+    - libzip
+    - libcurl
+    - icu
+    - libharu
+    - libxml2-devel 2.14*
+    - zlib
+    - if: linux
+      then:
+        - libgl-devel
+        - libegl-devel
+        - libglvnd-devel
+  run:
+    - python
+    - numpy
+    - if: unix
+      then:
+        - matplotlib-base
+  run_exports:
+    - ${{ pin_subpackage('paraview', upper_bound='x.x') }}
+
+tests:
+  - python:
+      imports:
+        - paraview
+        - paraview.collaboration
+        - paraview.coprocessing
+        - paraview.numeric
+        - paraview.numpy_support
+        - paraview.python_view
+        - paraview.servermanager
+        - paraview.simple
+        - paraview.util
+  - script:
+      - python -c "from paraview.simple import Xdmf3ReaderS"
+      - pvpython --version
+      - if: linux
+        then: python -c "from paraview.simple import VisItNek5000Reader"
+        else: paraview --version
+
+about:
+  homepage: http://www.paraview.org
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: Copyright.txt
+  summary: ParaView is an open-source, multi-platform data analysis and visualization application based on Visualization Toolkit (VTK).
+
+extra:
+  recipe-maintainers:
+    - vicentebolea
+    - jschueller
