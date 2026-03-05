@@ -17,7 +17,7 @@ libboost_headers:
 libcurl:
 - '8'
 libprotobuf:
-- 6.31.1
+- 6.33.5
 libzip:
 - '1'
 pin_run_as_build:

@@ -21,7 +21,7 @@ source:
     - 9ba0a210.patch
 
 build:
-  number: 6
+  number: 7
 
 requirements:
   build:
