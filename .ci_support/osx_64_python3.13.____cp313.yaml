@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
 MACOSX_SDK_VERSION:
-- '12.3'
+- '11.0'
 c_compiler:
 - clang
 c_compiler_version:
@@ -40,8 +40,6 @@ python:
 - 3.13.* *_cp313
 target_platform:
 - osx-64
-vtk:
-- 9.5.2
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

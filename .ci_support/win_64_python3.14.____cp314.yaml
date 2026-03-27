@@ -28,7 +28,5 @@ python:
 - 3.14.* *_cp314
 target_platform:
 - win-64
-vtk:
-- 9.5.2
 zlib:
 - '1'
