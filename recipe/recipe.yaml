@@ -37,9 +37,10 @@ requirements:
         - python
         - cross-python_${{ target_platform }}
         - libprotobuf
-        - qt6-main
+        - qt6-main <6.11
   host:
     - vtk 9.5.*
+    - qt6-main <6.11
     - python
     - libprotobuf
     - cgns
