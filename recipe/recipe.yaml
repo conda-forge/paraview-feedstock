@@ -39,7 +39,7 @@ requirements:
         - libprotobuf
         - qt6-main
   host:
-    - vtk
+    - vtk 9.5.*
     - python
     - libprotobuf
     - cgns
