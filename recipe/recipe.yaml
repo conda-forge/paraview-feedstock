@@ -16,9 +16,6 @@ source:
     - absl.patch
     # override executable targets (VTK::WrapHierarchy, ParaView::ProcessXML, ...)
     - localuseroptions.patch
-    # qt 6.10 compat
-    - cd7e633d.patch
-    - 9ba0a210.patch
 
 build:
   number: 0
@@ -37,10 +34,10 @@ requirements:
         - python
         - cross-python_${{ target_platform }}
         - libprotobuf
-        - qt6-main <6.11
+        - qt6-main
   host:
-    - vtk 9.5.*
-    - qt6-main <6.11
+    - vtk
+    - qt6-main
     - python
     - libprotobuf
     - cgns
@@ -49,7 +46,7 @@ requirements:
     - libcurl
     - icu
     - libharu
-    - libxml2-devel 2.14*
+    - libxml2-devel
     - zlib
     - if: linux
       then:
