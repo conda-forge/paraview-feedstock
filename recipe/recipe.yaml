@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://paraview.org/files/v${{ maj_min }}/ParaView-v${{ version }}.tar.xz
-  md5: ad4d56b73e30851cdc8ea165eeb0a27f
+  md5: 8d9da49dfdeef4613454ae851804fbd6
 
   patches:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
