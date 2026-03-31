@@ -1,5 +1,5 @@
 context:
-  version: "6.0.1"
+  version: "6.1.0"
   maj_min: ${{ (version | split('.'))[:2] | join('.') }}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://paraview.org/files/v${{ maj_min }}/ParaView-v${{ version }}.tar.xz
-  md5: 595ffe2aaf48c59d58414d284725ac91
+  md5: 10af21e53573ddfb53ede2dce4f4e467
 
   patches:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
@@ -21,7 +21,7 @@ source:
     - 9ba0a210.patch
 
 build:
-  number: 7
+  number: 0
 
 requirements:
   build:
