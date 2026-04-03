@@ -26,6 +26,9 @@ if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
   fi
 fi
 
+# https://gitlab.kitware.com/paraview/paraview/-/work_items/23235
+CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_POLICY_DEFAULT_CMP0076=NEW"
+
 cmake ${CMAKE_ARGS} -LAH -G "Ninja" \
   -DCMAKE_FIND_FRAMEWORK=LAST \
   -DCMAKE_INSTALL_RPATH:STRING=${PREFIX}/lib \

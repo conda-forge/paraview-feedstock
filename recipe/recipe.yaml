@@ -1,5 +1,5 @@
 context:
-  version: "6.0.1"
+  version: "6.1.0"
   maj_min: ${{ (version | split('.'))[:2] | join('.') }}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://paraview.org/files/v${{ maj_min }}/ParaView-v${{ version }}.tar.xz
-  md5: 595ffe2aaf48c59d58414d284725ac91
+  md5: 10de18a57e03673a9ca4b69954d4a6da
 
   patches:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
@@ -16,12 +16,9 @@ source:
     - absl.patch
     # override executable targets (VTK::WrapHierarchy, ParaView::ProcessXML, ...)
     - localuseroptions.patch
-    # qt 6.10 compat
-    - cd7e633d.patch
-    - 9ba0a210.patch
 
 build:
-  number: 7
+  number: 0
 
 requirements:
   build:
@@ -37,10 +34,10 @@ requirements:
         - python
         - cross-python_${{ target_platform }}
         - libprotobuf
-        - qt6-main <6.11
+        - qt6-main
   host:
-    - vtk 9.5.*
-    - qt6-main <6.11
+    - vtk 9.6.1.*
+    - qt6-main
     - python
     - libprotobuf
     - cgns

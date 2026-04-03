@@ -26,6 +26,8 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - 3.14.* *_cp314
+qt6_main:
+- '6.10'
 target_platform:
 - win-64
 zlib:
