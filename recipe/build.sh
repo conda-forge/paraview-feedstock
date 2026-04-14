@@ -6,24 +6,10 @@ export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 # https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
 export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
-if test `uname` == "Linux"; then
+if [ "$(uname)" == "Linux" ]; then
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_egl_LIBRARY:FILEPATH=${PREFIX}/lib/libEGL.so.1"
   CMAKE_ARGS="${CMAKE_ARGS} -DEGL_opengl_LIBRARY:FILEPATH=${PREFIX}/lib/libGL.so.1"
   CMAKE_ARGS="${CMAKE_ARGS} -DOPENGL_opengl_LIBRARY:FILEPATH=${PREFIX}/lib/libGL.so.1"
-fi
-
-if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
-  CMAKE_ARGS="${CMAKE_ARGS} -DQT_HOST_PATH=${BUILD_PREFIX}"
-  if test -z "${CROSSCOMPILING_EMULATOR}"; then
-    # use native build tools
-    CC=$CC_FOR_BUILD CXX=$CXX_FOR_BUILD CFLAGS= CXXFLAGS= CPPFLAGS= LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX} \
-      cmake -G "Ninja" -DCMAKE_PREFIX_PATH=$BUILD_PREFIX -DCMAKE_BUILD_TYPE=Release -DCMath_HAVE_LIBM_POW=1 \
-        -DPARAVIEW_PLUGIN_DISABLE_XML_DOCUMENTATION=ON -DPARAVIEW_ENABLE_EMBEDDED_DOCUMENTATION=OFF -B build-native .
-    cmake --build build-native --target ProcessXML WrapClientServer WrapHierarchy WrapPython WrapPythonInit
-    cat ${RECIPE_DIR}/LocalUserOptions.cmake.in | sed "s|@PARAVIEW_NATIVE_BUILD_DIR@|$PWD/build-native|g" > LocalUserOptions.cmake
-    CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc"
-    CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT=1 -DCMAKE_REQUIRE_LARGE_FILE_SUPPORT__TRYRUN_OUTPUT="
-  fi
 fi
 
 # https://gitlab.kitware.com/paraview/paraview/-/work_items/23235
@@ -48,7 +34,7 @@ cmake ${CMAKE_ARGS} -LAH -G "Ninja" \
   -B build .
 cmake --build build --target install
 
-if test `uname` = "Darwin"; then
+if [ "$(uname)" = "Darwin" ]; then
   ln -s $PREFIX/Applications/paraview.app/Contents/MacOS/paraview ${PREFIX}/bin/paraview
 fi
 
