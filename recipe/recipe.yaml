@@ -14,8 +14,6 @@ source:
     # https://gitlab.kitware.com/cmake/cmake/-/issues/25079
     # vtkSMUndoStack.cxx.obj : error LNK2001: unresolved external symbol "private: void __cdecl absl::lts_20230125::log_internal::LogMessage::CopyToEncodedBuffer
     - absl.patch
-    # override executable targets (VTK::WrapHierarchy, ParaView::ProcessXML, ...)
-    - localuseroptions.patch
 
 build:
   number: 0
@@ -29,12 +27,6 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
-    - if: build_platform != target_platform
-      then:
-        - python
-        - cross-python_${{ target_platform }}
-        - libprotobuf
-        - qt6-main
   host:
     - vtk 9.6.1.*
     - qt6-main
