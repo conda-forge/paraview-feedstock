@@ -1,5 +1,3 @@
-azure:
-  store_build_artifacts: false
 bot:
   automerge: true
 conda_build:
