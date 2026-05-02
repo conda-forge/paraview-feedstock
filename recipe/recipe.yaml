@@ -16,7 +16,7 @@ source:
     - absl.patch
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -29,6 +29,7 @@ requirements:
     - ${{ compiler('cxx') }}
   host:
     - vtk 9.6.1.*
+    - vtk-io-ffmpeg
     - qt6-main
     - python
     - libprotobuf
@@ -69,6 +70,7 @@ tests:
   - script:
       - python -c "from paraview.simple import Xdmf3ReaderS"
       - pvpython --version
+      - pvpython -c "import paraview.simple; from paraview import servermanager; assert servermanager.ProxyManager().GetPrototypeProxy('animation_writers', 'FFMPEG') is not None"
       - if: linux
         then: python -c "from paraview.simple import VisItNek5000Reader"
         else: paraview --version
