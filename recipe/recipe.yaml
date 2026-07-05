@@ -16,7 +16,7 @@ source:
     - absl.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -28,7 +28,7 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
   host:
-    - vtk 9.6.1.*
+    - vtk
     - vtk-io-ffmpeg
     - qt6-main
     - python
