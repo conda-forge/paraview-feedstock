@@ -8,18 +8,10 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
-      win_64_python3.10.____cpython:
-        CONFIG: win_64_python3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-        build_workspace_dir: D:\\bld\\
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: D:\Miniforge
       win_64_python3.11.____cpython:
         CONFIG: win_64_python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
+        build_platform: win-64
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
@@ -29,6 +21,7 @@ jobs:
       win_64_python3.12.____cpython:
         CONFIG: win_64_python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
+        build_platform: win-64
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
@@ -38,6 +31,7 @@ jobs:
       win_64_python3.13.____cp313:
         CONFIG: win_64_python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
+        build_platform: win-64
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
@@ -47,6 +41,7 @@ jobs:
       win_64_python3.14.____cp314:
         CONFIG: win_64_python3.14.____cp314
         UPLOAD_PACKAGES: 'True'
+        build_platform: win-64
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
@@ -69,6 +64,7 @@ jobs:
         PYTHONUNBUFFERED: 1
         UPLOAD_PACKAGES: $(UPLOAD_PACKAGES)
         UPLOAD_TEMP: $(UPLOAD_TEMP)
+        build_platform: $(build_platform)
         flow_run_id: azure_$(Build.BuildNumber).$(System.JobAttempt)
         remote_url: $(Build.Repository.Uri)
         sha: $(Build.SourceVersion)
