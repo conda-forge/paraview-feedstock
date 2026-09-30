@@ -37,6 +37,7 @@ requirements:
     - libboost-headers
     - libzip
     - libcurl
+    - hdf5
     - icu
     - libharu
     - libxml2-devel
