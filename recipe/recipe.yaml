@@ -57,6 +57,15 @@ requirements:
     - ${{ pin_subpackage('paraview', upper_bound='x.x') }}
 
 tests:
+  - package_contents:
+      files:
+        - if: win
+          then: Library/doc/GettingStarted.pdf
+          else: share/paraview-${{ maj_min }}/doc/GettingStarted.pdf
+      include:
+        - paraview-${{ maj_min }}/vtkPVVersion.h
+      lib:
+        - pqCore-pv${{ maj_min }}
   - python:
       imports:
         - paraview
