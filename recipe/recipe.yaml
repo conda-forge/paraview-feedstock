@@ -16,7 +16,7 @@ source:
     - absl.patch
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -33,6 +33,7 @@ requirements:
     - qt6-main
     - python
     - libprotobuf
+    - libabseil
     - cgns
     - libboost-headers
     - libzip
