@@ -24,6 +24,8 @@ hdf5:
 - '2'
 icu:
 - '78'
+libabseil:
+- '20260817'
 libboost_headers:
 - '1.90'
 libcurl:
