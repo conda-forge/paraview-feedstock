@@ -52,6 +52,17 @@ jobs:
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
         vm_image: windows-2022
+      win_64_hdf51.14.6python3.15.____cp315:
+        CONFIG: win_64_hdf51.14.6python3.15.____cp315
+        UPLOAD_PACKAGES: 'True'
+        build_platform: win-64
+        build_workspace_dir: D:\\bld\\
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: false
+        tools_install_dir: D:\Miniforge
+        vm_image: windows-2022
       win_64_hdf52python3.11.____cpython:
         CONFIG: win_64_hdf52python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -87,6 +98,17 @@ jobs:
         vm_image: windows-2022
       win_64_hdf52python3.14.____cp314:
         CONFIG: win_64_hdf52python3.14.____cp314
+        UPLOAD_PACKAGES: 'True'
+        build_platform: win-64
+        build_workspace_dir: D:\\bld\\
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: false
+        tools_install_dir: D:\Miniforge
+        vm_image: windows-2022
+      win_64_hdf52python3.15.____cp315:
+        CONFIG: win_64_hdf52python3.15.____cp315
         UPLOAD_PACKAGES: 'True'
         build_platform: win-64
         build_workspace_dir: D:\\bld\\
