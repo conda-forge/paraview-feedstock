@@ -3,7 +3,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '21'
+- '22'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -17,7 +17,7 @@ curl:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '21'
+- '22'
 hdf5:
 - 1.14.6
 icu:
@@ -47,7 +47,7 @@ qt6_main:
 target_platform:
 - osx-arm64
 vtk:
-- 9.7.*
+- 9.7.2
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
