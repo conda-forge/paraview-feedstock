@@ -21,7 +21,7 @@ build:
 requirements:
   build:
     - cmake
-    - pkg-config
+    - pkgconf
     - ninja
     - curl
     - ${{ compiler('c') }}
