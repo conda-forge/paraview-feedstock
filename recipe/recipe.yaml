@@ -38,6 +38,7 @@ requirements:
     - libboost-headers
     - libzip
     - libcurl
+    - libpython
     - hdf5
     - icu
     - libharu
