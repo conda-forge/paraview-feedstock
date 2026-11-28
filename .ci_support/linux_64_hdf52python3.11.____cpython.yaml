@@ -23,7 +23,7 @@ docker_image:
 hdf5:
 - '2'
 icu:
-- '78'
+- '79'
 libabseil:
 - '20260817'
 libboost_headers:

@@ -17,7 +17,7 @@ cxx_compiler_version:
 hdf5:
 - 1.14.6
 icu:
-- '78'
+- '79'
 libabseil:
 - '20260817'
 libboost_headers:
